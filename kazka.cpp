@@ -11,7 +11,7 @@ struct vienas{
     };
 
 
-/*double balas(vienas& V)
+double balas(vienas& V)
 {
     double suma=0;
     for(int i=0; i<10; i++)
@@ -21,7 +21,7 @@ struct vienas{
     double galutinis= (suma/10)*0.4+0.6*V.egz;
     return galutinis;
 }
-*/
+
 int main ()
 {
     int n;
