@@ -46,7 +46,7 @@ int main ()
     cout<<"------------------------------"<<endl;
     for(int i=0; i<n; i++)
     {
-        cout<<P[i].pav<<"\t"<<P[i].var<<"\t"<<setprecision(3)<<P[i].galutinis<<endl;
+        cout<<P[i].pav<<"\t"<<P[i].var<<"\t"<<fixed<<setprecision(2)<<P[i].galutinis<<endl;
 
     }
 
