@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-struct vienas{
+struct Pazymiai{
     string var;
     string pav;
     double vid;
@@ -19,13 +19,13 @@ int main ()
     int suma=0;
     cout<<"Iveskite studentu skaiciu   "<<endl;
     cin>>n;
-    vienas V[n];
+    Pazymiai P[n];
     for(int i=0; i<n; i++)
     {
         cout<<"Iveskite "<<i+1<<" pavarde   "<<endl;
-        cin>>V[i].pav;
+        cin>>P[i].pav;
         cout<<"Iveskite "<<i+1<<" varda   "<<endl;
-        cin>>V[i].var;
+        cin>>P[i].var;
         cout<<"Kiek yra tarpiniu pazymiu   "<<endl;
         cin>>kiek;
         for(int j=0; j<kiek; j++)
@@ -34,10 +34,10 @@ int main ()
             cin>>paz;
             suma=suma+paz;
         }
-        V[i].vid=suma/kiek;
+        P[i].vid=suma/kiek;
         cout <<"Iveskite egzamino rezultata   "<<endl;
-        cin>>V[i].egz;
-        V[i].galutinis=V[i].vid*0.4+0.6*V[i].egz;
+        cin>>P[i].egz;
+        P[i].galutinis=P[i].vid*0.4+0.6*P[i].egz;
     }
 
     cout<<endl;
@@ -46,7 +46,7 @@ int main ()
     cout<<"------------------------------"<<endl;
     for(int i=0; i<n; i++)
     {
-        cout<<V[i].pav<<"\t"<<V[i].var<<"\t"<<setprecision(3)<<V[i].galutinis<<endl;
+        cout<<P[i].pav<<"\t"<<P[i].var<<"\t"<<setprecision(3)<<P[i].galutinis<<endl;
 
     }
 
