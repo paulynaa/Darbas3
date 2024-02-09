@@ -7,6 +7,7 @@ struct Pazymiai{
     string pav;
     double vid;
     int egz;
+    int paz;
     double galutinis;
     double med;
     };
@@ -17,7 +18,7 @@ int main ()
     int c;
     int n;
     int kiek;
-    int paz[20];
+   // int paz[20];
     int suma=0;
     cout<<"Iveskite studentu skaiciu   "<<endl;
     cin>>n;
@@ -33,8 +34,8 @@ int main ()
         for(int j=0; j<kiek; j++)
         {
             cout<<"Iveskite "<<j+1<<" pazymi   "<<endl;
-            cin>>paz[j];
-            suma=suma+paz[j];
+            cin>>P[j].paz;
+            suma=suma+P[j].paz;
         }
 
 
@@ -49,11 +50,11 @@ int main ()
     {
         for(int l=k+1; l<kiek; l++)
        {
-           if(paz[k]>paz[l])
+           if(P[k].paz>P[l].paz)
            {
-               c=paz[k];
-            paz[k]=paz[l];
-            paz[l]=c;
+               c=P[k].paz;
+            P[k].paz=P[l].paz;
+            P[l].paz=c;
         }
         }
     }
@@ -62,16 +63,16 @@ int main ()
     {
        int pirmas=kiek/2-1;
        int antras=kiek/2;
-       P[i].med=(paz[pirmas]+paz[antras])/2.0;
+       P[i].med=(P[pirmas].paz+P[antras].paz)/2.0;
     }
     else{
         int vidurys = kiek / 2;
-            P[i].med = paz[vidurys];
+            P[i].med = P[vidurys].paz;
     }
     }
     cout<<endl;
 
-    cout<<"Pavarde\t "<< "Vardas\t"<<"Galutinis (Vid) \ Mediana (Vid)"<<endl;
+    cout<<"Pavarde\t "<< "Vardas\t"<<" Galutinis (Vid) / Mediana (Vid)"<<endl;
     cout<<"------------------------------"<<endl;
     for(int i=0; i<n; i++)
     {
