@@ -1,12 +1,13 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <limits>
 using namespace std;
 
 struct Pazymiai{
     string var;
     string pav;
-    double vid;
+    double vid=0.0;
     int egz;
     int paz[20];
     double galutinis;
@@ -20,14 +21,18 @@ int main ()
     int kiek;
 
     cout<<"Iveskite studentu skaiciu:   "<<endl;
-    cin>>n;
 
+    while (!(cin >> n) || n < 1 || n >= 5) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Iveskite studentu skaiciu:   " << endl;
+    }
     Pazymiai P[n];
 
 
     for(int i=0; i<n; i++)
     {
-        int suma=0;
+        double suma=0.0;
         cout<<"Iveskite "<<i+1<<" pavarde:   "<<endl;
         cin>>P[i].pav;
 
@@ -35,33 +40,32 @@ int main ()
         cin>>P[i].var;
 
         cout<<"Kiek yra tarpiniu pazymiu?   "<<endl;
-        cin>>kiek;
+        while (!(cin >> kiek) || kiek < 1 || kiek > 10) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Kiek yra tarpiniu pazymiu?  " << endl;
+        }
 
-        if(kiek>0 && kiek<=10){
         for(int j=0; j<kiek; j++)
         {
             cout<<"Iveskite "<<j+1<<" pazymi:  "<<endl;
-            cin>>P[i].paz[j];
-            while (P[i].paz[j] < 1 || P[i].paz[j] > 10) {
-                cout << "Iveskite "<<j+1<<" pazymi nuo 1 iki 10: ";
-                cin >> P[i].paz[j];
+            while (!(cin >> P[i].paz[j]) || P[i].paz[j] < 1 || P[i].paz[j] > 10) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Iveskite " << j + 1 << " pazymi nuo 1 iki 10: ";
             }
             suma=suma+P[i].paz[j];
         }
-        }
-        else {
-        cout<<"Kiek yra tarpiniu pazymiu   "<<endl;
-        cin>>kiek;
-        }
+
 
 
         P[i].vid=suma/kiek;
 
         cout <<"Iveskite egzamino rezultata: "<<endl;
-        cin>>P[i].egz;
-        while (P[i].egz < 1 || P[i].egz > 10) {
+        while (!(cin >> P[i].egz) || P[i].egz < 1 || P[i].egz > 10) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-            cin >> P[i].egz;
         }
 
 
@@ -91,11 +95,11 @@ int main ()
     }
     cout<<endl;
 
-    cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(15)<<"Galutinis(Vid)"<<"/"<<setw(15)<<"Mediana(Vid)"<<endl;
+    cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
     cout<<"--------------------------------------------------------"<<endl;
     for(int i=0; i<n; i++)
     {
-        cout<<left<<setw(15)<<P[i].pav<<setw(15)<<P[i].var<<setw(15)<<fixed<<setprecision(2)<<P[i].galutinis<<setw(15)<<fixed<<setprecision(2)<<P[i].med<<endl;
+        cout<<left<<setw(15)<<P[i].pav<<setw(15)<<P[i].var<<setw(17)<<fixed<<setprecision(2)<<P[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<P[i].med<<endl;
 
     }
 
