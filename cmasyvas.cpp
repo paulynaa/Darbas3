@@ -14,8 +14,6 @@ struct Pazymiai{
     double galutinis;
     double med;
     };
-
-
 int main ()
 {
     int pasirinkimas;
@@ -26,7 +24,7 @@ int main ()
     int m; //studentai
     int kiek;
     int i=0;
-Pazymiai P[25];
+Pazymiai C[25];
     while (true){
         cout << "Pasirinkite norima veiksma: " << endl;
         cout << "1. Ivesti duomenis ranka" << endl;
@@ -42,13 +40,13 @@ Pazymiai P[25];
         double suma=0.0;
 
         cout<<"Iveskite "<<i+1<<" pavarde (noretume baigti spauskite 4):   "<<endl;
-        cin>>P[i].pav;
-        if(P[i].pav=="4" || P[i].var=="4"){
+        cin>>C[i].pav;
+        if(C[i].pav=="4" || C[i].var=="4"){
             break;
         }
         cout<<"Iveskite "<<i+1<<" varda (noretume baigti spauskite 4):   "<<endl;
-        cin>>P[i].var;
-        if(P[i].pav=="4" || P[i].var=="4"){
+        cin>>C[i].var;
+        if(C[i].pav=="4" || C[i].var=="4"){
             break;
         }
 
@@ -56,37 +54,37 @@ Pazymiai P[25];
 
             do{
             cout<<"Iveskite "<<j+1<<" pazymi (noredami baigti spauskite 11):  "<<endl;
-            cin>>P[i].paz[j];
-            if(P[i].paz[j]==11){
+            cin>>C[i].paz[j];
+            if(C[i].paz[j]==11){
                 break;
             }
-            while (P[i].paz[j] < 1 || P[i].paz[j] > 10) {
+            while (C[i].paz[j] < 1 || C[i].paz[j] > 10) {
                 cout << "Iveskite "<<j+1<<" pazymi nuo 1 iki 10: ";
-                cin >> P[i].paz[j];
+                cin >> C[i].paz[j];
             }
-            suma=suma+P[i].paz[j];
+            suma=suma+C[i].paz[j];
         j++;
         }
-        while(P[i].paz[j]!=11);
+        while(C[i].paz[j]!=11);
 
-        P[i].vid=suma/j;
+        C[i].vid=suma/j;
 
         cout <<"Iveskite egzamino rezultata: "<<endl;
-        cin>>P[i].egz;
-        while (P[i].egz < 1 || P[i].egz > 10) {
+        cin>>C[i].egz;
+        while (C[i].egz < 1 || C[i].egz > 10) {
             cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-            cin >> P[i].egz;
+            cin >> C[i].egz;
         }
-        P[i].galutinis=(P[i].vid*0.4)+(0.6*P[i].egz);
+        C[i].galutinis=(C[i].vid*0.4)+(0.6*C[i].egz);
 
         for(int k=0; k<j-1; k++)
         {
             for(int l=k+1; l<j; l++)
             {
-            if(P[i].paz[k] > P[i].paz[l]) {
-                c = P[i].paz[k];
-                P[i].paz[k] = P[i].paz[l];
-                P[i].paz[l] = c;
+            if(C[i].paz[k] > C[i].paz[l]) {
+                c = C[i].paz[k];
+                C[i].paz[k] = C[i].paz[l];
+                C[i].paz[l] = c;
                 }
             }
         }
@@ -94,21 +92,21 @@ Pazymiai P[25];
         {
         int pirmas=j/2-1;
         int antras=j/2;
-        P[i].med = (P[i].paz[pirmas] + P[i].paz[antras])/2.0;
+        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
         }
         else{
             int vidurys = j / 2;
-            P[i].med = P[i].paz[vidurys];
+            C[i].med = C[i].paz[vidurys];
             }
             i++;
         }
-        while(P[i].pav!="4" || P[i].var!="4");
+        while(C[i].pav!="4" || C[i].var!="4");
 
         cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
     cout<<"--------------------------------------------------------"<<endl;
     for(int z=0; z<i; z++)
     {
-        cout<<left<<setw(15)<<P[z].pav<<setw(15)<<P[z].var<<setw(17)<<fixed<<setprecision(2)<<P[z].galutinis<<setw(17)<<fixed<<setprecision(2)<<P[z].med<<endl;
+        cout<<left<<setw(15)<<C[z].pav<<setw(15)<<C[z].var<<setw(17)<<fixed<<setprecision(2)<<C[z].galutinis<<setw(17)<<fixed<<setprecision(2)<<C[z].med<<endl;
 
     }
         break;
@@ -120,13 +118,13 @@ Pazymiai P[25];
         double suma=0.0;
 
         cout<<"Iveskite "<<i+1<<" pavarde (noredami sustoti iveskite 4):   "<<endl;
-        cin>>P[i].pav;
-        if(P[i].pav=="4" || P[i].var=="4"){
+        cin>>C[i].pav;
+        if(C[i].pav=="4" || C[i].var=="4"){
             break;
         }
         cout<<"Iveskite "<<i+1<<" varda (noredami sustoti iveskite 4):   "<<endl;
-        cin>>P[i].var;
-        if(P[i].pav=="4" || P[i].var=="4"){
+        cin>>C[i].var;
+        if(C[i].pav=="4" || C[i].var=="4"){
             break;
         }
         cout<<"Jeigu norite generuoti po viena atsitiktini skaiciu spauskite 1 "<<endl<<"Jeigu norite generuoti pasirinkta skaiciu spauskite 2 "<<endl;
@@ -136,26 +134,26 @@ Pazymiai P[25];
                 int h=0;
             while(y!="Ne"){
 
-                P[i].paz[h]=(rand()%10)+1;
-                cout<<"Pazymis "<<h+1<<" : "<<P[i].paz[h]<<endl;
+                C[i].paz[h]=(rand()%10)+1;
+                cout<<"Pazymis "<<h+1<<" : "<<C[i].paz[h]<<endl;
                 cout<<"Ar norite testi generavima? Taip arba Ne: ";
                 cin>>y; cout<<endl;
-                suma=suma+P[i].paz[h];
+                suma=suma+C[i].paz[h];
                 h++;
                 }
-               P[i].vid=suma/h;
+               C[i].vid=suma/h;
 
-                sort(P[i].paz+0, P[i].paz+h);
+                sort(C[i].paz+0, C[i].paz+h);
 
                 if (h%2==0)
         {
         int pirmas=h/2-1;
         int antras=h/2;
-        P[i].med = (P[i].paz[pirmas] + P[i].paz[antras])/2.0;
+        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
         }
         else{
             int vidurys = h / 2;
-            P[i].med = P[i].paz[vidurys];
+            C[i].med = C[i].paz[vidurys];
             }
 
             }
@@ -164,23 +162,23 @@ Pazymiai P[25];
                     int k;
                 cout<<"Iveskite pazymiu kieki: "; cin>>k;
             for(int l=0; l<k; l++){
-                P[i].paz[l]=(rand()%10)+1;
-                cout<<"Pazymis "<<l+1<<" : "<<P[i].paz[l]<<endl;
-                suma=suma+P[i].paz[l];
+                C[i].paz[l]=(rand()%10)+1;
+                cout<<"Pazymis "<<l+1<<" : "<<C[i].paz[l]<<endl;
+                suma=suma+C[i].paz[l];
             }
-            P[i].vid=suma/k;
+            C[i].vid=suma/k;
 
-            sort(P[i].paz+0, P[i].paz+k);
+            sort(C[i].paz+0, C[i].paz+k);
 
             if (k%2==0)
         {
         int pirmas=k/2-1;
         int antras=k/2;
-        P[i].med = (P[i].paz[pirmas] + P[i].paz[antras])/2.0;
+        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
         }
         else{
             int vidurys = k / 2;
-            P[i].med = P[i].paz[vidurys];
+            C[i].med = C[i].paz[vidurys];
             }
             }
         int w;
@@ -188,25 +186,25 @@ Pazymiai P[25];
         cout<<"Jeigu norite ivesti egzamino rezultata spauskite 2: "<<endl;
         cout<<"Jusu pasirinkimas: "; cin>>w;
         if(w==1){
-            P[i].egz=(rand()%10)+1;
-            cout<<"Egzamino rezultatas: "<<P[i].egz<<endl;
+            C[i].egz=(rand()%10)+1;
+            cout<<"Egzamino rezultatas: "<<C[i].egz<<endl;
         }
         if(w==2){
             cout<<"Iveskite egzamino rezultata: ";
-            cin>>P[i].egz;
+            cin>>C[i].egz;
             cout<<endl;
         }
 
-        P[i].galutinis=(P[i].vid*0.4)+(0.6*P[i].egz);
+        C[i].galutinis=(C[i].vid*0.4)+(0.6*C[i].egz);
         i++;
         }
-        while(P[i].pav!="4" || P[i].var!="4");
+        while(C[i].pav!="4" || C[i].var!="4");
 
  cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
     cout<<"--------------------------------------------------------"<<endl;
     for(int q=0; q<i; q++)
     {
-        cout<<left<<setw(15)<<P[q].pav<<setw(15)<<P[q].var<<setw(17)<<fixed<<setprecision(2)<<P[q].galutinis<<setw(17)<<fixed<<setprecision(2)<<P[q].med<<endl;
+        cout<<left<<setw(15)<<C[q].pav<<setw(15)<<C[q].var<<setw(17)<<fixed<<setprecision(2)<<C[q].galutinis<<setw(17)<<fixed<<setprecision(2)<<C[q].med<<endl;
 
     }
         break;
@@ -217,9 +215,9 @@ Pazymiai P[25];
         string  pavardes[] = { "Podgaiska","Obama","Trump","Nauseda","Sirokyte", "Mockute", "Zobelaite", "Macaite", "Jurpalyte","Jankauskas"};
         while(qq!=1){
 
-            P[i].pav=pavardes[rand()%10];
-            P[i].var=vardai[rand()%10];
-            cout<<"Pavarde ir vardas: "<<P[i].pav<<" "<<P[i].var<<endl;
+            C[i].pav=pavardes[rand()%10];
+            C[i].var=vardai[rand()%10];
+            cout<<"Pavarde ir vardas: "<<C[i].pav<<" "<<C[i].var<<endl;
         cout<<"Jeigu norite generuoti po viena atsitiktini skaiciu spauskite 1 "<<endl<<"Jeigu norite generuoti pasirinkta skaiciu spauskite 2 "<<endl;
         cout<<"Jusu pasirinkimas: "; cin>>x;
         if(x==1){
@@ -228,85 +226,77 @@ Pazymiai P[25];
                 double suma=0.0;
             while(y!="Ne"){
 
-                P[i].paz[h]=(rand()%10)+1;
-                cout<<"Pazymis "<<h+1<<" : "<<P[i].paz[h]<<endl;
+                C[i].paz[h]=(rand()%10)+1;
+                cout<<"Pazymis "<<h+1<<" : "<<C[i].paz[h]<<endl;
                 cout<<"Ar norite testi generavima? Taip arba Ne: ";
                 cin>>y; cout<<endl;
-                suma=suma+P[i].paz[h];
+                suma=suma+C[i].paz[h];
                 h++;
                 }
-               P[i].vid=suma/h;
+               C[i].vid=suma/h;
 
-                sort(P[i].paz+0, P[i].paz+h);
+                sort(C[i].paz+0, C[i].paz+h);
 
                 if (h%2==0)
         {
         int pirmas=h/2-1;
         int antras=h/2;
-        P[i].med = (P[i].paz[pirmas] + P[i].paz[antras])/2.0;
+        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
         }
         else{
             int vidurys = h / 2;
-            P[i].med = P[i].paz[vidurys];
+            C[i].med = C[i].paz[vidurys];
             }
-
-
             }
-
-
             if (x==2){
                     double suma=0.0;
                     int k;
                 cout<<"Iveskite pazymiu kieki: "; cin>>k;
             for(int l=0; l<k; l++){
-                P[i].paz[l]=(rand()%10)+1;
-                cout<<"Pazymis "<<l+1<<" : "<<P[i].paz[l]<<endl;
-                suma=suma+P[i].paz[l];
+                C[i].paz[l]=(rand()%10)+1;
+                cout<<"Pazymis "<<l+1<<" : "<<C[i].paz[l]<<endl;
+                suma=suma+C[i].paz[l];
             }
-            P[i].vid=suma/k;
+            C[i].vid=suma/k;
 
-            sort(P[i].paz+0, P[i].paz+k);
+            sort(C[i].paz+0, C[i].paz+k);
 
             if (k%2==0)
         {
         int pirmas=k/2-1;
         int antras=k/2;
-        P[i].med = (P[i].paz[pirmas] + P[i].paz[antras])/2.0;
+        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
         }
         else{
             int vidurys = k / 2;
-            P[i].med = P[i].paz[vidurys];
+            C[i].med = C[i].paz[vidurys];
             }
-
-
             }
-
-
         int w;
         cout<<"Jeigu norite atsitiktinai sugeneruoti egzamino rezultata spauskite 1: "<<endl;
         cout<<"Jeigu norite ivesti egzamino rezultata spauskite 2: "<<endl;
         cout<<"Jusu pasirinkimas: "; cin>>w;
         if(w==1){
-            P[i].egz=(rand()%10)+1;
-            cout<<"Egzamino rezultatas: "<<P[i].egz<<endl;
+            C[i].egz=(rand()%10)+1;
+            cout<<"Egzamino rezultatas: "<<C[i].egz<<endl;
         }
         if(w==2){
             cout<<"Iveskite egzamino rezultata: ";
-            cin>>P[i].egz;
+            cin>>C[i].egz;
             cout<<endl;
         }
 
-        P[i].galutinis=(P[i].vid*0.4)+(0.6*P[i].egz);
+        C[i].galutinis=(C[i].vid*0.4)+(0.6*C[i].egz);
 
         cout<<"Noredami baigti studentu generavima spauskite 1, noredami testi spauskite 2 "<<endl;
         cout<<"Jusu pasirinkimas: "; cin>>qq;
         i++;
         }
         cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
-        cout<<"--------------------------------------------------------"<<endl;
+        cout<<"------------------------------------------------------------"<<endl;
         for(int q=0; q<i; q++)
         {
-            cout<<left<<setw(15)<<P[i].pav<<setw(15)<<P[i].var<<setw(17)<<fixed<<setprecision(2)<<P[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<P[i].med<<endl;
+            cout<<left<<setw(15)<<C[i].pav<<setw(15)<<C[i].var<<setw(17)<<fixed<<setprecision(2)<<C[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<C[i].med<<endl;
 
         }
         break;
@@ -316,26 +306,17 @@ Pazymiai P[25];
         return 0;
         break;
         }
-            }
-
-
         }
-
-
-
-
-
-
-
+        }
 
     /*for(int i=0; i<s; i++)
     {
         double suma=0.0;
         cout<<"Iveskite "<<i+1<<" pavarde:   "<<endl;
-        cin>>P[i].pav;
+        cin>>C[i].pav;
 
         cout<<"Iveskite "<<i+1<<" varda:   "<<endl;
-        cin>>P[i].var;
+        cin>>C[i].var;
 
         cout<<"Kiek yra tarpiniu pazymiu?   "<<endl;
         cin>>kiek;
@@ -348,36 +329,36 @@ Pazymiai P[25];
         for(int j=0; j<kiek; j++)
         {
             cout<<"Iveskite "<<j+1<<" pazymi:  "<<endl;
-            cin>>P[i].paz[j];
-            while (P[i].paz[j] < 1 || P[i].paz[j] > 10) {
+            cin>>C[i].paz[j];
+            while (C[i].paz[j] < 1 || C[i].paz[j] > 10) {
                 cout << "Iveskite "<<j+1<<" pazymi nuo 1 iki 10: ";
-                cin >> P[i].paz[j];
+                cin >> C[i].paz[j];
             }
-            suma=suma+P[i].paz[j];
+            suma=suma+C[i].paz[j];
         }
 
 
 
-        P[i].vid=suma/kiek;
+        C[i].vid=suma/kiek;
 
         cout <<"Iveskite egzamino rezultata: "<<endl;
-        cin>>P[i].egz;
-        while (P[i].egz < 1 || P[i].egz > 10) {
+        cin>>C[i].egz;
+        while (C[i].egz < 1 || C[i].egz > 10) {
             cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-            cin >> P[i].egz;
+            cin >> C[i].egz;
         }
 
 
-        P[i].galutinis=(P[i].vid*0.4)+(0.6*P[i].egz);
+        C[i].galutinis=(C[i].vid*0.4)+(0.6*C[i].egz);
 
         for(int k=0; k<kiek-1; k++)
         {
             for(int l=k+1; l<kiek; l++)
             {
-            if(P[i].paz[k] > P[i].paz[l]) {
-                c = P[i].paz[k];
-                P[i].paz[k] = P[i].paz[l];
-                P[i].paz[l] = c;
+            if(C[i].paz[k] > C[i].paz[l]) {
+                c = C[i].paz[k];
+                C[i].paz[k] = C[i].paz[l];
+                C[i].paz[l] = c;
                 }
             }
         }
@@ -385,11 +366,11 @@ Pazymiai P[25];
         {
         int pirmas=kiek/2-1;
         int antras=kiek/2;
-        P[i].med = (P[i].paz[pirmas] + P[i].paz[antras])/2.0;
+        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
         }
         else{
             int vidurys = kiek / 2;
-            P[i].med = P[i].paz[vidurys];
+            C[i].med = C[i].paz[vidurys];
             }
     }
     cout<<endl;
@@ -398,7 +379,7 @@ Pazymiai P[25];
     cout<<"--------------------------------------------------------"<<endl;
     for(int i=0; i<s; i++)
     {
-        cout<<left<<setw(15)<<P[i].pav<<setw(15)<<P[i].var<<setw(17)<<fixed<<setprecision(2)<<P[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<P[i].med<<endl;
+        cout<<left<<setw(15)<<C[i].pav<<setw(15)<<C[i].var<<setw(17)<<fixed<<setprecision(2)<<C[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<C[i].med<<endl;
 
     }
 */
