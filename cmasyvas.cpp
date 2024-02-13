@@ -292,7 +292,7 @@ Pazymiai C[7];
         cout<<"------------------------------------------------------------"<<endl;
         for(int q=0; q<i; q++)
         {
-            cout<<left<<setw(15)<<C[i].pav<<setw(15)<<C[i].var<<setw(17)<<fixed<<setprecision(2)<<C[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<C[i].med<<endl;
+            cout<<left<<setw(15)<<C[q].pav<<setw(15)<<C[q].var<<setw(17)<<fixed<<setprecision(2)<<C[q].galutinis<<setw(17)<<fixed<<setprecision(2)<<C[q].med<<endl;
 
         }
         break;
