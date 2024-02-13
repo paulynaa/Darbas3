@@ -38,33 +38,38 @@ Pazymiai P[25];
         switch (pasirinkimas){
         case 1:{
 
-        while(P[i].pav!="-1" || P[i].var!="-1")
-        {
-
+        do{
         double suma=0.0;
 
-        cout<<"Iveskite "<<i+1<<" pavarde:   "<<endl;
+        cout<<"Iveskite "<<i+1<<" pavarde (noretume baigti spauskite 4):   "<<endl;
         cin>>P[i].pav;
-
-        cout<<"Iveskite "<<i+1<<" varda:   "<<endl;
+        if(P[i].pav=="4" || P[i].var=="4"){
+            break;
+        }
+        cout<<"Iveskite "<<i+1<<" varda (noretume baigti spauskite 4):   "<<endl;
         cin>>P[i].var;
-
+        if(P[i].pav=="4" || P[i].var=="4"){
+            break;
+        }
 
         int j=0;
-       while(P[i].paz[j]!=-1){
 
-
-            cout<<"Iveskite "<<j+1<<" pazymi:  "<<endl;
+            do{
+            cout<<"Iveskite "<<j+1<<" pazymi (noredami baigti spauskite 11):  "<<endl;
             cin>>P[i].paz[j];
+            if(P[i].paz[j]==11){
+                break;
+            }
             while (P[i].paz[j] < 1 || P[i].paz[j] > 10) {
                 cout << "Iveskite "<<j+1<<" pazymi nuo 1 iki 10: ";
                 cin >> P[i].paz[j];
             }
             suma=suma+P[i].paz[j];
         j++;
-       }
+        }
+        while(P[i].paz[j]!=11);
 
-        P[i].vid=suma/kiek;
+        P[i].vid=suma/j;
 
         cout <<"Iveskite egzamino rezultata: "<<endl;
         cin>>P[i].egz;
@@ -72,13 +77,11 @@ Pazymiai P[25];
             cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
             cin >> P[i].egz;
         }
-
-
         P[i].galutinis=(P[i].vid*0.4)+(0.6*P[i].egz);
 
-        for(int k=0; k<kiek-1; k++)
+        for(int k=0; k<j-1; k++)
         {
-            for(int l=k+1; l<kiek; l++)
+            for(int l=k+1; l<j; l++)
             {
             if(P[i].paz[k] > P[i].paz[l]) {
                 c = P[i].paz[k];
@@ -87,27 +90,27 @@ Pazymiai P[25];
                 }
             }
         }
-        if (kiek%2==0)
+        if (j%2==0)
         {
-        int pirmas=kiek/2-1;
-        int antras=kiek/2;
+        int pirmas=j/2-1;
+        int antras=j/2;
         P[i].med = (P[i].paz[pirmas] + P[i].paz[antras])/2.0;
         }
         else{
-            int vidurys = kiek / 2;
+            int vidurys = j / 2;
             P[i].med = P[i].paz[vidurys];
             }
             i++;
         }
+        while(P[i].pav!="4" || P[i].var!="4");
 
         cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
     cout<<"--------------------------------------------------------"<<endl;
     for(int z=0; z<i; z++)
     {
-        cout<<left<<setw(15)<<P[i].pav<<setw(15)<<P[i].var<<setw(17)<<fixed<<setprecision(2)<<P[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<P[i].med<<endl;
+        cout<<left<<setw(15)<<P[z].pav<<setw(15)<<P[z].var<<setw(17)<<fixed<<setprecision(2)<<P[z].galutinis<<setw(17)<<fixed<<setprecision(2)<<P[z].med<<endl;
 
     }
-
         break;
         }
 
@@ -179,11 +182,7 @@ Pazymiai P[25];
             int vidurys = k / 2;
             P[i].med = P[i].paz[vidurys];
             }
-
-
             }
-
-
         int w;
         cout<<"Jeigu norite atsitiktinai sugeneruoti egzamino rezultata spauskite 1: "<<endl;
         cout<<"Jeigu norite ivesti egzamino rezultata spauskite 2: "<<endl;
@@ -199,9 +198,6 @@ Pazymiai P[25];
         }
 
         P[i].galutinis=(P[i].vid*0.4)+(0.6*P[i].egz);
-
-
-
         i++;
         }
         while(P[i].pav!="4" || P[i].var!="4");
@@ -224,11 +220,6 @@ Pazymiai P[25];
             P[i].pav=pavardes[rand()%10];
             P[i].var=vardai[rand()%10];
             cout<<"Pavarde ir vardas: "<<P[i].pav<<" "<<P[i].var<<endl;
-
-
-
-
-
         cout<<"Jeigu norite generuoti po viena atsitiktini skaiciu spauskite 1 "<<endl<<"Jeigu norite generuoti pasirinkta skaiciu spauskite 2 "<<endl;
         cout<<"Jusu pasirinkimas: "; cin>>x;
         if(x==1){
