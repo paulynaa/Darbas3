@@ -19,12 +19,8 @@ int main ()
     int pasirinkimas;
     int c;
     int x;
-    int s;
-    int n; //namu darbai
-    int m; //studentai
-    int kiek;
     int i=0;
-Pazymiai C[25];
+Pazymiai C[7];
     while (true){
         cout << "Pasirinkite norima veiksma: " << endl;
         cout << "1. Ivesti duomenis ranka" << endl;
@@ -309,79 +305,5 @@ Pazymiai C[25];
         }
         }
 
-    /*for(int i=0; i<s; i++)
-    {
-        double suma=0.0;
-        cout<<"Iveskite "<<i+1<<" pavarde:   "<<endl;
-        cin>>C[i].pav;
-
-        cout<<"Iveskite "<<i+1<<" varda:   "<<endl;
-        cin>>C[i].var;
-
-        cout<<"Kiek yra tarpiniu pazymiu?   "<<endl;
-        cin>>kiek;
-
-        while (kiek < 1 || kiek > 10) {
-            cout << "Kiek yra tarpiniu pazymiu?  "<<endl;
-            cin >> kiek;
-        }
-
-        for(int j=0; j<kiek; j++)
-        {
-            cout<<"Iveskite "<<j+1<<" pazymi:  "<<endl;
-            cin>>C[i].paz[j];
-            while (C[i].paz[j] < 1 || C[i].paz[j] > 10) {
-                cout << "Iveskite "<<j+1<<" pazymi nuo 1 iki 10: ";
-                cin >> C[i].paz[j];
-            }
-            suma=suma+C[i].paz[j];
-        }
-
-
-
-        C[i].vid=suma/kiek;
-
-        cout <<"Iveskite egzamino rezultata: "<<endl;
-        cin>>C[i].egz;
-        while (C[i].egz < 1 || C[i].egz > 10) {
-            cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-            cin >> C[i].egz;
-        }
-
-
-        C[i].galutinis=(C[i].vid*0.4)+(0.6*C[i].egz);
-
-        for(int k=0; k<kiek-1; k++)
-        {
-            for(int l=k+1; l<kiek; l++)
-            {
-            if(C[i].paz[k] > C[i].paz[l]) {
-                c = C[i].paz[k];
-                C[i].paz[k] = C[i].paz[l];
-                C[i].paz[l] = c;
-                }
-            }
-        }
-        if (kiek%2==0)
-        {
-        int pirmas=kiek/2-1;
-        int antras=kiek/2;
-        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
-        }
-        else{
-            int vidurys = kiek / 2;
-            C[i].med = C[i].paz[vidurys];
-            }
-    }
-    cout<<endl;
-
-    cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
-    cout<<"--------------------------------------------------------"<<endl;
-    for(int i=0; i<s; i++)
-    {
-        cout<<left<<setw(15)<<C[i].pav<<setw(15)<<C[i].var<<setw(17)<<fixed<<setprecision(2)<<C[i].galutinis<<setw(17)<<fixed<<setprecision(2)<<C[i].med<<endl;
-
-    }
-*/
     return 0;
 }
