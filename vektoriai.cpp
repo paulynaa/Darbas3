@@ -54,15 +54,21 @@ int main ()
             do{
             cout<<"Iveskite "<<j+1<<" pazymi (noredami baigti spauskite 11):  "<<endl;
             cin>>x;
+
+
             if(x==11){
                 break;
             }
-            while (x < 1 || x > 10) {
-                cout << "Iveskite "<<j+1<<" pazymi nuo 1 iki 10: ";
-                cin >> x;
-            }
-            C.paz.push_back(x);
-            suma=suma+x;
+
+                    while (cin.fail() || x < 1 || x > 10) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Iveskite " << j + 1 << " pazymi nuo 1 iki 10: ";
+                        cin >> x;
+                    }
+
+                    C.paz.push_back(x);
+                    suma = suma + x;
         j++;
         }
         while(x!=11);
@@ -71,10 +77,14 @@ int main ()
 
         cout <<"Iveskite egzamino rezultata: "<<endl;
         cin>>C.egz;
-        while (C.egz < 1 || C.egz > 10) {
-            cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-            cin >> C.egz;
-        }
+
+        while (cin.fail() || C.egz < 1 || C.egz > 10) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+                    cin >> C.egz;
+                }
+
         C.galutinis=(C.vid*0.4)+(0.6*C.egz);
         sort(C.paz.begin(), C.paz.end());
 
@@ -107,7 +117,8 @@ int main ()
         }
 
         case 2:{
-            Pazymiai C;
+
+                Pazymiai C;
            do  {double suma = 0.0;
 
 
@@ -126,7 +137,12 @@ int main ()
         cout << "Jeigu norite generuoti po viena atsitiktini skaiciu spauskite 1 " << endl
              << "Jeigu norite generuoti pasirinkta skaiciu spauskite 2 " << endl;
         cout << "Jusu pasirinkimas: ";
-        cin >> x;
+
+        while (!(cin >> x) || (x != 1 && x != 2)) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Iveskite skaiciu 1 arba 2: ";
+    }
 
         if (x == 1) {
             string y;
@@ -157,8 +173,12 @@ int main ()
         if (x == 2) {
             int k;
             cout << "Iveskite pazymiu kieki: ";
-            cin >> k;
 
+            while (!(cin >> k) || (k < 1)) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Iveskite skaiciu nuo 1: ";
+    }
             for (int l = 0; l < k; l++) {
                 C.paz.push_back((rand() % 10) + 1);
                 cout << "Pazymis " << l + 1 << " : " << C.paz[l] << endl;
@@ -183,7 +203,12 @@ int main ()
         cout << "Jeigu norite atsitiktinai sugeneruoti egzamino rezultata spauskite 1: " << endl;
         cout << "Jeigu norite ivesti egzamino rezultata spauskite 2: " << endl;
         cout << "Jusu pasirinkimas: ";
-        cin >> w;
+
+        while (!(cin >> w) || (w != 1 && w != 2)) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Iveskite skaiciu 1 arba 2: ";
+    }
 
         if (w == 1) {
             C.egz = (rand() % 10) + 1;
@@ -192,14 +217,20 @@ int main ()
 
         if (w == 2) {
             cout << "Iveskite egzamino rezultata: ";
-            cin >> C.egz;
+
+            while (!(cin >> C.egz) || (C.egz <1 || C.egz >10)) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+    }
             cout << endl;
         }
 
         C.galutinis = (C.vid * 0.4) + (0.6 * C.egz);
         P.push_back(C);
         i++;
-    } while (C.pav != "4" || C.var != "4");
+    }
+    while (C.pav != "4" || C.var != "4");
 
     cout << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"
          << " / " << setw(17) << "Galutinis (Med.)" << endl;
@@ -227,7 +258,11 @@ int main ()
         cout << "Jeigu norite generuoti po viena atsitiktini skaiciu spauskite 1 " << endl
              << "Jeigu norite generuoti pasirinkta skaiciu spauskite 2 " << endl;
         cout << "Jusu pasirinkimas: ";
-        cin >> x;
+        while (!(cin >> x) || (x != 1 && x != 2)) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Iveskite skaiciu 1 arba 2: ";
+    }
 
         if (x == 1) {
             string y;
@@ -261,7 +296,12 @@ int main ()
             double suma = 0.0;
             int k;
             cout << "Iveskite pazymiu kieki: ";
-            cin >> k;
+
+            while (!(cin >> k) || (k < 1 )) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Iveskite skaiciu nuo 1 : ";
+        }
 
             for (int l = 0; l < k; l++) {
                 C.paz.push_back((rand() % 10) + 1);
@@ -287,7 +327,12 @@ int main ()
         cout << "Jeigu norite atsitiktinai sugeneruoti egzamino rezultata spauskite 1: " << endl;
         cout << "Jeigu norite ivesti egzamino rezultata spauskite 2: " << endl;
         cout << "Jusu pasirinkimas: ";
-        cin >> w;
+        while (!(cin >> w) || (w != 1 && w != 2)) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Iveskite skaiciu 1 arba 2: ";
+    }
+
 
         if (w == 1) {
             C.egz = (rand() % 10) + 1;
@@ -296,7 +341,12 @@ int main ()
 
         if (w == 2) {
             cout << "Iveskite egzamino rezultata: ";
-            cin >> C.egz;
+
+            while (!(cin >> C.egz) || (C.egz < 1 || C.egz > 10)) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+            }
             cout << endl;
         }
 
@@ -304,7 +354,12 @@ int main ()
 
         cout << "Noredami baigti studentu generavima spauskite 1, noredami testi spauskite 2 " << endl;
         cout << "Jusu pasirinkimas: ";
-        cin >> qq;
+
+        while (!(cin >> qq) || (qq != 1 && qq != 2)) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Iveskite skaiciu 1 arba 2: ";
+    }
 
         P.push_back(C);
     }
