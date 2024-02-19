@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <cstdlib>
+#include <ctime>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,7 +11,7 @@ struct Pazymiai{
     string pav;
     double vid=0.0;
     int egz;
-    int paz[20];
+    int *paz;
     double galutinis;
     double med;
     };
@@ -20,7 +21,7 @@ int main ()
     int c;
     int x;
     int i=0;
-Pazymiai C[7];
+Pazymiai* C= new Pazymiai[7];
     while (true){
         cout << "Pasirinkite norima veiksma: " << endl;
         cout << "1. Ivesti duomenis ranka" << endl;
@@ -32,84 +33,71 @@ Pazymiai C[7];
         switch (pasirinkimas){
         case 1:{
 
-        do{
+do {
+        double suma = 0.0;
 
-        double suma=0.0;
-
-        cout<<"Iveskite "<<i+1<<" pavarde (noretume baigti spauskite 4):   "<<endl;
-        cin>>C[i].pav;
-        if(C[i].pav=="4" || C[i].var=="4"){
+        cout << "Iveskite " << i + 1 << " pavarde (noretume baigti spauskite 4):   " << endl;
+        cin >> C[i].pav;
+        if (C[i].pav == "4" || C[i].var == "4") {
             break;
         }
-        cout<<"Iveskite "<<i+1<<" varda (noretume baigti spauskite 4):   "<<endl;
-        cin>>C[i].var;
-        if(C[i].pav=="4" || C[i].var=="4"){
+        cout << "Iveskite " << i + 1 << " varda (noretume baigti spauskite 4):   " << endl;
+        cin >> C[i].var;
+        if (C[i].pav == "4" || C[i].var == "4") {
             break;
         }
 
-        int j=0;
+        int j = 0;
+C[i].paz = new int[j];
+        do {
+            cout << "Iveskite " << j + 1 << " pazymi (noredami baigti spauskite 11):  " << endl;
 
-            do{
+            cin >> C[i].paz[j];
 
-            cout<<"Iveskite "<<j+1<<" pazymi (noredami baigti spauskite 11):  "<<endl;
-            cin>>C[i].paz[j];
-            if(C[i].paz[j]==11){
+            if (C[i].paz[j] == 11) {
                 break;
             }
+
             while (C[i].paz[j] < 1 || C[i].paz[j] > 10) {
-                cout << "Iveskite "<<j+1<<" pazymi nuo 1 iki 10: ";
+                cout << "Iveskite " << j + 1 << " pazymi nuo 1 iki 10: ";
                 cin >> C[i].paz[j];
             }
-            suma=suma+C[i].paz[j];
 
-        j++;
+            suma += C[i].paz[j];
+            j++;
 
-        }
-        while(C[i].paz[j]!=11);
+        } while (C[i].paz[j -1] != 11);
 
-        C[i].vid=suma/j;
+        C[i].vid = suma / j;
 
-        cout <<"Iveskite egzamino rezultata: "<<endl;
-        cin>>C[i].egz;
+        int *tempPaz = new int[j];
+        copy(C[i].paz, C[i].paz + j, tempPaz);
+
+
+        sort(tempPaz, tempPaz + j);
+
+        int medianIndex = j / 2;
+        C[i].med = (j % 2 == 0) ? (tempPaz[medianIndex - 1] + tempPaz[medianIndex]) / 2.0 : tempPaz[medianIndex];
+
+        delete[] tempPaz;
+
+        cout << "Iveskite egzamino rezultata: " << endl;
+        cin >> C[i].egz;
 
         while (cin.fail() || C[i].egz < 1 || C[i].egz > 10) {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-                    cin >> C[i].egz;
-                }
-
-        C[i].galutinis=(C[i].vid*0.4)+(0.6*C[i].egz);
-        // sortiravimas sort(C[i].paz.begin(), C[i].paz.end());
-         for(int k=0; k<j-1; k++)
-        {
-            for(int l=k+1; l<j; l++)
-            {
-            if(C[i].paz[k] > C[i].paz[l]) {
-                c = C[i].paz[k];
-                C[i].paz[k] = C[i].paz[l];
-                C[i].paz[l] = c;
-                }
-            }
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+            cin >> C[i].egz;
         }
 
-        if (j%2==0)
-        {
-        int pirmas=j/2-1;
-        int antras=j/2;
-        C[i].med = (C[i].paz[pirmas] + C[i].paz[antras])/2.0;
-        }
-        else{
-            int vidurys = j / 2;
-            C[i].med = C[i].paz[vidurys];
-            }
+        C[i].galutinis = (C[i].vid * 0.4) + (0.6 * C[i].egz);
 
-            i++;
+        i++;
 
+    } while (C[i - 1].pav != "4" || C[i - 1].var != "4");
 
-        }while(C[i].pav!="4" || C[i].var!="4");
-
-
+delete[] C[i - 1].paz;
 
         cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
     cout<<"--------------------------------------------------------"<<endl;
@@ -126,7 +114,7 @@ Pazymiai C[7];
 
 
            do  {double suma = 0.0;
-
+        int j=0;
 
         cout << "Iveskite " << i + 1 << " pavarde (noredami sustoti iveskite 4):   " << endl;
         cin >> C[i].pav;
@@ -154,25 +142,33 @@ Pazymiai C[7];
             string y;
             int h = 0;
             while (y != "Ne") {
-                C[i].paz[h]=(rand()%10)+1;
-                cout<<"Pazymis "<<h+1<<" : "<<C[i].paz[h]<<endl;
-                cout<<"Ar norite testi generavima? Taip arba Ne: ";
-                cin>>y; cout<<endl;
-                suma=suma+C[i].paz[h];
-                h++;
-            }
-            C[i].vid = suma / h;
 
-            sort(C[i].paz+0, C[i].paz+h);
 
-            if (h % 2 == 0) {
-                int pirmas = h / 2 - 1;
-                int antras = h / 2;
-                C[i].med = (C[i].paz[pirmas] + C[i].paz[antras]) / 2.0;
-            } else {
-                int vidurys = h / 2;
-                C[i].med = C[i].paz[vidurys];
-            }
+            C[i].paz = new int[j + 1];
+                            C[i].paz[j] = (rand() % 10) + 1;
+                            cout << "Pazymis " << j + 1 << " : " << C[i].paz[j] << endl;
+                            cout << "Ar norite testi generavima? Taip arba Ne: ";
+                            cin >> y;
+                            cout << endl;
+                            suma = suma + C[i].paz[j];
+                            j++;
+                        }
+                        C[i].vid = suma / j;
+
+                        int *tempPaz = new int[j];
+                        copy(C[i].paz, C[i].paz + j, tempPaz);
+                        sort(tempPaz, tempPaz + j);
+
+          if (j % 2 == 0) {
+                            int pirmas = j / 2 - 1;
+                            int antras = j / 2;
+                            C[i].med = (tempPaz[pirmas] + tempPaz[antras]) / 2.0;
+                        } else {
+                            int vidurys = j / 2;
+                            C[i].med = tempPaz[vidurys];
+                        }
+
+                        delete[] tempPaz;
         }
 
         if (x == 2) {
@@ -184,6 +180,7 @@ Pazymiai C[7];
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Iveskite skaiciu nuo 1: ";
     }
+    C[i].paz = new int[k];
             for (int l = 0; l < k; l++) {
                 C[i].paz[l]=(rand() % 10) + 1;
                 cout << "Pazymis " << l + 1 << " : " << C[i].paz[l] << endl;
@@ -192,16 +189,20 @@ Pazymiai C[7];
 
             C[i].vid = suma / k;
 
-            sort(C[i].paz+0, C[i].paz+k);
+
+             int *tempPaz = new int[k];
+                        copy(C[i].paz, C[i].paz + k, tempPaz);
+                        sort(tempPaz, tempPaz + k);
 
             if (k % 2 == 0) {
                 int pirmas = k / 2 - 1;
                 int antras = k / 2;
-                C[i].med = (C[i].paz[pirmas] + C[i].paz[antras]) / 2.0;
+                C[i].med = (tempPaz[pirmas] + tempPaz[antras]) / 2.0;
             } else {
                 int vidurys = k / 2;
-                C[i].med = C[i].paz[vidurys];
+                C[i].med = tempPaz[vidurys];
             }
+            delete [] tempPaz;
         }
 
         int w;
@@ -235,7 +236,7 @@ Pazymiai C[7];
 
         i++;
     }
-    while (C[i].pav != "4" || C[i].var != "4");
+    while (C[i-1].pav != "4" || C[i-1].var != "4");
 
     cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
     cout<<"--------------------------------------------------------"<<endl;
@@ -273,6 +274,7 @@ Pazymiai C[7];
             double suma = 0.0;
 
             while (y != "Ne") {
+                    C[i].paz = new int[h + 1];
                 C[i].paz[h]=(rand() % 10) + 1;
                 cout << "Pazymis " << h + 1 << " : " << C[i].paz[h] << endl;
                 cout << "Ar norite testi generavima? Taip arba Ne: ";
@@ -283,16 +285,19 @@ Pazymiai C[7];
             }
             C[i].vid = suma / h;
 
-            sort(C[i].paz+0, C[i].paz+h);
+            int *tempPaz = new int[h];
+                        copy(C[i].paz, C[i].paz + h, tempPaz);
+                        sort(tempPaz, tempPaz + h);
 
             if (h % 2 == 0) {
                 int pirmas = h / 2 - 1;
                 int antras = h / 2;
-                C[i].med = (C[i].paz[pirmas] + C[i].paz[antras]) / 2.0;
+                C[i].med = (tempPaz[pirmas] + tempPaz[antras]) / 2.0;
             } else {
                 int vidurys = h / 2;
-                C[i].med = C[i].paz[vidurys];
+                C[i].med = tempPaz[vidurys];
             }
+            delete[] tempPaz;
         }
 
         if (x == 2) {
@@ -305,7 +310,7 @@ Pazymiai C[7];
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Iveskite skaiciu nuo 1 : ";
         }
-
+            C[i].paz = new int[k];
             for (int l = 0; l < k; l++) {
                 C[i].paz[l]=(rand() % 10) + 1;
                 cout << "Pazymis " << l + 1 << " : " << C[i].paz[l] << endl;
@@ -314,16 +319,18 @@ Pazymiai C[7];
 
             C[i].vid = suma / k;
 
-            sort(C[i].paz+0, C[i].paz+k);
-
+            int *tempPaz = new int[k];
+                        copy(C[i].paz, C[i].paz + k, tempPaz);
+                        sort(tempPaz, tempPaz + k);
             if (k % 2 == 0) {
                 int pirmas = k / 2 - 1;
                 int antras = k / 2;
-                C[i].med = (C[i].paz[pirmas] + C[i].paz[antras]) / 2.0;
+                C[i].med = (tempPaz[pirmas] + tempPaz[antras]) / 2.0;
             } else {
                 int vidurys = k / 2;
-                C[i].med = C[i].paz[vidurys];
+                C[i].med = tempPaz[vidurys];
             }
+            delete[] tempPaz;
         }
 
         int w;
@@ -379,12 +386,15 @@ Pazymiai C[7];
         }
         case 4:{
         cout<<"Programa baigta."<<endl;
+
+        delete[]C;
         return 0;
         break;
         }
         }
-        }
 
+        }
+    delete[] C;
 
     return 0;
 }
