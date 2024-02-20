@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <bits/stdc++.h>
+#include <fstream>
 using namespace std;
 
 struct Pazymiai{
@@ -21,6 +22,7 @@ int main ()
     int x;
     int s;
     int i=0;
+
     vector<Pazymiai> P;
 
     while (true){
@@ -28,12 +30,15 @@ int main ()
         cout << "1. Ivesti duomenis ranka" << endl;
         cout << "2. Generuoti pazymius" << endl;
         cout << "3. Generuoti ir studentu vardus, pavardes ir pazymius" << endl;
-        cout << "4. Baigti programa" << endl;
+        cout << "4. Nuskaityti is failo" << endl;
+        cout << "5. Baigti programa" << endl;
         cin >> pasirinkimas;
 
         switch (pasirinkimas){
         case 1:{
+
         Pazymiai C;
+
         do{
 
         double suma=0.0;
@@ -377,6 +382,142 @@ int main ()
     break;
         }
         case 4:{
+
+        Pazymiai C;
+
+
+        int z;
+        int o;
+        int stud;
+        string hoe;
+        int xyz;
+        int pv=0;
+
+        cout<<"Kiek nuskaityti studentu? "<<endl;
+        cin>>stud;
+
+        ifstream F("kursiokai.txt");
+
+        while( hoe != "Egz."){
+    F>>hoe;
+    //cout<<hoe;
+    pv++;
+    //cout<<pv;
+    }
+
+        pv=pv-3;
+
+
+        for(int l=0; l<stud; l++){
+        double suma=0.0;
+
+        F>>C.pav>>C.var;
+
+        for(int i=0; i<pv; i++){
+            F>>z;
+            C.paz.push_back(z);
+            cout<<z<<endl;
+
+            suma=suma+z;
+        }
+        sort(C.paz.begin(), C.paz.end());
+cout<<endl;
+        C.vid=suma/pv;
+        //cout<<C.vid<<endl;
+        cout<<endl;
+        F>>C.egz;
+        //cout<<C.egz<<endl;
+        cout<<endl;
+        C.galutinis=(C.vid*0.4)+(0.6*C.egz);
+//cout<<C.galutinis<<endl;
+cout<<endl;
+
+
+        if (pv%2==0)
+        {
+        int pirmas=pv/2-1;
+        int antras=pv/2;
+        C.med = (C.paz[pirmas] + C.paz[antras])/2.0;
+        }
+        else{
+            int vidurys = pv / 2;
+            C.med = C.paz[vidurys];
+            }
+
+cout<<C.med<<endl;
+cout<<endl;
+         P.push_back(C);
+
+        }
+
+            F.close();
+            cout<<"Jeigu norite rusiuoti pagal pavarde spauskite 1: "<<endl;
+            cout<<"Jeigu norite rusiuoti pagal varda spauskite 2: "<<endl;
+            cout<<"Jeigu norite rusiuoti pagal galutini pazymi spauskite 3: "<<endl;
+            cout<<"Jeigu norite rusiuoti pagal mediana spauskite 4: "<<endl;
+            cin>>xyz;
+
+            if(xyz==1){
+                sort(C.pav.begin(),C.pav.end());
+            }
+            if(xyz==2){
+                sort(C.var.begin(),C.var.end());
+            }
+            if(xyz==3){
+
+                /*for(int m=0; m<sk-1; m++)
+                {
+                for(int n=m+1; n<sk; n++)
+                    {
+                        if(C.galutinis[m]>C.galutinis[n])
+                        {
+                            t=C.galutinis;
+                            C.galutinis[m]=C.galutinis[n];
+                            C.galutinis[n]=t;
+                        }
+                    }
+                }
+                */
+
+            }
+            if(xyz==4){
+
+            }
+
+            cout<<"Jeigu norite isvesti i ekrana- spauskite 1: "<<endl;
+            cout<<"Jeigu norite isvesti i faila- spauskite 2: "<<endl;
+            cout<<"Jusu pasirinkimas: ";
+            cin>>o;
+            if(o==1){
+
+               cout << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"<< " / " << setw(17) << "Galutinis (Med.)" << endl;
+        cout << "--------------------------------------------------------" << endl;
+
+            for (const auto &studentas : P) {
+                cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
+                    << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
+                    << setprecision(2) << studentas.med << endl;
+    }
+            }
+            if(o==2){
+
+            ofstream R("isvestis.txt");
+
+            R << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"
+         << " / " << setw(17) << "Galutinis (Med.)" << endl;
+    R << "--------------------------------------------------------" << endl;
+
+    for (const auto &studentas : P) {
+        R << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
+             << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
+             << setprecision(2) << studentas.med << endl;
+             R.close();
+        }
+        }
+
+        break;
+        }
+        case 5:{
         cout<<"Programa baigta."<<endl;
         return 0;
         break;
