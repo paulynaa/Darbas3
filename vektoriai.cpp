@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <bits/stdc++.h>
 #include <fstream>
+#include <chrono>
 using namespace std;
 
 struct Pazymiai{
@@ -22,7 +23,7 @@ int main ()
     int x;
     int s;
     int i=0;
-
+    double laiku_suma = 0.0;
     vector<Pazymiai> P;
 
     while (true){
@@ -93,16 +94,13 @@ int main ()
         C.galutinis=(C.vid*0.4)+(0.6*C.egz);
         sort(C.paz.begin(), C.paz.end());
 
-        if (j%2==0)
-        {
-        int pirmas=j/2-1;
-        int antras=j/2;
-        C.med = (C.paz[pirmas] + C.paz[antras])/2.0;
+        int vidurys = j / 2;
+        if (j%2==0){
+            C.med = (C.paz[vidurys-1] + C.paz[vidurys])/2.0;
         }
         else{
-            int vidurys = j / 2;
             C.med = C.paz[vidurys];
-            }
+        }
 
             P.push_back(C);
             i++;
@@ -393,17 +391,61 @@ int main ()
         string hoe;
         int xyz;
         int pv=0;
+        int numirelis;
 
-        cout<<"Kiek nuskaityti studentu? "<<endl;
-        cin>>stud;
+        string wp;
+        cout<<"Pasirinkite is kurio failo norite nuskaityti: "<<endl;
 
-        ifstream F("kursiokai.txt");
-while( hoe != "Egz."){
-    F>>hoe;
+        cout<<"1. studentai10000 "<<"2. studentai100000 "<<"3. studentai1000000 "<<"4. kursiokai5 "<<endl;
+        cin>>numirelis;
 
-    pv++;
+        if(numirelis==1){
+            wp="studentai10000.txt";
+            do{
+                cout<<"Kiek nuskaityti studentu? "<<endl;
+                cin>>stud;
+            }while(stud>10000);
 
-    }
+        }
+
+        if(numirelis==2){
+            wp="studentai100000.txt";
+            do{
+                cout<<"Kiek nuskaityti studentu? "<<endl;
+                cin>>stud;
+            }while(stud>100000);
+
+        }
+
+        if(numirelis==3){
+            wp="studentai1000000.txt";
+            do{
+                cout<<"Kiek nuskaityti studentu? "<<endl;
+                cin>>stud;
+            }while(stud>1000000);
+
+        }
+
+        if(numirelis==4){
+            wp="kursiokai.txt";
+            do{
+                cout<<"Kiek nuskaityti studentu? "<<endl;
+                cin>>stud;
+            }while(stud>5);
+
+        }
+
+        ifstream F(wp);
+
+        auto start = chrono::steady_clock::now();
+
+
+        while( hoe != "Egz."){
+            F>>hoe;
+
+            pv++;
+
+        }
 
         pv=pv-3;
 
@@ -449,9 +491,21 @@ while( hoe != "Egz."){
 
         }
 
-
+            vector<double> laikai;
 
             F.close();
+            auto end = chrono::steady_clock::now();
+            double laikas=chrono::duration <double> (end - start).count();
+            laikai.push_back(laikas);
+            cout<<"Trukme: "<< laikas << " s"<<endl;
+
+
+            for (auto laikas : laikai) {
+            }
+            laiku_suma += laikas;
+            double laiku_vidurkis =(laikai.size() > 0) ? (laiku_suma / laikai.size()) : 0.0;
+            cout << "Vidutine trukme: " << laiku_vidurkis << " s" << endl;
+
             cout<<"Jeigu norite rusiuoti pagal pavarde spauskite 1: "<<endl;
             cout<<"Jeigu norite rusiuoti pagal varda spauskite 2: "<<endl;
             cout<<"Jeigu norite rusiuoti pagal galutini pazymi spauskite 3: "<<endl;
@@ -490,26 +544,28 @@ while( hoe != "Egz."){
                 cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
                     << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
                     << setprecision(2) << studentas.med << endl;
-    }
+            }
             }
             if(o==2){
 
             ofstream R("isvestis.txt");
 
             R << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"
-         << " / " << setw(17) << "Galutinis (Med.)" << endl;
-    R << "--------------------------------------------------------" << endl;
+            << " / " << setw(17) << "Galutinis (Med.)" << endl;
+            R << "--------------------------------------------------------" << endl;
 
-    for (const auto &studentas : P) {
-        R << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-             << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-             << setprecision(2) << studentas.med << endl;
+            for (const auto &studentas : P) {
+                R << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
+                << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
+                << setprecision(2) << studentas.med << endl;
 
-        } R.close();
+            }
+        R.close();
         }
 
         break;
         }
+
         case 5:{
         cout<<"Programa baigta."<<endl;
         return 0;
