@@ -103,6 +103,7 @@ int main ()
             int vidurys = j / 2;
             C.med = C.paz[vidurys];
             }
+
             P.push_back(C);
             i++;
         }
@@ -397,12 +398,11 @@ int main ()
         cin>>stud;
 
         ifstream F("kursiokai.txt");
-
-        while( hoe != "Egz."){
+while( hoe != "Egz."){
     F>>hoe;
-    //cout<<hoe;
+
     pv++;
-    //cout<<pv;
+
     }
 
         pv=pv-3;
@@ -410,45 +410,46 @@ int main ()
 
         for(int l=0; l<stud; l++){
         double suma=0.0;
+        C.paz.clear();
 
         F>>C.pav>>C.var;
 
         for(int i=0; i<pv; i++){
             F>>z;
             C.paz.push_back(z);
-            cout<<z<<endl;
+
 
             suma=suma+z;
         }
+
+
         sort(C.paz.begin(), C.paz.end());
-cout<<endl;
+
+
+
         C.vid=suma/pv;
-        //cout<<C.vid<<endl;
-        cout<<endl;
+
         F>>C.egz;
-        //cout<<C.egz<<endl;
-        cout<<endl;
+
         C.galutinis=(C.vid*0.4)+(0.6*C.egz);
-//cout<<C.galutinis<<endl;
-cout<<endl;
 
 
+        int vidurys = pv / 2;
         if (pv%2==0)
         {
-        int pirmas=pv/2-1;
-        int antras=pv/2;
+        int pirmas=vidurys-1;
+        int antras=vidurys;
         C.med = (C.paz[pirmas] + C.paz[antras])/2.0;
         }
         else{
-            int vidurys = pv / 2;
             C.med = C.paz[vidurys];
             }
 
-cout<<C.med<<endl;
-cout<<endl;
          P.push_back(C);
 
         }
+
+
 
             F.close();
             cout<<"Jeigu norite rusiuoti pagal pavarde spauskite 1: "<<endl;
@@ -465,23 +466,15 @@ cout<<endl;
             }
             if(xyz==3){
 
-                /*for(int m=0; m<sk-1; m++)
-                {
-                for(int n=m+1; n<sk; n++)
-                    {
-                        if(C.galutinis[m]>C.galutinis[n])
-                        {
-                            t=C.galutinis;
-                            C.galutinis[m]=C.galutinis[n];
-                            C.galutinis[n]=t;
-                        }
-                    }
-                }
-                */
+                sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+                return a.galutinis < b.galutinis;
+            });
 
             }
             if(xyz==4){
-
+                sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+                return a.med < b.med;
+            });
             }
 
             cout<<"Jeigu norite isvesti i ekrana- spauskite 1: "<<endl;
@@ -511,8 +504,8 @@ cout<<endl;
         R << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
              << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
              << setprecision(2) << studentas.med << endl;
-             R.close();
-        }
+
+        } R.close();
         }
 
         break;
