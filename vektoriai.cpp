@@ -507,11 +507,12 @@ int main ()
                 laikai.push_back(laikas);
                 cout<<"Trukme: "<< laikas << " s"<<endl;
 
-                for (auto laikas : laikai) {
+                /*for (auto laikas : laikai) {
                     laiku_suma += laikas;
                 }
                 double laiku_vidurkis =(laikai.size() > 0) ? (laiku_suma / laikai.size()) : 0.0;
                 cout << "Vidutine trukme: " << laiku_vidurkis << " s" << endl;
+                */
 
                 cout<<"Jeigu norite rusiuoti pagal pavarde spauskite 1: "<<endl;
                 cout<<"Jeigu norite rusiuoti pagal varda spauskite 2: "<<endl;
