@@ -7,6 +7,13 @@
 #include <chrono>
 using namespace std;
 
+int pasirinkimas;
+int c;
+int x;
+int s;
+int i=0;
+double laiku_suma = 0.0;
+
 struct Pazymiai{
     string var;
     string pav;
@@ -16,15 +23,49 @@ struct Pazymiai{
     double galutinis;
     double med;
     };
+vector<Pazymiai> P;
+
+void rezultatai(const auto hh){
+
+        cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
+        cout<<"--------------------------------------------------------"<<endl;
+        for(const auto &studentas : hh){
+            cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
+                << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
+                << setprecision(2) << studentas.med << endl;
+        }
+    }
+
+void rezultataifailas(const auto hh, string failiukas){
+        ofstream R(failiukas);
+
+        R << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"<< " / " << setw(17) << "Galutinis (Med.)" << endl;
+        R << "--------------------------------------------------------" << endl;
+
+        for (const auto &studentas : hh) {
+            R << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
+            << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
+            << setprecision(2) << studentas.med << endl;
+
+        }
+        R.close();
+    }
+
+double mediana(int u, Pazymiai h){
+
+    int vidurys = u / 2;
+    if (u%2==0){
+       h.med = (h.paz[vidurys-1] + h.paz[vidurys])/2.0;
+    }
+    else{
+        h.med = h.paz[vidurys];
+    }
+    return h.med;
+}
+
 int main ()
 {
-    int pasirinkimas;
-    int c;
-    int x;
-    int s;
-    int i=0;
-    double laiku_suma = 0.0;
-    vector<Pazymiai> P;
+
 
     while (true){
         cout << "Pasirinkite norima veiksma: " << endl;
@@ -98,25 +139,13 @@ int main ()
                     C.galutinis=(C.vid*0.4)+(0.6*C.egz);
                     sort(C.paz.begin(), C.paz.end());
 
-                    int vidurys = j / 2;
-                    if (j%2==0){
-                        C.med = (C.paz[vidurys-1] + C.paz[vidurys])/2.0;
-                    }
-                    else{
-                        C.med = C.paz[vidurys];
-                    }
+                    C.med=mediana(j,C);
 
                     P.push_back(C);
                     i++;
                 } while(C.pav!="4" || C.var!="4");
 
-                cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
-                cout<<"--------------------------------------------------------"<<endl;
-                for(const auto &studentas : P){
-                    cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-                         << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-                         << setprecision(2) << studentas.med << endl;
-                }
+                rezultatai(P);
                 break;
             }
 
@@ -167,15 +196,7 @@ int main ()
 
                         sort(C.paz.begin(), C.paz.end());
 
-                        if (h % 2 == 0) {
-                            int pirmas = h / 2 - 1;
-                            int antras = h / 2;
-                            C.med = (C.paz[pirmas] + C.paz[antras]) / 2.0;
-                        }
-                        else {
-                            int vidurys = h / 2;
-                            C.med = C.paz[vidurys];
-                        }
+                        C.med=mediana(h,C);
                     }
 
                     if (x == 2) {
@@ -197,15 +218,7 @@ int main ()
 
                         sort(C.paz.begin(), C.paz.end());
 
-                        if (k % 2 == 0) {
-                            int pirmas = k / 2 - 1;
-                            int antras = k / 2;
-                            C.med = (C.paz[pirmas] + C.paz[antras]) / 2.0;
-                        }
-                        else {
-                            int vidurys = k / 2;
-                            C.med = C.paz[vidurys];
-                        }
+                        C.med=mediana(k,C);
                     }
 
                     int w;
@@ -240,15 +253,7 @@ int main ()
                     i++;
                 } while (C.pav != "4" || C.var != "4");
 
-                cout << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"
-                    << " / " << setw(17) << "Galutinis (Med.)" << endl;
-                cout << "--------------------------------------------------------" << endl;
-
-                for (const auto &studentas : P) {
-                    cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-                        << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-                        << setprecision(2) << studentas.med << endl;
-                }
+                rezultatai(P);
                 break;
             }
 
@@ -290,15 +295,7 @@ int main ()
 
                         sort(C.paz.begin(), C.paz.end());
 
-                        if (h % 2 == 0) {
-                            int pirmas = h / 2 - 1;
-                            int antras = h / 2;
-                            C.med = (C.paz[pirmas] + C.paz[antras]) / 2.0;
-                        }
-                        else {
-                            int vidurys = h / 2;
-                            C.med = C.paz[vidurys];
-                        }
+                        C.med=mediana(h,C);
                     }
 
                     if (x == 2) {
@@ -322,15 +319,7 @@ int main ()
 
                         sort(C.paz.begin(), C.paz.end());
 
-                        if (k % 2 == 0) {
-                            int pirmas = k / 2 - 1;
-                            int antras = k / 2;
-                            C.med = (C.paz[pirmas] + C.paz[antras]) / 2.0;
-                        }
-                        else {
-                            int vidurys = k / 2;
-                            C.med = C.paz[vidurys];
-                        }
+                        C.med=mediana(k,C);
                     }
 
                     int w;
@@ -373,15 +362,7 @@ int main ()
                     P.push_back(C);
                 }
 
-                cout << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"
-                    << " / " << setw(17) << "Galutinis (Med.)" << endl;
-                cout << "------------------------------------------------------------" << endl;
-
-                for (const auto &studentas : P) {
-                    cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-                        << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-                        << setprecision(2) << studentas.med << endl;
-                }
+                rezultatai(P);
 
                 break;
             }
@@ -529,16 +510,7 @@ int main ()
 
                     C.galutinis=(C.vid*0.4)+(0.6*C.egz);
 
-                    int vidurys = pv / 2;
-
-                    if (pv%2==0){
-                        int pirmas=vidurys-1;
-                        int antras=vidurys;
-                        C.med = (C.paz[pirmas] + C.paz[antras])/2.0;
-                    }
-                    else{
-                        C.med = C.paz[vidurys];
-                    }
+                    C.med=mediana(pv,C);
 
                     P.push_back(C);
 
@@ -598,31 +570,10 @@ int main ()
                 }
 
                 if(o==1){
-
-                    cout << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"<< " / " << setw(17) << "Galutinis (Med.)" << endl;
-                    cout << "--------------------------------------------------------" << endl;
-
-                    for (const auto &studentas : P) {
-                        cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-                            << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-                            << setprecision(2) << studentas.med << endl;
-                    }
+                    rezultatai(P);
                 }
                 if(o==2){
-
-                    ofstream R("isvestis.txt");
-
-                    R << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"
-                        << " / " << setw(17) << "Galutinis (Med.)" << endl;
-                    R << "--------------------------------------------------------" << endl;
-
-                    for (const auto &studentas : P) {
-                        R << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-                            << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-                            << setprecision(2) << studentas.med << endl;
-
-                    }
-                    R.close();
+                    rezultataifailas(P, "isvestis.txt");
                 }
 
                 break;
