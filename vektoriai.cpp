@@ -33,7 +33,11 @@ int main ()
         cout << "3. Generuoti ir studentu vardus, pavardes ir pazymius" << endl;
         cout << "4. Nuskaityti is failo" << endl;
         cout << "5. Baigti programa" << endl;
-        cin >> pasirinkimas;
+        if (!(cin >> pasirinkimas)) {
+            cout << "Klaida. Iveskite skaiciu nuo 1 iki 5. " << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
 
         switch (pasirinkimas){
             case 1:{
@@ -57,7 +61,7 @@ int main ()
                     int j=0;
 
                     do{
-                        cout<<"Iveskite "<<j+1<<" pazymi (noredami baigti spauskite 11):  "<<endl;
+                        cout<<"Iveskite "<<j+1<<" pazymi nuo 1 iki 10(noredami baigti spauskite 11): ";
                         cin>>x;
 
                         if(x==11){
@@ -67,8 +71,11 @@ int main ()
                         while (cin.fail() || x < 1 || x > 10) {
                             cin.clear();
                             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                            cout << "Iveskite " << j + 1 << " pazymi nuo 1 iki 10: ";
+                            cout << "Iveskite " << j + 1 << " pazymi nuo 1 iki 10(noredami baigti spauskite 11): ";
                             cin >> x;
+                            if(x==11){
+                                break;
+                            }
                         }
 
                         C.paz.push_back(x);
@@ -144,12 +151,15 @@ int main ()
                     if (x == 1) {
                         string y;
                         int h = 0;
-                        while (y != "Ne") {
+                        while (y != "ne") {
                             C.paz.push_back((rand() % 10) + 1);
                             cout << "Pazymis " << h + 1 << " : " << C.paz[h] << endl;
-                            cout << "Ar norite testi generavima? Taip arba Ne: ";
+                            cout << "Ar norite testi generavima? taip arba ne: ";
                             cin >> y;
-                            cout << endl;
+                            if (y != "taip" && y != "ne") {
+                                cout << "Klaida. Prasome ivesti taip arba ne: ";
+                                cin>>y;
+                            }
                             suma = suma + C.paz[h];
                             h++;
                         }
@@ -375,6 +385,7 @@ int main ()
 
                 break;
             }
+
             case 4:{
 
                 Pazymiai C;
@@ -382,22 +393,22 @@ int main ()
                 int z;
                 int o;
                 int stud;
-                string hoe;
+                string zodziai;
                 int xyz;
                 int pv=0;
-                int numirelis;
+                int numeris;
                 string wp;
                 double laiku_suma=0.0;
 
                 cout<<"Pasirinkite is kurio failo norite nuskaityti: "<<endl;
                 cout<<"1. studentai10000 "<<"2. studentai100000 "<<"3. studentai1000000 "<<"4. kursiokai5 "<<endl;
 
-                while (!(cin >> numirelis) || numirelis < 1 || numirelis > 4) {
+                while (!(cin >> numeris) || numeris < 1 || numeris > 4) {
                     cout << "Klaida. Iveskite skaiciu nuo 1 iki 4." << endl;
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 }
-                if(numirelis==1){
+                if(numeris==1){
                     wp="studentai10000.txt";
                     ifstream file(wp);
                     int lineCount = 0;
@@ -419,7 +430,7 @@ int main ()
                     } while (stud <= 0 || stud > lineCount);
                 }
 
-                if(numirelis==2){
+                if(numeris==2){
                     wp="studentai100000.txt";
                     ifstream file(wp);
                     int lineCount = 0;
@@ -442,7 +453,7 @@ int main ()
 
                 }
 
-                if(numirelis==3){
+                if(numeris==3){
                     wp="studentai1000000.txt";
                     ifstream file(wp);
                     int lineCount = 0;
@@ -465,7 +476,7 @@ int main ()
 
                 }
 
-                if(numirelis==4){
+                if(numeris==4){
                     wp="kursiokai.txt";
                     ifstream file(wp);
                     int lineCount = 0;
@@ -492,8 +503,8 @@ int main ()
 
                 auto start = chrono::steady_clock::now();
 
-                while( hoe != "Egz."){
-                    F>>hoe;
+                while( zodziai != "Egz."){
+                    F>>zodziai;
                     pv++;
                 }
 
