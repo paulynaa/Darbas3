@@ -8,7 +8,7 @@
 #include <fstream>
 #include <chrono>
 #include <string>
-
+#include <stdexcept>
 struct Pazymiai{
     std::string var;
     std::string pav;

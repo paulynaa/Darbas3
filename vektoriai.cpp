@@ -76,14 +76,21 @@ int main ()
 
                     C.vid=suma/j;
 
-                    cout <<"Iveskite egzamino rezultata: "<<endl;
-                    cin>>C.egz;
+                    cout << "Iveskite egzamino rezultata: " << endl;
 
-                    while (cin.fail() || C.egz < 1 || C.egz > 10) {
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+                    try {
                         cin >> C.egz;
+
+                        while (cin.fail() || C.egz < 1 || C.egz > 10) {
+                            cin.clear();
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+                            cin >> C.egz;
+                        }
+                    } catch (const std::exception& e) {
+                        // Handle the exception
+                        cerr << "Exception: " << e.what() << endl;
+                        // Optionally, take further action or exit the program
                     }
 
                     C.galutinis=(C.vid*0.4)+(0.6*C.egz);
@@ -184,13 +191,22 @@ int main ()
                     }
 
                     if (w == 2) {
-                        cout << "Iveskite egzamino rezultata: ";
+                        cout << "Iveskite egzamino rezultata: " << endl;
 
-                        while (!(cin >> C.egz) || (C.egz <1 || C.egz >10)) {
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                            cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-                        }
+                        try {
+                            cin >> C.egz;
+
+                            while (cin.fail() || C.egz < 1 || C.egz > 10) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+                                cin >> C.egz;
+                            }
+                        } catch (const std::exception& e) {
+                            // Handle the exception
+                            cerr << "Exception: " << e.what() << endl;
+                            // Optionally, take further action or exit the program
+                            }
                         cout << endl;
                     }
 
@@ -284,12 +300,21 @@ int main ()
                     }
 
                     if (w == 2) {
-                        cout << "Iveskite egzamino rezultata: ";
+                        cout << "Iveskite egzamino rezultata: " << endl;
 
-                        while (!(cin >> C.egz) || (C.egz < 1 || C.egz > 10)) {
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+                        try {
+                            cin >> C.egz;
+
+                            while (cin.fail() || C.egz < 1 || C.egz > 10) {
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                                cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
+                                cin >> C.egz;
+                            }
+                        } catch (const std::exception& e) {
+                            // Handle the exception
+                            cerr << "Exception: " << e.what() << endl;
+                            // Optionally, take further action or exit the program
                         }
                         cout << endl;
                     }
