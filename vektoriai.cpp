@@ -1,10 +1,4 @@
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <cstdlib>
-#include <bits/stdc++.h>
-#include <fstream>
-#include <chrono>
+#include "pagalbines.h"
 using namespace std;
 
 int pasirinkimas;
@@ -14,54 +8,8 @@ int s;
 int i=0;
 double laiku_suma = 0.0;
 
-struct Pazymiai{
-    string var;
-    string pav;
-    double vid=0.0;
-    int egz;
-    vector<int> paz;
-    double galutinis;
-    double med;
-    };
 vector<Pazymiai> P;
 
-void rezultatai(const auto hh){
-
-        cout<<left<<setw(15)<<"Pavarde "<<setw(15)<< "Vardas"<<setw(17)<<"Galutinis (Vid.)"<<" / "<<setw(17)<<"Galutinis (Med.)"<<endl;
-        cout<<"--------------------------------------------------------"<<endl;
-        for(const auto &studentas : hh){
-            cout << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-                << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-                << setprecision(2) << studentas.med << endl;
-        }
-    }
-
-void rezultataifailas(const auto hh, string failiukas){
-        ofstream R(failiukas);
-
-        R << left << setw(15) << "Pavarde " << setw(15) << "Vardas" << setw(17) << "Galutinis (Vid.)"<< " / " << setw(17) << "Galutinis (Med.)" << endl;
-        R << "--------------------------------------------------------" << endl;
-
-        for (const auto &studentas : hh) {
-            R << left << setw(15) << studentas.pav << setw(15) << studentas.var << setw(17)
-            << fixed << setprecision(2) << studentas.galutinis << setw(17) << fixed
-            << setprecision(2) << studentas.med << endl;
-
-        }
-        R.close();
-    }
-
-double mediana(int u, Pazymiai h){
-
-    int vidurys = u / 2;
-    if (u%2==0){
-       h.med = (h.paz[vidurys-1] + h.paz[vidurys])/2.0;
-    }
-    else{
-        h.med = h.paz[vidurys];
-    }
-    return h.med;
-}
 
 int main ()
 {
@@ -84,6 +32,7 @@ int main ()
             case 1:{
 
                 Pazymiai C;
+                C.vid=0.0;
                 do{
 
                     double suma=0.0;
@@ -193,9 +142,7 @@ int main ()
                             h++;
                         }
                         C.vid = suma / h;
-
                         sort(C.paz.begin(), C.paz.end());
-
                         C.med=mediana(h,C);
                     }
 
@@ -213,9 +160,7 @@ int main ()
                             cout << "Pazymis " << l + 1 << " : " << C.paz[l] << endl;
                             suma = suma + C.paz[l];
                         }
-
                         C.vid = suma / k;
-
                         sort(C.paz.begin(), C.paz.end());
 
                         C.med=mediana(k,C);
