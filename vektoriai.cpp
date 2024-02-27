@@ -59,13 +59,14 @@ int main ()
                         }
 
                         while (cin.fail() || x < 1 || x > 10) {
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                            cout << "Iveskite " << j + 1 << " pazymi nuo 1 iki 10(noredami baigti spauskite 11): ";
-                            cin >> x;
-                            if(x==11){
-                                break;
-                            }
+                                cin.clear();
+                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+                                cout<<"Iveskite "<<j+1<<" pazymi nuo 1 iki 10(noredami baigti spauskite 11): ";
+                                cin >> x;
+                                if(x==11){
+                                    break;
+                                }
                         }
 
                         C.paz.push_back(x);
@@ -334,11 +335,38 @@ int main ()
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 }
-                if(numeris==1){
-                    wp="studentai10000.txt";
+                
+                switch (numeris) {
+                        case 1:
+                            wp = "studentai10000.txt";
+                            break;
+                        case 2:
+                            wp = "studentai100000.txt";
+                            break;
+                        case 3:
+                            wp = "studentai1000000.txt";
+                            break;
+                        case 4:
+                            wp = "kursiokai.txt";
+                            break;
+                        case 5:
+                            break;
+                        default:
+                            break;
+
+                    }
+
                     ifstream file(wp);
+                    if (!file.is_open()) {
+                        cout << "Failas " << wp << " neegzistuoja!" << endl;
+                        break;
+                    }
+                    file.close();
+
+
                     int lineCount = 0;
                     string line;
+                    file.open(wp);
                     while (getline(file, line)) {
                         lineCount++;
                     }
@@ -354,106 +382,35 @@ int main ()
                         }
 
                     } while (stud <= 0 || stud > lineCount);
-                }
+                                ifstream F(wp);
 
-                if(numeris==2){
-                    wp="studentai100000.txt";
-                    ifstream file(wp);
-                    int lineCount = 0;
-                    string line;
-                    while (getline(file, line)) {
-                        lineCount++;
-                    }
-                    file.close();
+                                auto start = chrono::steady_clock::now();
 
-                    do {
-                        cout << "Kiek nuskaityti studentu? " << endl;
+                                while( zodziai != "Egz."){
+                                    F>>zodziai;
+                                    pv++;
+                                }
 
-                        while (!(cin >> stud) || stud <= 0 || stud > lineCount) {
-                            cout << "Klaida. Iveskite skaiciu nuo 1 iki " << lineCount << "." << endl;
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
+                                pv=pv-3;
 
-                    } while (stud <= 0 || stud > lineCount);
+                                for(int l=0; l<stud; l++){
+                                    double suma=0.0;
+                                    C.paz.clear();
+                                    F>>C.pav>>C.var;
 
-                }
+                                    for(int i=0; i<pv; i++){
+                                        F>>z;
+                                        C.paz.push_back(z);
+                                        suma=suma+z;
+                                    }
 
-                if(numeris==3){
-                    wp="studentai1000000.txt";
-                    ifstream file(wp);
-                    int lineCount = 0;
-                    string line;
-                    while (getline(file, line)) {
-                        lineCount++;
-                    }
-                    file.close();
+                                    sort(C.paz.begin(), C.paz.end());
 
-                    do {
-                        cout << "Kiek nuskaityti studentu? " << endl;
+                                    C.vid=suma/pv;
 
-                        while (!(cin >> stud) || stud <= 0 || stud > lineCount) {
-                            cout << "Klaida. Iveskite skaiciu nuo 1 iki " << lineCount << "." << endl;
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
+                                    F>>C.egz;
 
-                    } while (stud <= 0 || stud > lineCount);
-
-                }
-
-                if(numeris==4){
-                    wp="kursiokai.txt";
-                    ifstream file(wp);
-                    int lineCount = 0;
-                    string line;
-                    while (getline(file, line)) {
-                        lineCount++;
-                    }
-                    file.close();
-
-                    do {
-                        cout << "Kiek nuskaityti studentu? " << endl;
-
-                        while (!(cin >> stud) || stud <= 0 || stud > lineCount) {
-                            cout << "Klaida. Iveskite skaiciu nuo 1 iki " << lineCount << "." << endl;
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
-
-                    } while (stud <= 0 || stud > lineCount);
-
-                }
-
-                ifstream F(wp);
-
-                auto start = chrono::steady_clock::now();
-
-                while( zodziai != "Egz."){
-                    F>>zodziai;
-                    pv++;
-                }
-
-                pv=pv-3;
-
-                for(int l=0; l<stud; l++){
-                    double suma=0.0;
-                    C.paz.clear();
-                    F>>C.pav>>C.var;
-
-                    for(int i=0; i<pv; i++){
-                        F>>z;
-                        C.paz.push_back(z);
-                        suma=suma+z;
-                    }
-
-                    sort(C.paz.begin(), C.paz.end());
-
-                    C.vid=suma/pv;
-
-                    F>>C.egz;
-
-                    C.galutinis=(C.vid*0.4)+(0.6*C.egz);
+                                    C.galutinis=(C.vid*0.4)+(0.6*C.egz);
 
                     C.med=mediana(pv,C);
 

@@ -7,7 +7,7 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include <chrono>
-#include<string>
+#include <string>
 
 struct Pazymiai{
     std::string var;
