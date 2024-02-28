@@ -5,3 +5,14 @@
 4. Priklausomai nuo pasirinktos pozicijos, vartotojas suvedęs paskutinius duomenis mato lentelę su rezultatais, kurią galima tęsti pildyti arba paspaudus 5. - baigti programą.
 5. Pozicijoje 4. galima pasirinkti duomenų išvedimo būdą: į ekraną arba į tekstinį failą, bei rūšiavimą pagal pavardę, vardą, galutinį pažymį ir medianą.
 6. Rezultatų lentelėje/faile išvedami studentų: Pavardė, Vardas, Galutinis(Vid.) ir Galutinis(Med.).
+   # Testavimas
+     Failas               | Vidurkis
+   --------------------------
+   "studentai10000.txt"   | 0.152181 s
+   -------------------------- 
+   "studentai100000.txt"  | 1.54266 s
+   --------------------------
+   "studentai1000000.txt" | 2.32436 s
+   --------------------------
+   "kursiokai.txt"        | 0.0002516 s
+   --------------------------
