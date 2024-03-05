@@ -25,7 +25,7 @@ void rezultataifailas(std::vector<Pazymiai> hh, std::string failiukas);
 
 double mediana(int u, Pazymiai h);
 
-void generuojam(int bivi, std::string zhiazhi);
+void generuojam(int b, std::string zh);
 
 
 #endif // PAGALBINES_H_INCLUDED

@@ -40,17 +40,17 @@ double mediana(int u, Pazymiai h){
     return h.med;
 }
 
-void generuojam(int bivi, std::string zhiazhi){
-    std::ofstream V(zhiazhi);
+void generuojam(int b, std::string zh){
+    std::ofstream V(zh);
     V <<"Pavarde "<<" "<< "Vardas "<<" ";
     int kiki;
-    kiki = (rand() % 15) + 5; //std?
+    kiki = (rand() % 15) + 5;
     for(int i=0; i<kiki; i++){
     V<< " ND "<<i+1<<" ";
     }
     V<< "Egz. "<<std::endl;
 
-    for(int i=0; i<bivi; i++){
+    for(int i=0; i<b; i++){
         
         V<<"Pavarde"<<i+1<<" "<<"Vardas"<<i+1<<" ";
         for(int j=0; j<kiki+1; j++){
@@ -59,5 +59,5 @@ void generuojam(int bivi, std::string zhiazhi){
         }
         V<<std::endl;        
     }
-    
+
 }
