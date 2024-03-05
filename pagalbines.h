@@ -27,5 +27,9 @@ double mediana(int u, Pazymiai h);
 
 void generuojam(int b, std::string zh);
 
+void failuskaick(std::string wp, Pazymiai hi);
+
+void spausdintuvas(std::string zekai, std::string malaciai, const auto z, const auto f );
+
 
 #endif // PAGALBINES_H_INCLUDED
