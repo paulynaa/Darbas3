@@ -8,7 +8,7 @@ int s;
 int i=0;
 double laiku_suma = 0.0;
 
-vector<Pazymiai> P;
+vector<Pazymiai> P, Z;
 
 
 int main ()
@@ -506,12 +506,24 @@ int main ()
             }
 
             case 5:{
+                Pazymiai C;
                 generuojam(1000, "1k.txt");
                 generuojam(10000, "10k.txt");
                 generuojam(100000, "100k.txt");
                 generuojam(1000000, "1kk.txt");
                 generuojam(10000000, "10kk.txt");
                 cout<<"Failai sugeneruoti! "<<endl;
+
+                failuskaick("1k.txt", C);
+                spausdintuvas("lopukai1.txt", "saunuoliukai1.txt", Z, P);
+                failuskaick("10k.txt", C);
+                spausdintuvas("lopukai2.txt", "saunuoliukai2.txt", Z, P);
+                failuskaick("100k.txt", C);
+                spausdintuvas("lopukai3.txt", "saunuoliukai3.txt", Z, P);
+                failuskaick("1kk.txt", C);
+                spausdintuvas("lopukai4.txt", "saunuoliukai4.txt", Z, P);
+                failuskaick("10kk.txt", C);
+                spausdintuvas("lopukai5.txt", "saunuoliukai5.txt", Z, P);
                 break;
             }
             case 6:{
