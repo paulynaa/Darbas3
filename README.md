@@ -13,7 +13,7 @@ Ištirsime, kaip pasikeistų programos sparta naudojant skirtingo tipo konteiner
 2. RAM: 16,0 GB
 3. HDD: SAMSUNG MZVL2512HCJQ-00BL7
 # Pirmo testo rezultatas
-|  <td colspan="3"> <vector> </td> <td colspan="3"> <deque> </td> <td colspan="3"> <list> </td> ||||||||||
+|  <td colspan="3"> vector </td> <td colspan="3"> deque </td> <td colspan="3"> list </td> ||||||||||
 |----|------|---------|---------|----------|------------|----------|---------|-----|-----|
 |Failai| Nuskaitymas | Rūšiavimas | Išvedimas |  Nuskaitymas | Rūšiavimas | Išvedimas |  Nuskaitymas | Rūšiavimas | Išvedimas | 
 | 1 000 | 0.007 s.| 0 s.| 0.009 s. | 0.008 s.| 0 s. | 0.008 s. | 0.016 s. | 0 s.| 0.019 s.|
