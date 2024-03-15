@@ -9,9 +9,9 @@
 # Pirmas testas
 Ištirsime, kaip pasikeistų programos sparta naudojant skirtingo tipo konteinerius: std::vector<Pazymiai>, std::list<Pazymiai> ir std::deque<Pazymiai>. Testavimo tikslumui naudosiu tuos pačius sugeneruotus studentų failus su 1 000, 10 000, 100 000, 1 000 000, 10 000 000 įrašų ir fiksuosiu šiuos žingsnius: duomenų nuskaitymą iš failų į atitinkamą konteinerį, studentų rūšiavimą didėjimo tvarką konteineryje, studentų skirstymą  į dvi grupes/kategorijas.
 # Testavimo sistemos parametrai
-CPU: 11th Gen Intel Core i7-1165G7 2.80GHz
-RAM: 16,0 GB
-HDD: SAMSUNG MZVL2512HCJQ-00BL7
+1. CPU: 11th Gen Intel Core i7-1165G7 2.80GHz
+2. RAM: 16,0 GB
+3. HDD: SAMSUNG MZVL2512HCJQ-00BL7
 # Pirmo testo rezultatas
 |  <td colspan="3"> <vector> </td> <td colspan="3"> <deque> </td> <td colspan="3"> <list> </td> ||||||||||
 |----|------|---------|---------|----------|------------|----------|---------|-----|-----|
