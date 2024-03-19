@@ -16,9 +16,9 @@ Ištirsime, kaip pasikeistų programos sparta naudojant skirtingo tipo konteiner
 # Pirmo testo rezultatas
 |  <td colspan="3"> vector </td> <td colspan="3"> deque </td> <td colspan="3"> list </td> ||||||||||
 |----|------|---------|---------|----------|------------|----------|---------|-----|-----|
-|Failai| Nuskaitymas | Rūšiavimas | Išvedimas |  Nuskaitymas | Rūšiavimas | Išvedimas |  Nuskaitymas | Rūšiavimas | Išvedimas | 
-| 1 000 | 0.007 s.| 0 s.| 0.009 s. | 0.008 s.| 0 s. | 0.008 s. | 0.016 s. | 0 s.| 0.019 s.|
-| 10 000| 0.048 s. | 0.016 s.| 0.064 s.| 0.057 s.| 0.032 s.| 0.064 s.| 0.132 s.| 0.013 s.| 0.09 s.|
-| 100 000|0.194 s.| 0.161 s.| 0.507 s.| 0.297 s.| 0.352 s.| 0.612 s.| 0.557 s.| 0.081 s.| 0.697 s.|
-| 1 000 000| 3.686 s.| 1.826 s. | 4.932 s.| 5.280 s.| 4.809 s.| 6.144 s.|11.613 s.| 1.398 s.| 8.976 s.|
-| 10 000 000| 47.372 s.| 23.126 s.| 61.237 s.| 62. 396 s. |65.301 s.| 119.168 s.| 127.846 s.| 23.214 s.| 105.681 s.|
+|Failai| Nuskaitymas | Skirstymas | Rūšiavimas |  Nuskaitymas | Skirstymas | Rūšiavimas |  Nuskaitymas | Skirstymas | Rūšiavimas | 
+| 1 000 | 0.003 s.| 0.001 s.| 0.002 s. | 0.004 s.| 0.001 s. | 0.001 s. | 0.007 s. | 0.001 s.| 0.001 s.|
+| 10 000| 0.014 s. | 0.001 s.| 0.009 s.| 0.028 s.| 0.004 s.| 0.018 s.| 0.093 s.| 0.017 s.| 0.008 s.|
+| 100 000|0.078 s.| 0.008 s.| 0.103 s.| 0.097 s.| 0.015 s.| 0.238 s.| 0.430 s.| 0.071 s.| 0.077 s.|
+| 1 000 000| 1.709 s.| 0.219 s. | 1.320 s.| 1.807 s.| 0.246 s.| 3.197 s.| 8.189 s.| 1.638 s.| 1.976 s.|
+| 10 000 000| 14.763 s.| 1.979 s.| 17.176 s.| 17.203 s. | 2.467 s.| 42.384 s.| 96.846 s.| 15.214 s.| 22.681 s.|
