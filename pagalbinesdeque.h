@@ -29,10 +29,14 @@ double mediana(int u, Pazymiai h);
 
 void generuojam(int studentusk, std::string failopav);
 
-void failuskaick(std::string wp, Pazymiai hi,std::deque<Pazymiai>& S, std::deque<Pazymiai>& P, std::deque<Pazymiai>& Z);
+void failuskaick(std::string wp, Pazymiai hi, std::deque<Pazymiai>& P, std::deque<Pazymiai>& Z);
+
+void failuskaickstrategija1(std::string wp, Pazymiai hi,std::deque<Pazymiai>& S, std::deque<Pazymiai>& P, std::deque<Pazymiai>& Z);
+
+void failuskaickstrategija2(std::string wp, Pazymiai hi, std::deque<Pazymiai>& P, std::deque<Pazymiai>& Z);
+
+void failuskaickstrategija3(std::string wp, Pazymiai hi,std::deque<Pazymiai>& S, std::deque<Pazymiai>& P, std::deque<Pazymiai>& Z);
 
 void spausdintuvas(std::string zekai, std::string malaciai, std::deque<Pazymiai> P, std::deque<Pazymiai> Z );
-
-
 
 #endif // PAGALBINES_H_INCLUDED
