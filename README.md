@@ -123,3 +123,32 @@ Lyginsime nuskaitymo, skirstymo ir rūšiavimo laikus. Taip pat uzimamos atminti
 Nors 1 strategija, palyginus su kitais konteineriais, veikia ilgiau, bet užima iki 5 GB atminties.
 2 strategija akivaizdžiai neužima daug atminties, bet veikia lėčiausiai iš visų 3 konteinerių.
 3 strategija neefektyvi visais atžvilgiais.
+# Programos diegimo instrukcijos
+1. Pirma, turite susikurti savo GitHub paskyrą. Galite pasinaudoti instrukcijomis: https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
+2. Norėdami rasti kodą, įveskite nuorodą į paieškos eilę. Pavyzdžiui: https://github.com/paulynaa/Darbas1/tree/v1.0
+3. Atidarykite "Command Prompt" (komandinę eilutę) savo kompiuteryje.
+4. Į terminalą įveskite šią komandą: git clone https://github.com/paulynaa/Darbas1.git
+5. Atidarykite programą, kurioje norite paleisti kodą. Pvz. Paleiskite CodeBlocks IDE. Jei dar neparsisiuntėte jos, galite tai padaryti iš oficialios svetainės: https://www.codeblocks.org/downloads/
+6. Kai CodeBlocks įdiegtas, atidarykite jį iš jūsų programų sąrašo arba darbalaukio shortcut'o.
+7. Sukurkite naują projektą, pasirinkdami "File" > "New" > "Project..." iš meniu.
+8. Pasirinkite "Console Application" ir spustelėkite "Go."
+9. Pasirinkite "C++" kaip kalbą ir spustelėkite "Next."
+10. Įveskite projekto pavadinimą ir pasirinkite direktoriją, kur norite išsaugoti savo projekto failus. Tada spustelėkite "Next."
+11. Pasirinkite "GNU GCC Compiler" ir spustelėkite "Finish."
+12. Projekto darbalaukyje raskite vietą, kurioje klonavote GitHub saugyklą, naudodami "File" > "Open" meniu parinktį.
+13. Pasirinkite aplanką "Darbas1" ir spustelėkite "Open", kad įkeltumėte projekto failus į CodeBlocks.
+14. CodeBlocks darbalaukyje turėtumėte pamatyti failus iš klonuotos saugyklos. Dukart spustelėkite pagrindinį šaltinio failą (main***.cpp), kad jį atidarytumėte.
+15. Peržiūrėkite kodą ir atlikite bet kokius būtinus pakeitimus ar pridėjimus.
+16. Kai esate pasiruošę sukompiliuoti ir paleisti kodą, spustelėkite "Build and run" mygtuką įrankių juostoje arba pasirinkite "Build" > "Build and run" iš meniu.
+17. CodeBlocks sukompiliuos kodą ir paleis programą. Jei nėra klaidų, turėtumėte pamatyti rezultatą CodeBlocks konsolės lange.
+18. Dirbant su terminalu galite paleisti programą naudojant makefile failus, prikabintus repozitorijoje, priklausomai nuo norimos programos įrašykite :
+    make vektoriai
+    make programa
+    arba
+    make deque
+    make programa
+    arba
+    make list
+    make programa
+19. Kaip naudotis ir kokiu principu veikia programa galite matyti pačioj pradžioj README failo.
+     
