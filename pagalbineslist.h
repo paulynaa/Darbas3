@@ -28,7 +28,15 @@ double mediana(int u, Pazymiai h);
 
 void generuojam(int studentusk, std::string failopav);
 
-void failuskaick(std::string wp, Pazymiai hi,std::list<Pazymiai>& S, std::list<Pazymiai>& P, std::list<Pazymiai>& Z);
+void failuskaick(std::string wp, Pazymiai hi, std::list<Pazymiai>& P, std::list<Pazymiai>& Z);
+
+void failuskaickstrategija1(std::string wp, Pazymiai hi,std::list<Pazymiai>& S, std::list<Pazymiai>& P, std::list<Pazymiai>& Z);
+
+void failuskaickstrategija2(std::string wp, Pazymiai hi, std::list<Pazymiai>& P, std::list<Pazymiai>& Z);
+
+void failuskaickstrategija3(std::string wp, Pazymiai hi,std::list<Pazymiai>& S, std::list<Pazymiai>& P, std::list<Pazymiai>& Z);
+
+void spausdintuvas(std::string zekai, std::string malaciai, std::list<Pazymiai> P, std::list<Pazymiai> Z );
 
 void spausdintuvas(std::string zekai, std::string malaciai, std::list<Pazymiai> P, std::list<Pazymiai> Z );
 
