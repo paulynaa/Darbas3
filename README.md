@@ -142,13 +142,13 @@ Nors 1 strategija, palyginus su kitais konteineriais, veikia ilgiau, bet užima 
 16. Kai esate pasiruošę sukompiliuoti ir paleisti kodą, spustelėkite "Build and run" mygtuką įrankių juostoje arba pasirinkite "Build" > "Build and run" iš meniu.
 17. CodeBlocks sukompiliuos kodą ir paleis programą. Jei nėra klaidų, turėtumėte pamatyti rezultatą CodeBlocks konsolės lange.
 18. Dirbant su terminalu galite paleisti programą naudojant makefile failus, prikabintus repozitorijoje, priklausomai nuo norimos programos įrašykite :
-    make vektoriai
-    make programa
-    arba
-    make deque
-    make programa
-    arba
-    make list
-    make programa
+    * make vektoriai
+    * make programa
+    * arba
+    * make deque
+    * make programa
+    * arba
+    * make list
+    * make programa
 19. Kaip naudotis ir kokiu principu veikia programa galite matyti pačioj pradžioj README failo.
      
