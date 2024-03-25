@@ -40,14 +40,14 @@ int main ()
 
                     double suma=0.0;
 
-                    cout<<"Iveskite "<<i+1<<" pavarde (noretume baigti spauskite 4):   "<<endl;
+                    cout<<"Iveskite "<<i+1<<" pavarde (noredami baigti spauskite 4):   "<<endl;
 
                     cin>>xx;
                     C.setPav(xx);
                     if(C.getPav()=="4" || C.getVar()=="4"){
                         break;
                     }
-                    cout<<"Iveskite "<<i+1<<" varda (noretume baigti spauskite 4):   "<<endl;
+                    cout<<"Iveskite "<<i+1<<" varda (noredami baigti spauskite 4):   "<<endl;
                     cin>>y;
                     C.setVar(y);
                     if(C.getPav()=="4" || C.getVar()=="4"){
@@ -369,7 +369,8 @@ string xx, yy;
                 int pv=0;
                 int numeris;
                 string wp;
-
+string xx, yy;
+int egg;
                 cout<<"Pasirinkite is kurio failo norite nuskaityti: "<<endl;
                 cout<<"1. studentai10000 "<<"2. studentai100000 "<<"3. studentai1000000 "<<"4. kursiokai5 "<<endl;
 
@@ -436,24 +437,30 @@ string xx, yy;
 
                                 for(int l=0; l<stud; l++){
                                     double suma=0.0;
-                                    C.paz.clear();
-                                    F>>C.pav>>C.var;
-
+                                    //C.paz.clear();
+                                    F>>xx>>yy;
+                                    C.setPav(xx);
+                                    C.setVar(yy);
+                                    //cout<<"var pav "<<C.getPav()<<" "<<C.getVar()<<endl;
                                     for(int i=0; i<pv; i++){
                                         F>>z;
-                                        C.paz.push_back(z);
+                                        //C.paz.push_back(z);
+                                        C.setPaz(z);
+                                        //cout<<"paz "<<C.getPazN(C.getPaz(),l++)<<endl;
                                         suma=suma+z;
                                     }
 
-                                    sort(C.paz.begin(), C.paz.end());
+                                    //sort(C.paz.begin(), C.paz.end());
+                                    C.sortPaz(C);
 
-                                    C.vid=suma/pv;
+                                    C.setVid(suma/pv);
 
-                                    F>>C.egz;
+                                    F>>egg;
+                                    C.setEgz(egg);
 
-                                    C.galutinis=(C.vid*0.4)+(0.6*C.egz);
+                                    C.setGalutinis((C.getVid()*0.4)+(0.6*C.getEgz()));
 
-                    C.med=mediana(pv,C);
+                    C.setMed(mediana(pv,C));
 
                     P.push_back(C);
 
@@ -481,19 +488,19 @@ string xx, yy;
                 }
 
                 if(xyz==1){
-                    sort(C.pav.begin(),C.pav.end());
+                    sort(C.getPav().begin(),C.getPav().end());
                 }
                 if(xyz==2){
-                    sort(C.var.begin(),C.var.end());
+                    sort(C.getVar().begin(),C.getVar().end());
                 }
                 if(xyz==3){
                     sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
-                        return a.galutinis < b.galutinis;
+                        return a.getGalutinis() < b.getGalutinis();
                     });
                 }
                 if(xyz==4){
                     sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
-                        return a.med < b.med;
+                        return a.getMed() < b.getMed();
                     });
                 }
 
@@ -516,7 +523,7 @@ string xx, yy;
 
                 break;
             }
-/*
+
             case 5:{
                 Pazymiai C;
                 cout<<"1k :"<<endl;
@@ -532,41 +539,41 @@ string xx, yy;
                 cout<<"Failai sugeneruoti! "<<endl;
                 cout<<endl;
             }
+
             case 6:{
                 Pazymiai C;
-                cout<<"1k :"<<endl;
-                //failuskaick("1k.txt", C,  P, Z);
-                //failuskaickstrategija1("1k.txt", C, S, P, Z);
-                //failuskaickstrategija2("1k.txt", C,  P, Z);
-                failuskaickstrategija3("1k.txt", C, S, P, Z);
-                spausdintuvas("lopukai1.txt", "saunuoliukai1.txt", P, Z);
-                cout<<"10k :"<<endl;
-                //failuskaick("10k.txt", C, P, Z);
-                //failuskaickstrategija1("10k.txt", C, S, P, Z);
-                //failuskaickstrategija2("10k.txt", C, P, Z);
-                failuskaickstrategija3("10k.txt", C, S, P, Z);
-                spausdintuvas("lopukai2.txt", "saunuoliukai2.txt",P, Z);
-                cout<<"100k :"<<endl;
-                //failuskaick("100k.txt", C, P, Z);
-                //failuskaickstrategija1("100k.txt", C, S, P, Z);
-                //failuskaickstrategija2("100k.txt", C, P, Z);
-                failuskaickstrategija3("100k.txt", C, S, P, Z);
-                spausdintuvas("lopukai3.txt", "saunuoliukai3.txt",P, Z);
-                cout<<"1mln :"<<endl;
-                //failuskaick("1kk.txt", C, P, Z);
-                //failuskaickstrategija1("1kk.txt", C, S, P, Z);
-                //failuskaickstrategija2("1kk.txt", C, P, Z);
-                failuskaickstrategija3("1kk.txt", C, S, P, Z);
-                spausdintuvas("lopukai4.txt", "saunuoliukai4.txt",P, Z);
-                cout<<"10mln :"<<endl;
-                //failuskaick("10kk.txt", C, P, Z);
-                //failuskaickstrategija1("10kk.txt", C, S, P, Z);
-                //failuskaickstrategija2("10kk.txt",C, P, Z);
-                failuskaickstrategija3("10kk.txt", C, S, P, Z);
-                spausdintuvas("lopukai5.txt", "saunuoliukai5.txt",P, Z);
+    cout << "Enter the strategy (1, 2, 3, 4): ";
+    int strategy;
+    cin >> strategy;
+
+    const vector<string> filenames = {"1k.txt", "10k.txt", "100k.txt", "1kk.txt", "10kk.txt"};
+    const vector<string> lopukaiFilenames = {"lopukai1.txt", "lopukai2.txt", "lopukai3.txt", "lopukai4.txt", "lopukai5.txt"};
+    const vector<string> saunuoliukaiFilenames = {"saunuoliukai1.txt", "saunuoliukai2.txt", "saunuoliukai3.txt", "saunuoliukai4.txt", "saunuoliukai5.txt"};
+
+    for (int i = 0; i < filenames.size(); ++i) {
+        cout << filenames[i] << " :" << endl;
+        switch (strategy) {
+            case 1:
+                failuskaickstrategija1(filenames[i], C, S, P, Z);
                 break;
+            case 2:
+                failuskaickstrategija2(filenames[i], C, P, Z);
+                break;
+            case 3:
+                failuskaickstrategija3(filenames[i], C, S, P, Z);
+                break;
+            case 4:
+                failuskaick(filenames[i], C, P, Z);
+                break;
+            default:
+                cout << "Invalid strategy!" << endl;
+                break;
+        }
+        spausdintuvas(lopukaiFilenames[i], saunuoliukaiFilenames[i], P, Z);
+    }
+    break;
             }
-            */
+
             case 7:{
                 cout<<"Programa baigta."<<endl;
                 return 0;
