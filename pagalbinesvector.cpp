@@ -1,6 +1,30 @@
 #include "pagalbinesvector.h"
 using namespace std;
 
+
+Pazymiai::Pazymiai() : vid_(0), egz_(0), galutinis_(0), med_(0) {}
+
+Pazymiai::Pazymiai(std::string var, std::string pav, double vid, int egz, const std::vector<int>& paz, double galutinis, double med)
+    : var_(var), pav_(pav), vid_(vid), egz_(egz), paz_(paz), galutinis_(galutinis), med_(med) {}
+
+Pazymiai::~Pazymiai() {}
+
+std::string Pazymiai::getVar() const { return var_; }
+std::string Pazymiai::getPav() const { return pav_; }
+double Pazymiai::getVid() const { return vid_; }
+int Pazymiai::getEgz() const { return egz_; }
+std::vector<int> Pazymiai::getPaz() const { return paz_; }
+double Pazymiai::getGalutinis() const { return galutinis_; }
+double Pazymiai::getMed() const { return med_; }
+
+void Pazymiai::setVar(const std::string& newVar) { var_ = newVar; }
+void Pazymiai::setPav(const std::string& newPav) { pav_ = newPav; }
+void Pazymiai::setVid(double newVid) { vid_ = newVid; }
+void Pazymiai::setEgz(int newEgz) { egz_ = newEgz; }
+void Pazymiai::setPaz(const std::vector<int>& newPaz) { paz_ = newPaz; }
+void Pazymiai::setGalutinis(double newGalutinis) { galutinis_ = newGalutinis; }
+void Pazymiai::setMed(double newMed) { med_ = newMed; }
+
 void rezultatai(std::vector<Pazymiai> hh){
     std::cout << std::left << std::setw(15) << "Pavarde " << std::setw(15) << "Vardas" << std::setw(17) << "Galutinis (Vid.)"
               << " / " << std::setw(17) << "Galutinis (Med.)" << std::endl;

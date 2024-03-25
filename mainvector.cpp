@@ -6,7 +6,6 @@ int c;
 int x;
 int s;
 int i=0;
-//double laiku_suma = 0.0;
 
 std::vector<Pazymiai> S, P, Z;
 
@@ -205,9 +204,7 @@ int main ()
                                 cin >> C.egz;
                             }
                         } catch (const std::exception& e) {
-                            // Handle the exception
                             cerr << "Exception: " << e.what() << endl;
-                            // Optionally, take further action or exit the program
                             }
                         cout << endl;
                     }
