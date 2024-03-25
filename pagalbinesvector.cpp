@@ -1,42 +1,18 @@
 #include "pagalbinesvector.h"
 using namespace std;
 
-
-Pazymiai::Pazymiai() : vid_(0), egz_(0), galutinis_(0), med_(0) {}
-
-Pazymiai::Pazymiai(std::string var, std::string pav, double vid, int egz, const std::vector<int>& paz, double galutinis, double med)
-    : var_(var), pav_(pav), vid_(vid), egz_(egz), paz_(paz), galutinis_(galutinis), med_(med) {}
-
-Pazymiai::~Pazymiai() {}
-
-std::string Pazymiai::getVar() const { return var_; }
-std::string Pazymiai::getPav() const { return pav_; }
-double Pazymiai::getVid() const { return vid_; }
-int Pazymiai::getEgz() const { return egz_; }
-std::vector<int> Pazymiai::getPaz() const { return paz_; }
-double Pazymiai::getGalutinis() const { return galutinis_; }
-double Pazymiai::getMed() const { return med_; }
-
-void Pazymiai::setVar(const std::string& newVar) { var_ = newVar; }
-void Pazymiai::setPav(const std::string& newPav) { pav_ = newPav; }
-void Pazymiai::setVid(double newVid) { vid_ = newVid; }
-void Pazymiai::setEgz(int newEgz) { egz_ = newEgz; }
-void Pazymiai::setPaz(const std::vector<int>& newPaz) { paz_ = newPaz; }
-void Pazymiai::setGalutinis(double newGalutinis) { galutinis_ = newGalutinis; }
-void Pazymiai::setMed(double newMed) { med_ = newMed; }
-
 void rezultatai(std::vector<Pazymiai> hh){
     std::cout << std::left << std::setw(15) << "Pavarde " << std::setw(15) << "Vardas" << std::setw(17) << "Galutinis (Vid.)"
               << " / " << std::setw(17) << "Galutinis (Med.)" << std::endl;
     std::cout << "--------------------------------------------------------" << std::endl;
 
     for(const auto &studentas : hh){
-        std::cout << std::left << std::setw(15) << studentas.pav << std::setw(15) << studentas.var << std::setw(17)
-                  << std::fixed << std::setprecision(2) << studentas.galutinis << std::setw(17) << std::fixed
-                  << std::setprecision(2) << studentas.med << std::endl;
+        std::cout << std::left << std::setw(15) << studentas.getPav() << std::setw(15) << studentas.getVar() << std::setw(17)
+                  << std::fixed << std::setprecision(2) << studentas.getGalutinis() << std::setw(17) << std::fixed
+                  << std::setprecision(2) << studentas.getMed() << std::endl;
     }
 }
-
+/*
 void rezultataifailas(std::vector<Pazymiai> hh, std::string failiukas){
     std::ofstream R(failiukas);
 
@@ -51,19 +27,20 @@ void rezultataifailas(std::vector<Pazymiai> hh, std::string failiukas){
     }
     R.close();
 }
-
+*/
 double mediana(int u, Pazymiai h){
     int vidurys = u / 2;
 
     if (u % 2 == 0){
-        h.med = double((h.paz[vidurys - 1] + h.paz[vidurys]) / 2.0);
+        h.setMed( double((h.getPazN( h.getPaz(),vidurys - 1) + h.getPazN(h.getPaz(),vidurys)) / 2.0));
     }
     else{
-        h.med = double(h.paz[vidurys]);
+        h.setMed ( double(h.getPazN(h.getPaz(),vidurys)));
     }
 
-    return h.med;
+    return h.getMed();
 }
+/*
 void generuojam(int studentusk, std::string failopav){
     auto start_time = std::chrono::high_resolution_clock::now();
     std::ofstream V(failopav);
@@ -547,5 +524,6 @@ void spausdintuvas(std::string zekai, std::string malaciai, vector<Pazymiai> P, 
     std::cout << "Isvedimo trukme: " << isvestis << " milisekundes." << std::endl;
 
 }
+*/
 
 

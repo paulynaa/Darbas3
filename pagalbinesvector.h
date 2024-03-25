@@ -9,7 +9,7 @@
 #include <chrono>
 #include <string>
 #include <stdexcept>
-/*class Pazymiai{
+class Pazymiai{
     private:
     std::string var_;
     std::string pav_;
@@ -30,19 +30,23 @@ public:
     void setPav(const std::string& newPav) { pav_ = newPav; }
     void setVid(double newVid) { vid_ = newVid; }
     void setEgz(int newEgz) { egz_ = newEgz; }
-    void setPaz(const std::vector<int>& newPaz) { paz_ = newPaz; }
+    //void setPaz(const std::vector<int>& newPaz) { paz_ = newPaz; std::push_back}
+    void setPaz(int newPaz) { paz_.push_back(newPaz); }
+    //void setPazR(int newPaz) {paz_.push_back((rand() % 10) + 1)}
     void setGalutinis(double newGalutinis) { galutinis_ = newGalutinis; }
     void setMed(double newMed) { med_ = newMed; }
+    void sortPaz(Pazymiai& C) { sort(C.paz_.begin(), C.paz_.end());}
 
     std::string getVar() const { return var_; }
     std::string getPav() const { return pav_; }
     double getVid() const { return vid_; }
     int getEgz() const { return egz_; }
     std::vector<int> getPaz() const { return paz_; }
+    int getPazN(const std::vector<int>& newPaz, int pos) const { return newPaz[pos]; }
     double getGalutinis() const { return galutinis_; }
     double getMed() const { return med_; }
 };
-
+/*
 class Pazymiai{
     public:
     std::string var;
@@ -59,40 +63,6 @@ class Pazymiai{
     ~Pazymiai() {}
 };
 */
-class Pazymiai {
-private:
-    std::string var_;
-    std::string pav_;
-    double vid_;
-    int egz_;
-    std::vector<int> paz_;
-    double galutinis_;
-    double med_;
-
-public:
-    Pazymiai();
-    Pazymiai(std::string var, std::string pav, double vid, int egz, const std::vector<int>& paz, double galutinis, double med);
-    ~Pazymiai();
-
-    // Getters
-    std::string getVar() const;
-    std::string getPav() const;
-    double getVid() const;
-    int getEgz() const;
-    std::vector<int> getPaz() const;
-    double getGalutinis() const;
-    double getMed() const;
-
-    // Setters
-    void setVar(const std::string& newVar);
-    void setPav(const std::string& newPav);
-    void setVid(double newVid);
-    void setEgz(int newEgz);
-    void setPaz(const std::vector<int>& newPaz);
-    void setGalutinis(double newGalutinis);
-    void setMed(double newMed);
-};
-
 
 void rezultatai(std::vector<Pazymiai> hh);
 

@@ -33,19 +33,24 @@ int main ()
             case 1:{
 
                 Pazymiai C;
-                C.vid=0.0;
+                string xx, y;
+                int eg;
+                C.setVid(0.0);
                 do{
 
                     double suma=0.0;
 
                     cout<<"Iveskite "<<i+1<<" pavarde (noretume baigti spauskite 4):   "<<endl;
-                    cin>>C.pav;
-                    if(C.pav=="4" || C.var=="4"){
+
+                    cin>>xx;
+                    C.setPav(xx);
+                    if(C.getPav()=="4" || C.getVar()=="4"){
                         break;
                     }
                     cout<<"Iveskite "<<i+1<<" varda (noretume baigti spauskite 4):   "<<endl;
-                    cin>>C.var;
-                    if(C.pav=="4" || C.var=="4"){
+                    cin>>y;
+                    C.setVar(y);
+                    if(C.getPav()=="4" || C.getVar()=="4"){
                         break;
                     }
 
@@ -70,23 +75,25 @@ int main ()
                                 }
                         }
 
-                        C.paz.push_back(x);
+                        C.setPaz(x);
                         suma = suma + x;
                         j++;
                     } while(x!=11);
 
-                    C.vid=suma/j;
+                    C.setVid(suma/j);
 
                     cout << "Iveskite egzamino rezultata: " << endl;
 
                     try {
-                        cin >> C.egz;
+                        cin>> eg;
+                        C.setEgz(eg);
 
-                        while (cin.fail() || C.egz < 1 || C.egz > 10) {
+                        while (cin.fail() || eg < 1 || eg > 10) {
                             cin.clear();
                             cin.ignore(numeric_limits<streamsize>::max(), '\n');
                             cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-                            cin >> C.egz;
+                            cin>> eg;
+                            C.setEgz(eg);
                         }
                     } catch (const std::exception& e) {
 
@@ -94,14 +101,14 @@ int main ()
 
                     }
 
-                    C.galutinis=(C.vid*0.4)+(0.6*C.egz);
-                    sort(C.paz.begin(), C.paz.end());
+                    C.setGalutinis((C.getVid()*0.4)+(0.6*C.getEgz()));
+                    C.sortPaz(C);
 
-                    C.med=mediana(j,C);
+                    C.setMed(mediana(j,C));
 
                     P.push_back(C);
                     i++;
-                } while(C.pav!="4" || C.var!="4");
+                } while(C.getPav()!="4" || C.getVar()!="4");
 
                 rezultatai(P);
                 break;
@@ -110,18 +117,22 @@ int main ()
             case 2:{
 
                 Pazymiai C;
+                string xx, yy;
+                int egg;
                 do  {
                     double suma = 0.0;
 
                     cout << "Iveskite " << i + 1 << " pavarde (noredami sustoti iveskite 4):   " << endl;
-                    cin >> C.pav;
-                    if (C.pav == "4" || C.var == "4") {
+                    cin >> xx;
+                    C.setPav(xx);
+                    if (C.getPav() == "4" || C.getVar() == "4") {
                         break;
                     }
 
                     cout << "Iveskite " << i + 1 << " varda (noredami sustoti iveskite 4):   " << endl;
-                    cin >> C.var;
-                    if (C.pav == "4" || C.var == "4") {
+                    cin >> yy;
+                    C.setVar(yy);
+                    if (C.getPav() == "4" || C.getVar() == "4") {
                         break;
                     }
 
@@ -139,20 +150,21 @@ int main ()
                         string y;
                         int h = 0;
                         while (y != "ne") {
-                            C.paz.push_back((rand() % 10) + 1);
-                            cout << "Pazymis " << h + 1 << " : " << C.paz[h] << endl;
+                            //C.paz.push_back((rand() % 10) + 1);
+                            C.setPaz((rand() % 10) + 1);
+                            cout << "Pazymis " << h + 1 << " : " << C.getPazN(C.getPaz(),h) << endl;
                             cout << "Ar norite testi generavima? taip arba ne: ";
                             cin >> y;
                             if (y != "taip" && y != "ne") {
                                 cout << "Klaida. Prasome ivesti taip arba ne: ";
                                 cin>>y;
                             }
-                            suma = suma + C.paz[h];
+                            suma = suma + C.getPazN(C.getPaz(),h);
                             h++;
                         }
-                        C.vid = suma / h;
-                        sort(C.paz.begin(), C.paz.end());
-                        C.med=mediana(h,C);
+                        C.setVid(suma / h);
+
+                        C.setMed(mediana(h,C));
                     }
 
                     if (x == 2) {
@@ -165,14 +177,15 @@ int main ()
                             cout << "Iveskite skaiciu nuo 1: ";
                         }
                         for (int l = 0; l < k; l++) {
-                            C.paz.push_back((rand() % 10) + 1);
-                            cout << "Pazymis " << l + 1 << " : " << C.paz[l] << endl;
-                            suma = suma + C.paz[l];
+                            //C.paz.push_back((rand() % 10) + 1);
+                            C.setPaz((rand() % 10) + 1);
+                            cout << "Pazymis " << l + 1 << " : " << C.getPazN(C.getPaz(),l) << endl;
+                            suma = suma + C.getPazN(C.getPaz(),l);
                         }
-                        C.vid = suma / k;
-                        sort(C.paz.begin(), C.paz.end());
+                        C.setVid(suma / k);
+                        C.sortPaz(C);
 
-                        C.med=mediana(k,C);
+                        C.setMed(mediana(k,C));
                     }
 
                     int w;
@@ -187,21 +200,23 @@ int main ()
                     }
 
                     if (w == 1) {
-                        C.egz = (rand() % 10) + 1;
-                        cout << "Egzamino rezultatas: " << C.egz << endl;
+                        C.setEgz((rand() % 10) + 1);
+                        cout << "Egzamino rezultatas: " << C.getEgz() << endl;
                     }
 
                     if (w == 2) {
                         cout << "Iveskite egzamino rezultata: " << endl;
 
                         try {
-                            cin >> C.egz;
+                            cin >> egg;
+                            C.setEgz(egg);
 
-                            while (cin.fail() || C.egz < 1 || C.egz > 10) {
+                            while (cin.fail() || egg < 1 || egg > 10) {
                                 cin.clear();
                                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                                 cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-                                cin >> C.egz;
+                                cin >> egg;
+                                C.setEgz(egg);
                             }
                         } catch (const std::exception& e) {
                             cerr << "Exception: " << e.what() << endl;
@@ -209,10 +224,10 @@ int main ()
                         cout << endl;
                     }
 
-                    C.galutinis = (C.vid * 0.4) + (0.6 * C.egz);
+                    C.setGalutinis((C.getVid() * 0.4) + (0.6 * C.getEgz()));
                     P.push_back(C);
                     i++;
-                } while (C.pav != "4" || C.var != "4");
+                } while (C.getPav() != "4" || C.getVar() != "4");
 
                 rezultatai(P);
                 break;
@@ -220,14 +235,17 @@ int main ()
 
             case 3:{
                 int qq = 0;
+                int egg;
                 string vardai[] = {"Paulina", "Adriana", "Gitanas", "Donald", "Ugne", "Kamile", "Rugile", "Roberta", "Valdemaras", "Jurgis"};
                 string pavardes[] = {"Podgaiska", "Obama", "Trump", "Nauseda", "Sirokyte", "Mockute", "Zobelaite", "Macaite", "Jurpalyte", "Jankauskas"};
-
+string xx, yy;
                 while (qq != 1) {
                     Pazymiai C;
-                    C.pav = pavardes[rand() % 10];
-                    C.var = vardai[rand() % 10];
-                    cout << "Pavarde ir vardas: " << C.pav << " " << C.var << endl;
+                    xx = pavardes[rand() % 10];
+                    C.setPav(xx);
+                    yy = vardai[rand() % 10];
+                    C.setVar(yy);
+                    cout << "Pavarde ir vardas: " << C.getPav() << " " << C.getVar() << endl;
 
                     cout << "Jeigu norite generuoti po viena atsitiktini skaiciu spauskite 1 " << endl;
                     cout<< "Jeigu norite generuoti pasirinkta skaiciu spauskite 2 " << endl;
@@ -244,19 +262,20 @@ int main ()
                         double suma = 0.0;
 
                         while (y != "Ne") {
-                            C.paz.push_back((rand() % 10) + 1);
-                            cout << "Pazymis " << h + 1 << " : " << C.paz[h] << endl;
+                            //C.paz.push_back((rand() % 10) + 1);
+                            C.setPaz((rand() % 10) + 1);
+                            cout << "Pazymis " << h + 1 << " : " << C.getPazN(C.getPaz(),h) << endl;
                             cout << "Ar norite testi generavima? Taip arba Ne: ";
                             cin >> y;
                             cout << endl;
-                            suma = suma + C.paz[h];
+                            suma = suma + C.getPazN(C.getPaz(),h);
                             h++;
                         }
-                        C.vid = suma / h;
+                        C.setVid(suma / h);
 
-                        sort(C.paz.begin(), C.paz.end());
+                        C.sortPaz(C);
 
-                        C.med=mediana(h,C);
+                        C.setMed(mediana(h,C));
                     }
 
                     if (x == 2) {
@@ -271,16 +290,17 @@ int main ()
                         }
 
                         for (int l = 0; l < k; l++) {
-                            C.paz.push_back((rand() % 10) + 1);
-                            cout << "Pazymis " << l + 1 << " : " << C.paz[l] << endl;
-                            suma = suma + C.paz[l];
+                            //C.paz.push_back((rand() % 10) + 1);
+                            C.setPaz((rand() % 10) + 1);
+                            cout << "Pazymis " << l + 1 << " : " << C.getPazN(C.getPaz(),l) << endl;
+                            suma = suma + C.getPazN(C.getPaz(),l);
                         }
 
-                        C.vid = suma / k;
+                        C.setVid(suma / k);
 
-                        sort(C.paz.begin(), C.paz.end());
+                        C.sortPaz(C);
 
-                        C.med=mediana(k,C);
+                        C.setMed(mediana(k,C));
                     }
 
                     int w;
@@ -294,31 +314,31 @@ int main ()
                     }
 
                     if (w == 1) {
-                        C.egz = (rand() % 10) + 1;
-                        cout << "Egzamino rezultatas: " << C.egz << endl;
+                        C.setEgz((rand() % 10) + 1);
+                        cout << "Egzamino rezultatas: " << C.getEgz() << endl;
                     }
 
                     if (w == 2) {
                         cout << "Iveskite egzamino rezultata: " << endl;
 
                         try {
-                            cin >> C.egz;
+                            cin >> egg;
+                            C.setEgz(egg);
 
-                            while (cin.fail() || C.egz < 1 || C.egz > 10) {
+                            while (cin.fail() || egg < 1 || egg > 10) {
                                 cin.clear();
                                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                                 cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-                                cin >> C.egz;
+                                cin >> egg;
+                                C.setEgz(egg);
                             }
                         } catch (const std::exception& e) {
-                            // Handle the exception
                             cerr << "Exception: " << e.what() << endl;
-                            // Optionally, take further action or exit the program
                         }
                         cout << endl;
                     }
 
-                    C.galutinis = (C.vid * 0.4) + (0.6 * C.egz);
+                    C.setGalutinis((C.getVid() * 0.4) + (0.6 * C.getEgz()));
 
                     cout << "Noredami baigti studentu generavima spauskite 1, noredami testi spauskite 2 " << endl;
                     cout << "Jusu pasirinkimas: ";
@@ -349,7 +369,6 @@ int main ()
                 int pv=0;
                 int numeris;
                 string wp;
-                //double laiku_suma=0.0;
 
                 cout<<"Pasirinkite is kurio failo norite nuskaityti: "<<endl;
                 cout<<"1. studentai10000 "<<"2. studentai100000 "<<"3. studentai1000000 "<<"4. kursiokai5 "<<endl;
@@ -448,12 +467,7 @@ int main ()
                 laikai.push_back(laikas);
                 cout<<"Trukme: "<< laikas << " s"<<endl;
 
-                /*for (auto laikas : laikai) {
-                    laiku_suma += laikas;
-                }
-                double laiku_vidurkis =(laikai.size() > 0) ? (laiku_suma / laikai.size()) : 0.0;
-                cout << "Vidutine trukme: " << laiku_vidurkis << " s" << endl;
-                */
+
 
                 cout<<"Jeigu norite rusiuoti pagal pavarde spauskite 1: "<<endl;
                 cout<<"Jeigu norite rusiuoti pagal varda spauskite 2: "<<endl;
@@ -502,7 +516,7 @@ int main ()
 
                 break;
             }
-
+/*
             case 5:{
                 Pazymiai C;
                 cout<<"1k :"<<endl;
@@ -552,6 +566,7 @@ int main ()
                 spausdintuvas("lopukai5.txt", "saunuoliukai5.txt",P, Z);
                 break;
             }
+            */
             case 7:{
                 cout<<"Programa baigta."<<endl;
                 return 0;
