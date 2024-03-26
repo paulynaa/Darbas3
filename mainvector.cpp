@@ -437,14 +437,11 @@ int egg;
 
                                 for(int l=0; l<stud; l++){
                                     double suma=0.0;
-                                    //C.paz.clear();
                                     F>>xx>>yy;
                                     C.setPav(xx);
                                     C.setVar(yy);
-                                    //cout<<"var pav "<<C.getPav()<<" "<<C.getVar()<<endl;
                                     for(int i=0; i<pv; i++){
                                         F>>z;
-                                        //C.paz.push_back(z);
                                         C.setOnePaz(z);
                                         //cout<<"paz "<<C.getPazN(C.getPaz(),l++)<<endl;
                                         suma=suma+z;

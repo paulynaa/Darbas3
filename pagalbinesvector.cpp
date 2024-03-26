@@ -463,7 +463,6 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
         vector<int> nauji_pazymiai;
         for(int i=0; i<pv; i++){
             F>>z;
-            //hi.paz.push_back(z);
             //hi.setOnePaz(z);
             nauji_pazymiai.push_back(z);
             suma=suma+z;
