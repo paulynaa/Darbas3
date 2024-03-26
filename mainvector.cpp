@@ -75,7 +75,7 @@ int main ()
                                 }
                         }
 
-                        C.setPaz(x);
+                        C.setOnePaz(x);
                         suma = suma + x;
                         j++;
                     } while(x!=11);
@@ -151,7 +151,7 @@ int main ()
                         int h = 0;
                         while (y != "ne") {
                             //C.paz.push_back((rand() % 10) + 1);
-                            C.setPaz((rand() % 10) + 1);
+                            C.setOnePaz((rand() % 10) + 1);
                             cout << "Pazymis " << h + 1 << " : " << C.getPazN(C.getPaz(),h) << endl;
                             cout << "Ar norite testi generavima? taip arba ne: ";
                             cin >> y;
@@ -178,7 +178,7 @@ int main ()
                         }
                         for (int l = 0; l < k; l++) {
                             //C.paz.push_back((rand() % 10) + 1);
-                            C.setPaz((rand() % 10) + 1);
+                            C.setOnePaz((rand() % 10) + 1);
                             cout << "Pazymis " << l + 1 << " : " << C.getPazN(C.getPaz(),l) << endl;
                             suma = suma + C.getPazN(C.getPaz(),l);
                         }
@@ -263,7 +263,7 @@ string xx, yy;
 
                         while (y != "Ne") {
                             //C.paz.push_back((rand() % 10) + 1);
-                            C.setPaz((rand() % 10) + 1);
+                            C.setOnePaz((rand() % 10) + 1);
                             cout << "Pazymis " << h + 1 << " : " << C.getPazN(C.getPaz(),h) << endl;
                             cout << "Ar norite testi generavima? Taip arba Ne: ";
                             cin >> y;
@@ -291,7 +291,7 @@ string xx, yy;
 
                         for (int l = 0; l < k; l++) {
                             //C.paz.push_back((rand() % 10) + 1);
-                            C.setPaz((rand() % 10) + 1);
+                            C.setOnePaz((rand() % 10) + 1);
                             cout << "Pazymis " << l + 1 << " : " << C.getPazN(C.getPaz(),l) << endl;
                             suma = suma + C.getPazN(C.getPaz(),l);
                         }
@@ -445,7 +445,7 @@ int egg;
                                     for(int i=0; i<pv; i++){
                                         F>>z;
                                         //C.paz.push_back(z);
-                                        C.setPaz(z);
+                                        C.setOnePaz(z);
                                         //cout<<"paz "<<C.getPazN(C.getPaz(),l++)<<endl;
                                         suma=suma+z;
                                     }

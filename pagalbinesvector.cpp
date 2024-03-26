@@ -115,13 +115,15 @@ void failuskaick(std::string wp, Pazymiai hi, vector<Pazymiai>& P, vector<Pazymi
         hi.setPav(xx);
         hi.setVar(yy);
 
+        vector<int> nauji_pazymiai;
         for(int i=0; i<pv; i++){
             F>>z;
             //hi.paz.push_back(z);
-            hi.setPaz(z);
+            //hi.setOnePaz(z);
+            nauji_pazymiai.push_back(z);
             suma=suma+z;
         }
-
+        hi.setPazymiai(nauji_pazymiai);
         //sort(hi.paz.begin(), hi.paz.end());
         hi.sortPaz(hi);
         hi.setVid(suma/pv);
@@ -233,7 +235,7 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
         for(int i=0; i<pv; i++){
             F>>z;
             //hi.paz.push_back(z);
-            hi.setPaz(z);
+            hi.setOnePaz(z);
             suma=suma+z;
         }
 
@@ -347,7 +349,7 @@ void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, st
         for(int i=0; i<pv; i++){
             F>>z;
             //hi.paz.push_back(z);
-            hi.setPaz(z);
+            hi.setOnePaz(z);
             suma=suma+z;
         }
 
@@ -458,12 +460,15 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
         hi.setPav(xx);
         hi.setVar(yy);
 
+        vector<int> nauji_pazymiai;
         for(int i=0; i<pv; i++){
             F>>z;
             //hi.paz.push_back(z);
-            hi.setPaz(z);
+            //hi.setOnePaz(z);
+            nauji_pazymiai.push_back(z);
             suma=suma+z;
         }
+        hi.setPazymiai(nauji_pazymiai);
 
         //sort(hi.paz.begin(), hi.paz.end());
         hi.sortPaz(hi);
@@ -538,7 +543,127 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
 
 
 }
+/*
+void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z){
 
+    int z;
+    double laikass;
+    string xx,yy;
+    int egg;
+    ifstream file(wp);
+
+    if (!file.is_open()) {
+        cout << "Failas  neegzistuoja!" << endl;
+    }
+    file.close();
+    int lineCount = 0;
+    string line;
+    file.open(wp);
+    while (getline(file, line)) {
+        lineCount++;
+    }
+    file.close();
+
+    ifstream F(wp);
+    string zodziai;
+    int pv=0;
+
+
+    while( zodziai != "Egz."){
+        F>>zodziai;
+        pv++;
+    }
+    S.clear();
+    pv=pv-3;
+    double suum=0;
+    for(int l=0; l<lineCount-1; l++){
+        auto nus = std::chrono::high_resolution_clock::now();
+        double suma=0.0;
+        //hi.paz.clear();
+        F>>xx>>yy;
+        hi.setPav(xx);
+        hi.setVar(yy);
+
+        for(int i=0; i<pv; i++){
+            F>>z;
+            //hi.paz.push_back(z);
+            hi.setOnePaz(z);
+            suma=suma+z;
+        }
+
+        //sort(hi.paz.begin(), hi.paz.end());
+        hi.sortPaz(hi);
+
+        hi.setVid(suma/pv);
+
+        F>>egg;
+        hi.setEgz(egg);
+
+        hi.setGalutinis((hi.getVid()*0.4)+(0.6*hi.getEgz()));
+
+        hi.setMed(mediana(pv,hi));
+        S.push_back(hi);
+
+        auto nusk = std::chrono::high_resolution_clock::now();
+        auto laikas = std::chrono::duration_cast<std::chrono::milliseconds>(nusk - nus).count();
+        laikass=laikass+laikas;
+
+
+    }
+        F.close();
+        auto naujas = std::chrono::high_resolution_clock::now();
+
+        auto partition_point = std::partition(S.begin(), S.end(), [](const Pazymiai& s) {
+        return s.getGalutinis() >= 5;
+    });
+
+    P.assign(S.begin(), partition_point);
+    Z.assign(partition_point, S.end());
+    S.clear();
+    auto naujasp = std::chrono::high_resolution_clock::now();
+    auto naujaslaikas = std::chrono::duration_cast<std::chrono::milliseconds>(naujasp - naujas).count();
+    cout<<" S size "<<S.size()<<endl;
+    cout<<" P size "<< P.size()<<endl;
+    cout<<" Z size "<< Z.size()<<endl;
+    std::cout << "Nuskaitymo trukme: " << laikass << " milisekundes." << std::endl;
+    std::cout << "Skirtymo i naujus konteinerius trukme: " << naujaslaikas << " milisekundes." << std::endl;
+
+    int xyz;
+    cout<<"Jeigu norite rusiuoti pagal galutini pazymi spauskite 1: "<<endl;
+                cout<<"Jeigu norite rusiuoti pagal mediana spauskite 2: "<<endl;
+                while (!(cin >> xyz)) {
+                    cout << "Klaida. Iveskite skaiciu nuo 1 arba 2: " ;
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+                auto pra = std::chrono::high_resolution_clock::now();
+                if(xyz==1){
+
+                    sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+                        return a.getGalutinis() < b.getGalutinis();
+                    });
+                    sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
+                        return aa.getGalutinis() < bb.getGalutinis();
+
+                    });
+                }
+                if(xyz==2){
+
+                    sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+                        return a.getMed() < b.getMed();
+                    });
+                    sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
+                        return aa.getMed() < bb.getMed();
+                    });
+                }auto pab = std::chrono::high_resolution_clock::now();
+
+                        float trukme = std::chrono::duration_cast<std::chrono::milliseconds>(pab - pra).count();
+                        suum=suum+trukme;
+                        std::cout << "Rusiavimo sort trukme: " << suum << " milisekundes." << std::endl;
+
+
+}
+*/
 void spausdintuvas(std::string zekai, std::string malaciai, vector<Pazymiai> P, vector<Pazymiai> Z ){
     auto p = std::chrono::high_resolution_clock::now();
     rezultataifailas(Z, zekai);

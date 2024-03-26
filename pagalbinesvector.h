@@ -21,7 +21,7 @@ class Pazymiai{
 
 public:
     Pazymiai() : vid_(0), egz_(0), galutinis_(0), med_(0) {}
-    Pazymiai(std::string var, std::string pav, double vid, int egz, const std::vector<int>& paz, double galutinis, double med)
+    Pazymiai(std::string var,std::string pav, double vid, int egz, const std::vector<int>& paz, double galutinis, double med)
         : var_(var), pav_(pav), vid_(vid), egz_(egz), paz_(paz), galutinis_(galutinis), med_(med) {}
     ~Pazymiai() {}
 
@@ -31,7 +31,8 @@ public:
     void setVid(double newVid) { vid_ = newVid; }
     void setEgz(int newEgz) { egz_ = newEgz; }
     //void setPaz(const std::vector<int>& newPaz) { paz_ = newPaz; std::push_back}
-    void setPaz(int newPaz) { paz_.push_back(newPaz); }
+    void setOnePaz(int newPaz) { paz_.push_back(newPaz); }
+    void setPazymiai(const std::vector<int>& pazymiai) { paz_ = pazymiai; }
     //void setPazR(int newPaz) {paz_.push_back((rand() % 10) + 1)}
     void setGalutinis(double newGalutinis) { galutinis_ = newGalutinis; }
     void setMed(double newMed) { med_ = newMed; }
