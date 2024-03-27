@@ -61,14 +61,14 @@ Išanalizuosime, kaip keičiasi programos sparta priklausomai nuo kompiliatoriau
 |1 000 000| 1.791 s.| 0.156 s.| 0.220 s.|
 |10 000 000| 21.522 s.| 1.786 s.| 2.880 s.|
 
-Pastebime, kad
+Pastebime, kad didejant flagams, gereja programos sparta, ypac gerai pasirodo -O3 flagas rūšiuojant studentus.
 
 # class
 
 |flag -O |Nuskaitymas|Skirstymas|Rūšiavimas|
 |---|-----|-----------|------------------|
-|1 000 000| 1.801 s.| 0.219 s.| 1.220 s.|pakeisti
-|10 000 000| 18.722 s.| 2.186 s.| 15.480 s.|
+|1 000 000| 5.761 s.| 0.673 s.| 2.650 s.|
+|10 000 000| 51.122 s.| 5.286 s.| 24.780 s.|
 
 |flag -O1 |Nuskaitymas|Skirstymas|Rūšiavimas|
 |---|-----|-----------|------------------|
@@ -80,11 +80,12 @@ Pastebime, kad
 |1 000 000| 2.101 s.| 0.319 s.| 0.720 s.|
 |10 000 000| 22.722 s.| 3.186 s.| 10.660 s.|
 
-optimizuoja sort
 |flag -O3 |Nuskaitymas|Skirstymas|Rūšiavimas|
 |---|-----|-----------|------------------|
 |1 000 000| 2.101 s.| 0.290 s.| 1.780 s.|
 |10 000 000| 22.722 s.| 3.186 s.| 10.480 s.|
+
+Pastebime, kad tokio didelio šuolio rūšiuojant, kaip tai buvo su struct nėra, taipogi nėra didelio skirtumo greityje tarp flago -O2 ir -O3. Visais atvejais programa su struct veikia greičiau.
 
 # .exe file
 
