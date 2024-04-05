@@ -138,13 +138,13 @@ private:
     double med_;
 
 public:
-    // Default constructor
     Pazymiai() : vid_(0), egz_(0), galutinis_(0), med_(0) {}
 
-    // Constructor with parameters
     Pazymiai(std::string var, std::string pav, double vid, int egz, const std::vector<int>& paz,
              double galutinis, double med)
         : var_(var), pav_(pav), vid_(vid), egz_(egz), paz_(paz), galutinis_(galutinis), med_(med) {}
+
+    ~Pazymiai() {paz_.clear(); var_.clear(), pav_.clear();}
 
     // Copy constructor
     Pazymiai(const Pazymiai& other)
@@ -185,10 +185,7 @@ public:
         return *this;
     }
 
-    // Destructor
-    ~Pazymiai() {
-        // No need to clear member variables as they manage their own resources
-    }
+
 
     void setVar(const std::string& newVar) { var_ = newVar; }
         void setPav(const std::string& newPav) { pav_ = newPav; }
