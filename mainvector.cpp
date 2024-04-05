@@ -22,7 +22,8 @@ int main ()
         cout << "4. Nuskaityti is failo" << endl;
         cout << "5. Failu generavimas" << endl;
         cout << "6. Sugeneruotu failu skaiciavimas" << endl;
-        cout << "7. Programa baigta" << endl;
+        cout << "7. Klases testavimas" << endl;
+        cout << "8. Programa baigta" << endl;
         if (!(cin >> pasirinkimas)) {
             cout << "Klaida. Iveskite skaiciu nuo 1 iki 7. " << endl;
             cin.clear();
@@ -570,8 +571,11 @@ int main ()
                 }
                 break;
             }
-
             case 7:{
+                testai();
+                break;
+            }
+            case 8:{
                 cout<<"Programa baigta."<<endl;
                 return 0;
                 break;

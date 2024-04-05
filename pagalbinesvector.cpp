@@ -675,6 +675,102 @@ void spausdintuvas(std::string zekai, std::string malaciai, vector<Pazymiai> P, 
     std::cout << "Isvedimo trukme: " << isvestis << " milisekundes." << std::endl;
 
 }
+void testai() {
+
+    // Konstruktoriu patikrinimas
+    {
+        vector<int> paz = {10, 9, 8};
+        string var = "Jonas";
+        string pav = "Jonaitis";
+        int egz = 7;
+        double vid= 6.4;
+        double galutinis = 9.0;
+        double med = 9.5;
+
+        Pazymiai C(var, pav, vid, egz, paz, galutinis, med);
+
+        const vector<int>& gauti_pazymiai = C.getPaz();
+        const string& gauti_vardas = C.getVar();
+        const string& gauti_pavarde = C.getPav();
+        int gauti_egzamino_rezultatas = C.getEgz();
+        double gauti_galutinis_vid = C.getGalutinis();
+        double gauti_mediana = C.getMed();
+        double gauti_vid= C.getVid();
+
+        // assert tikrina ar salyga yra teisinga
+        assert(gauti_pazymiai == paz);
+        assert(gauti_vardas == var);
+        assert(gauti_pavarde == pav);
+        assert(gauti_vid == vid);
+        assert(gauti_egzamino_rezultatas == egz);
+        assert(gauti_galutinis_vid == galutinis);
+        assert(gauti_mediana == med);
+    }
+
+    // Copy konstruktoriaus patikrinimas
+    {
+        vector<int> paz = {10, 9, 8};
+        string var = "Jonas";
+        string pav = "Jonaitis";
+        int egz = 7;
+        double vid= 7.4;
+        double galutinis = 9.0;
+        double med = 9.5;
+
+        Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
+        Pazymiai copy(zmogus);
+
+        assert(copy.getPaz() == paz);
+        assert(copy.getVar() == var);
+        assert(copy.getPav() == pav);
+        assert(copy.getVid() == vid);
+        assert(copy.getEgz() == egz);
+        assert(copy.getGalutinis() == galutinis);
+        assert(copy.getMed() == med);
+    }
+
+    // Move konstruktoriaus patikrinimas
+    {
+        vector<int> paz = {10, 9, 8};
+        string var = "Jonas";
+        string pav = "Jonaitis";
+        int egz = 7;
+        double galutinis = 9.0;
+        double med = 9.5;
+        double vid=7.4;
+
+        Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
+        Pazymiai copy(move(zmogus));
+
+        // assert tikrina ar salyga yra teisinga
+        assert(copy.getPaz() == paz);
+        assert(copy.getVar() == var);
+        assert(copy.getPav() == pav);
+        assert(copy.getVid() == vid);
+        assert(copy.getEgz() == egz);
+        assert(copy.getGalutinis() == galutinis);
+        assert(copy.getMed() == med);
+    }
+
+    // Destruktoriaus patikrinimas
+    {
+    Pazymiai* C = new Pazymiai();
+
+    C->setOnePaz(10);
+    C->setOnePaz(9);
+    C->setOnePaz(8);
+
+    assert(!C->getPaz().empty());
+
+    delete C;
+
+    Pazymiai naujas_C;
+    assert(naujas_C.getPaz().empty());
+    }
+
+    cout << "Visi testai sekmingi!" << endl;
+
+}
 
 
 

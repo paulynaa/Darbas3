@@ -198,7 +198,9 @@ public:
         void setPazymiai(const std::vector<int>& pazymiai) { paz_ = pazymiai; }
         void setGalutinis(double newGalutinis) { galutinis_ = newGalutinis; }
         void setMed(double newMed) { med_ = newMed; }
+
         void sortPaz(Pazymiai& C) { sort(C.paz_.begin(), C.paz_.end());}
+
         std::string getVar() const { return var_; }
         std::string getPav() const { return pav_; }
         double getVid() const { return vid_; }
@@ -207,44 +209,7 @@ public:
         int getPazN(const std::vector<int>& newPaz, int pos) const { return newPaz[pos]; }
         double getGalutinis() const { return galutinis_; }
         double getMed() const { return med_; }
-    // Overloaded output operator
-    friend std::ostream& operator<<(std::ostream& os, const Pazymiai& p) {
-        os << "Student: " << p.var_ << " " << p.pav_ << "\n"
-           << "Vidurkis: " << p.vid_ << "\n"
-           << "Egzaminas: " << p.egz_ << "\n"
-           << "Pazymiai: ";
-        for (int pazymys : p.paz_)
-            os << pazymys << " ";
-        os << "\nGalutinis: " << p.galutinis_ << "\n"
-           << "Mediana: " << p.med_ << std::endl;
-        return os;
-    }
 
-    // Overloaded input operator
-    friend std::istream& operator>>(std::istream& is, Pazymiai& p) {
-        std::string var, pav;
-        double vid, galutinis, med;
-        int egz;
-        std::vector<int> paz;
-
-        std::cout << "Enter student's name and surname: ";
-        is >> var >> pav;
-        std::cout << "Enter average grade: ";
-        is >> vid;
-        std::cout << "Enter exam grade: ";
-        is >> egz;
-        std::cout << "Enter grades (enter -1 to finish): ";
-        int grade;
-        while (is >> grade && grade != -1)
-            paz.push_back(grade);
-        std::cout << "Enter final grade: ";
-        is >> galutinis;
-        std::cout << "Enter median grade: ";
-        is >> med;
-
-        p = Pazymiai(var, pav, vid, egz, paz, galutinis, med);
-        return is;
-    }
 };
 void rezultatai(std::vector<Pazymiai> hh);
 
@@ -263,5 +228,7 @@ void failuskaickstrategija2(std::string wp, Pazymiai hi, std::vector<Pazymiai>& 
 void failuskaickstrategija3(std::string wp, Pazymiai hi,std::vector<Pazymiai>& S, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z);
 
 void spausdintuvas(std::string zekai, std::string malaciai, std::vector<Pazymiai> P, std::vector<Pazymiai> Z );
+
+void testai();
 
 #endif // PAGALBINES_H_INCLUDED
