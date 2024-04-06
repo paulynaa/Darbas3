@@ -540,7 +540,7 @@ int main ()
 
             case 6:{
                 Pazymiai C;
-                cout << "Pasirinkite strategija (1, 2, 3, 4): ";
+                cout << "Pasirinkite strategija 1, 2, 3, 4: ";
                 int strategy;
                 cin >> strategy;
 
@@ -548,7 +548,7 @@ int main ()
                 const vector<string> lopukaiFilenames = {"lopukai1.txt", "lopukai2.txt", "lopukai3.txt", "lopukai4.txt", "lopukai5.txt"};
                 const vector<string> saunuoliukaiFilenames = {"saunuoliukai1.txt", "saunuoliukai2.txt", "saunuoliukai3.txt", "saunuoliukai4.txt", "saunuoliukai5.txt"};
 
-                for (int i = 0; i < filenames.size(); ++i) {
+                for (size_t i = 0; i < filenames.size(); ++i) {
                     cout << filenames[i] << " :" << endl;
                     switch (strategy) {
                         case 1:
@@ -564,13 +564,14 @@ int main ()
                             failuskaick(filenames[i], C, P, Z);
                             break;
                         default:
-                            cout << "Invalid strategy!" << endl;
+                            cout << "Tokia strategija neegzistuoja!" << endl;
                             break;
                     }
                     spausdintuvas(lopukaiFilenames[i], saunuoliukaiFilenames[i], P, Z);
                 }
                 break;
             }
+
             case 7:{
                 testai();
                 break;
