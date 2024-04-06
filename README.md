@@ -1,5 +1,5 @@
 # Programos veikimas su vector konteineriu
-1. Paleidus programą vartotojas turi galimybę iš meniu pasirinkti: 1.Įvesti visus duomenis ranka; 2.Atsitiktinai generuoti tik pažymius; 3.Atsitiktinai generuoti ir studentus, ir pažymius; 4.Nuskaityti duomenis iš failo; 5.Generuoti failus; 6.Skaičiuoti sugeneruotus failus; 7.Baigti programą.
+1. Paleidus programą vartotojas turi galimybę iš meniu pasirinkti: 1.Įvesti visus duomenis ranka; 2.Atsitiktinai generuoti tik pažymius; 3.Atsitiktinai generuoti ir studentus, ir pažymius; 4.Nuskaityti duomenis iš failo; 5.Generuoti failus; 6.Skaičiuoti sugeneruotus failus; 7.Testuoti klase; 8.Baigti programą.
 2. Pasirinkus 1., 2. arba 3. variantą, vartotojas tik suvedimo metu nusprendžia kada jis nori atitinkamai baigti studentų ar pažymių generavimą/suvedimą.
 3. Pasirinkus 4. variantą vartotojas turi galimybę pasirinkti failą, nuo kurio bus nuskaityti duomenys (taip pat vartotojas gali pats nustatyti kiek studentų nori nuskaityti).
 4. Priklausomai nuo pasirinktos pozicijos, vartotojas suvedęs paskutinius duomenis mato lentelę su rezultatais, kurią galima tęsti pildyti arba paspaudus 5. - baigti programą.
@@ -7,89 +7,66 @@
 6. Rezultatų lentelėje/faile išvedami studentų: Pavardė, Vardas, Galutinis(Vid.) ir Galutinis(Med.).
 7. Pasirinkus 5. poziciją, vartotojui sugeneruojami 5 failai su skirtingais studentų skaičiais: 1 000, 10 000, 100 000, 1 000 000, 10 000 000. Taip pat pateikiamas laikas, per kurį studentų failai buvo sukurti.
 8. Pasirinkus 6. poziciją, prieš tai sugeneruotus failus programa nuskaito ir surūšiuoja į du naujus failus:viename paskirstyti visi studentai, kurių galutinis pažymis didesnis arba lygus 5, kitame studentai, kurių pažymis mažesnis nei 5. Yra galimybė pasirinkti pagal ką (didėjimo tvarka) bus išvesti rezultatai į naujus failus: pagal galutinį pažymį arba medianą. Taip pat pateikiamas laikas, per kurį sugeneruoti failai buvo nuskaityti, surūšiuoti ir išvesti i du naujus failus.
-# Repozitorijos klonavimas
-Visų pirma repozitorija "Darbas1" buvo nuklonuota ir padaryta nauja repozitorija "Darbas2". Tai buvo padaryta naudojant šias komandas terminale:
-git clone --mirror https://github.com/paulynaa/Darbas1.git
+9. Pasirinkus 7 poziciją, programa testuoja ar konstruktoriai, copy ir move metodai, destruktorius veikia atitinkamai.
 
-git clone --bare C:\Users\Paulina\Darbas1.git Darbas2
+# Rule of five
 
-git branch -a
+Atliekant užduotį reikėjo įgyvendinti visus reikiamus "Rule of five" metodus, t.y. copy konstruktorius, copy assignment operatorius, move konstruktorius, move assignment operatorius, destruktorius, taip pat įvesties/išvesties operatorius, kurie veiktų su mano klase.
 
-git remote set-url origin https://github.com/paulynaa/Darbas2.git
 
-git push --mirror
-# Testavimo sistemos parametrai
-1. CPU: 11th Gen Intel Core i7-1165G7 2.80GHz
-2. RAM: 16,0 GB
-3. HDD: SAMSUNG MZVL2512HCJQ-00BL7
-# Pirmas testas
-Palyginsime abiejų programų:naudojančių struct iš ankstesniojo darbo ir naudojančių class iš dabartinės realizacijos spartą, naudojant vector konteinerį ir 3 dalijimo strategiją su 1 000 000 ir 10 000 000 dydžio failus.
-# Pirmo testo rezultatas
-# struct 
-|3 strategija|Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 3.061 s.| 0.533 s.| 1.550 s.|
-|10 000 000| 17.022 s.| 3.996 s.| 18.480 s.|
+Copy konstruktorius: Šis metodas yra naudojamas norint sukurti naują objektą, kuris yra kopija iš esamo objekto. Tai padaryta panaudojant const nuorodą į esamą objektą.
 
-# class
-|3 strategija|Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 5.761 s.| 0.673 s.| 2.650 s.|
-|10 000 000| 51.122 s.| 5.286 s.| 24.780 s.|
+Copy assingment operatorius: Šis metodas leidžia priskirti vieną objektą kitam objektui. Yra tikrinama, ar priskiriamas objektas nėra toks pats, kaip ir objektas, kuriam priskiriame.
 
-# Antras testas
-Išanalizuosime, kaip keičiasi programos sparta priklausomai nuo kompiliatoriaus optimizavimo lygio , nurodomo per flag'us: -O1, -O2, -O3. Palyginsime programas naudojančias struct ir class. Taip pat matysime kaip keiciasi exe dydis priklausomai nuo naudojamo flag'o.
-# Antro testo rezultatai
-# struct 
-|flag -O |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 3.061 s.| 0.533 s.| 1.550 s.|
-|10 000 000| 17.022 s.| 3.996 s.| 18.480 s.|
+Move konstruktorius: Šis metodas leidžia perkelti turinį iš vieno objekto į kitą. Jis naudoja rvalue nuorodą, kad pasisavintų kitą objektą.
 
-|flag -O1 |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 2.401 s.| 0.212 s.| 1.120 s.|
-|10 000 000| 22.022 s.| 2.596 s.| 15.980 s.|
+Move assignment operatorius: Šis metodas leidžia perkelti turinį iš vieno objekto į kitą naudojant priskyrimo operatorių. Taip pat tikrina, ar priskiriamas objektas nėra toks pats, kaip ir objektas, kuriam priskiriame.
 
-|flag -O2 |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 1.801 s.| 0.219 s.| 1.220 s.|
-|10 000 000| 18.722 s.| 2.186 s.| 15.480 s.|
+Kiekvienas iš šių metodų užtikrina, kad objektų duomenys būtų teisingai kopijuojami arba perkelti į naujus objektus, taip išvengiam klaidų.
 
-|flag -O3 |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 1.791 s.| 0.156 s.| 0.220 s.|
-|10 000 000| 21.522 s.| 1.786 s.| 2.880 s.|
+# Įvestis / išvestis
 
-Pastebime, kad didejant flagams, gereja programos sparta, ypac gerai pasirodo -O3 flagas rūšiuojant studentus.
+__Įvestis__
 
-# class
+Įvesčiai naudojami setter'iai.
 
-|flag -O |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 5.761 s.| 0.673 s.| 2.650 s.|
-|10 000 000| 51.122 s.| 5.286 s.| 24.780 s.|
+Pvz.: setVar įrašo studento vardą.
+Gavęs vardą, jis jį saugo var_ private member kintamajame.
 
-|flag -O1 |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 2.601 s.| 0.502 s.| 1.420 s.|
-|10 000 000| 28.722 s.| 3.986 s.| 19.280 s.|
+__Rankinis įvedimas__
 
-|flag -O2 |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 2.101 s.| 0.319 s.| 0.720 s.|
-|10 000 000| 22.722 s.| 3.186 s.| 10.660 s.|
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/b3dd4fbf-0cf5-4d19-9a15-70dda8680927)
 
-|flag -O3 |Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000 000| 2.101 s.| 0.290 s.| 1.780 s.|
-|10 000 000| 22.722 s.| 3.186 s.| 10.480 s.|
 
-Pastebime, kad tokio didelio šuolio rūšiuojant, kaip tai buvo su struct nėra, taipogi nėra didelio skirtumo greityje tarp flago -O2 ir -O3. Visais atvejais programa su struct veikia greičiau.
+__Automatinė įvestis__
 
-# .exe file
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/01ae4b0c-c8ac-4b3a-96e3-312a28f621f7) 
 
-|flag | -O | -O1 | - O2| -O3|
-|---|-----|-----------|------------------|--------|
-|struct| 1 139 KB| 2 608 KB| 2 753 KB| 4 272 KB |
-|class| 1 203 KB | 2 539 KB| 3 551 KB | 4 052 KB|
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/4a822ad0-47d7-4dc3-9be7-0d6d245a25b4)
+
+
+__Įvestis iš failo__
+
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/e8c0fd41-1dc6-47c0-8e6d-372b309b98ae)
+
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/b135d0ab-fb74-4966-b9e7-868a5470c8d4)
+
+
+
+__Išvestis__
+
+Išvesčiai naudojami getter'iai. 
+
+Pvz.: getVar metodas gauna studento vardą iš private srities naudodamas getVar metodą. 
+Tada jį galima atvaziduoti ekrane arba įrašyti į failą (priklausomai nuo pasirinkimo). 
+
+
+__Rodymas ekrane__
+
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/423a366b-62f1-4a00-a2f6-ab4fc9f6b982)
+
+
+__Rodymas faile__
+
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/9c0c96b8-c967-4b47-9a6d-c2efcde1b727)
+
