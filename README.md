@@ -22,6 +22,8 @@
 |---|-----|-----------|------------------|
 |1 000 000| 5.761 s.| 0.673 s.| 2.650 s.|
 |10 000 000| 51.122 s.| 5.286 s.| 24.780 s.|
+
+
  __bazine ir derived__
 
 |3 strategija|Nuskaitymas|Skirstymas|Rūšiavimas|
