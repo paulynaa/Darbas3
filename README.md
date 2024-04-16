@@ -25,48 +25,25 @@ Move assignment operatorius: Šis metodas leidžia perkelti turinį iš vieno ob
 Kiekvienas iš šių metodų užtikrina, kad objektų duomenys būtų teisingai kopijuojami arba perkelti į naujus objektus, taip išvengiam klaidų.
 
 # Įvestis / išvestis
+Visų pirma klasėje implementuoju input/output operatorius ir juos testuoju.
 
-__Įvestis__
-
-Įvesčiai naudojami setter'iai.
-
-Pvz.: setVar įrašo studento vardą.
-Gavęs vardą, jis jį saugo var_ private member kintamajame.
-
-__Rankinis įvedimas__
-
-![image](https://github.com/paulynaa/Darbas2/assets/147087833/b3dd4fbf-0cf5-4d19-9a15-70dda8680927)
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/a3e9db3e-645e-4235-adcf-4dd03a4cb5ad)
 
 
-__Automatinė įvestis__
+Rezultatas::
 
-![image](https://github.com/paulynaa/Darbas2/assets/147087833/01ae4b0c-c8ac-4b3a-96e3-312a28f621f7) 
-
-![image](https://github.com/paulynaa/Darbas2/assets/147087833/4a822ad0-47d7-4dc3-9be7-0d6d245a25b4)
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/c0e28de0-ace9-4cc9-93bd-2fcf6c047a6b)
 
 
-__Įvestis iš failo__
+Pakeičiam 7 į 6, testas turėtų būti nesėkmingas.
 
-![image](https://github.com/paulynaa/Darbas2/assets/147087833/e8c0fd41-1dc6-47c0-8e6d-372b309b98ae)
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/8170ea78-5784-4867-ac11-eb5e406ea368)
 
-![image](https://github.com/paulynaa/Darbas2/assets/147087833/b135d0ab-fb74-4966-b9e7-868a5470c8d4)
+
+Rezultatas::
+
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/ef912db2-027b-4064-8e8f-1992c02ab7f6)
 
 
 
-__Išvestis__
-
-Išvesčiai naudojami getter'iai. 
-
-Pvz.: getVar metodas gauna studento vardą iš private srities naudodamas getVar metodą. 
-Tada jį galima atvaziduoti ekrane arba įrašyti į failą (priklausomai nuo pasirinkimo). 
-
-
-__Rodymas ekrane__
-
-![image](https://github.com/paulynaa/Darbas2/assets/147087833/423a366b-62f1-4a00-a2f6-ab4fc9f6b982)
-
-
-__Rodymas faile__
-
-![image](https://github.com/paulynaa/Darbas2/assets/147087833/9c0c96b8-c967-4b47-9a6d-c2efcde1b727)
 
