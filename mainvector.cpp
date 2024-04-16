@@ -12,6 +12,38 @@ std::vector<Pazymiai> S, P, Z;
 
 int main ()
 {
+   // Test output
+    {
+        Pazymiai p("Jonas", "Dddd", 8.5, 9, {10, 9, 8}, 8.0, 8.5);
+        ostringstream oss;
+        oss << p;
+        string actualOutput = oss.str();
+        string expectedOutput = "Jonas Dddd 8.5 9 10 9 8 8 8.5";
+        if (actualOutput != expectedOutput) {
+            cerr << "Output testas nesekmingas!" << endl;
+            cerr << "Tikimasi: " << expectedOutput << endl;
+            cerr << "Gaunama : " << actualOutput << endl;
+            return 1;
+        }
+    }
+    // Test input
+    {
+        istringstream iss("Jonas Jonaitis 7.5 7 8 9 10 7 7.5");
+        Pazymiai p;
+        iss >> p;
+        if (p.getVar() != "Jonas" ||
+            p.getPav() != "Jonaitis" ||
+            p.getVid() != 7.5 ||
+            p.getEgz() != 7 ||
+            p.getPaz() != vector<int>{8, 9, 10} ||
+            p.getGalutinis() != 7.0 ||
+            p.getMed() != 7.5) {
+            cerr << "Input testas nesekmingas!" << endl;
+            return 1;
+        }
+    }
+    cout << "Visi testai sekmingi." << endl;
+
 
 
     while (true){
@@ -45,12 +77,15 @@ int main ()
 
                     cin>>xx;
                     C.setPav(xx);
+
                     if(C.getPav()=="4" || C.getVar()=="4"){
                         break;
                     }
+
                     cout<<"Iveskite "<<i+1<<" varda (noredami baigti spauskite 4):   "<<endl;
                     cin>>y;
                     C.setVar(y);
+
                     if(C.getPav()=="4" || C.getVar()=="4"){
                         break;
                     }
@@ -242,8 +277,10 @@ int main ()
                 string xx, yy;
                 while (qq != 1) {
                     Pazymiai C;
+
                     xx = pavardes[rand() % 10];
                     C.setPav(xx);
+
                     yy = vardai[rand() % 10];
                     C.setVar(yy);
                     cout << "Pavarde ir vardas: " << C.getPav() << " " << C.getVar() << endl;

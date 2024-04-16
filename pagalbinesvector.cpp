@@ -533,102 +533,180 @@ void spausdintuvas(std::string zekai, std::string malaciai, vector<Pazymiai> P, 
     std::cout << "Isvedimo trukme: " << isvestis << " milisekundes." << std::endl;
 
 }
+
 void testai() {
 
-    // Konstruktoriu patikrinimas
+    // konstruktoriu patikrinimas
     {
-        vector<int> paz = {10, 9, 8};
         string var = "Petras";
         string pav = "PetrasPetras";
+        double vid = 6.4;
         int egz = 7;
-        double vid= 6.4;
+        vector<int> paz = {10, 9, 8};
         double galutinis = 9.0;
         double med = 9.5;
 
         Pazymiai C(var, pav, vid, egz, paz, galutinis, med);
 
-        const vector<int>& gauti_pazymiai = C.getPaz();
-        const string& gauti_vardas = C.getVar();
-        const string& gauti_pavarde = C.getPav();
-        int gauti_egzamino_rezultatas = C.getEgz();
-        double gauti_galutinis_vid = C.getGalutinis();
-        double gauti_mediana = C.getMed();
-        double gauti_vid= C.getVid();
-
-        // assert tikrina ar salyga yra teisinga
-        assert(gauti_pazymiai == paz);
-        assert(gauti_vardas == var);
-        assert(gauti_pavarde == pav);
-        assert(gauti_vid == vid);
-        assert(gauti_egzamino_rezultatas == egz);
-        assert(gauti_galutinis_vid == galutinis);
-        assert(gauti_mediana == med);
+        assert(C.getPaz() == paz && "Konstruktoriaus testas nesekmingas: paz");
+        assert(C.getVar() == var && "Konstruktoriaus testas nesekmingas: var");
+        assert(C.getPav() == pav && "Konstruktoriaus testas nesekmingas: pav");
+        assert(C.getVid() == vid && "Konstruktoriaus testas nesekmingas: vid");
+        assert(C.getEgz() == egz && "Konstruktoriaus testas nesekmingas: egz");
+        assert(C.getGalutinis() == galutinis && "Konstruktoriaus testas nesekmingas: galutinis");
+        assert(C.getMed() == med && "Konstruktoriaus testas nesekmingas: med");
     }
 
-    // Copy konstruktoriaus patikrinimas
+
+    // copy konstruktoriaus patikrinimas
     {
-        vector<int> paz = {10, 9, 8};
         string var = "Petras";
         string pav = "PetrasPetras";
+        double vid = 7.4;
         int egz = 7;
-        double vid= 7.4;
+        vector<int> paz = {10, 9, 8};
         double galutinis = 9.0;
         double med = 9.5;
 
         Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
         Pazymiai copy(zmogus);
 
-        assert(copy.getPaz() == paz);
-        assert(copy.getVar() == var);
-        assert(copy.getPav() == pav);
-        assert(copy.getVid() == vid);
-        assert(copy.getEgz() == egz);
-        assert(copy.getGalutinis() == galutinis);
-        assert(copy.getMed() == med);
+        assert(copy.getPaz() == paz && "Copy Konstruktoriaus testas nesekmingas: paz");
+        assert(copy.getVar() == var && "Copy Konstruktoriaus testas nesekmingas: var");
+        assert(copy.getPav() == pav && "Copy Konstruktoriaus testas nesekmingas: pav");
+        assert(copy.getVid() == vid && "Copy Konstruktoriaus testas nesekmingas: vid");
+        assert(copy.getEgz() == egz && "Copy Konstruktoriaus testas nesekmingas: egz");
+        assert(copy.getGalutinis() == galutinis && "Copy Konstruktoriaus testas nesekmingas: galutinis");
+        assert(copy.getMed() == med && "Copy Konstruktoriaus testas nesekmingas: med");
     }
 
-    // Move konstruktoriaus patikrinimas
+
+
+    // move konstruktoriaus patikrinimas
     {
-        vector<int> paz = {10, 9, 8};
         string var = "Petras";
         string pav = "PetrasPetras";
+        double vid = 7.4;
         int egz = 7;
+        vector<int> paz = {10, 9, 8};
         double galutinis = 9.0;
         double med = 9.5;
-        double vid=7.4;
 
         Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
-        Pazymiai copy(move(zmogus));
+        Pazymiai copy(std::move(zmogus));
 
-        // assert tikrina ar salyga yra teisinga
-        assert(copy.getPaz() == paz);
-        assert(copy.getVar() == var);
-        assert(copy.getPav() == pav);
-        assert(copy.getVid() == vid);
-        assert(copy.getEgz() == egz);
-        assert(copy.getGalutinis() == galutinis);
-        assert(copy.getMed() == med);
+        assert(copy.getPaz() == paz && "Move Konstruktoriaus testas nesekmingas: paz");
+        assert(copy.getVar() == var && "Move Konstruktoriaus testas nesekmingas: var");
+        assert(copy.getPav() == pav && "Move Konstruktoriaus testas nesekmingas: pav");
+        assert(copy.getVid() == vid && "Move Konstruktoriaus testas nesekmingas: vid");
+        assert(copy.getEgz() == egz && "Move Konstruktoriaus testas nesekmingas: egz");
+        assert(copy.getGalutinis() == galutinis && "Move Konstruktoriaus testas nesekmingas: galutinis");
+        assert(copy.getMed() == med && "Move Konstruktoriaus testas nesekmingas: med");
     }
 
-    // Destruktoriaus patikrinimas
+
+
+
+    // destruktoriaus patikrinimas
     {
-    Pazymiai* C = new Pazymiai();
+        Pazymiai C;
 
-    C->setOnePaz(10);
-    C->setOnePaz(9);
-    C->setOnePaz(8);
+        C.setOnePaz(10);
+        C.setOnePaz(9);
+        C.setOnePaz(8);
 
-    assert(!C->getPaz().empty());
+        assert(!C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz");
 
-    delete C;
-
-    Pazymiai naujas_C;
-    assert(naujas_C.getPaz().empty());
+        Pazymiai naujas_C;
+        assert(naujas_C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz (naujas objektas)");
     }
+
 
     cout << "Testavimas sekmingas!" << endl;
-
 }
+/*
+void testai() {
+
+    // konstruktoriu patikrinimas
+    {
+        string var = "Petras";
+        string pav = "PetrasPetras";
+        double vid = 6.4;
+        int egz = 7;
+        vector<int> paz = {10, 9, 8};
+        double galutinis = 9.0;
+        double med = 9.5;
+
+        Pazymiai C(var, pav, vid, egz, paz, galutinis, med);
+
+        assert(C.getPaz() == paz && "Konstruktoriaus testas nesekmingas: paz");
+        assert(C.getVar() == var && "Konstruktoriaus testas nesekmingas: var");
+        assert(C.getPav() == pav && "Konstruktoriaus testas nesekmingas: pav");
+        assert(C.getVid() == vid && "Konstruktoriaus testas nesekmingas: vid");
+        assert(C.getEgz() == egz && "Konstruktoriaus testas nesekmingas: egz");
+        assert(C.getGalutinis() == galutinis && "Konstruktoriaus testas nesekmingas: galutinis");
+        assert(C.getMed() == med && "Konstruktoriaus testas nesekmingas: med");
+    }
+
+    // copy konstruktoriaus patikrinimas
+    {
+        string var = "Petras";
+        string pav = "PetrasPetras";
+        double vid = 7.4;
+        int egz = 7;
+        vector<int> paz = {10, 9, 8};
+        double galutinis = 9.0;
+        double med = 9.5;
+
+        Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
+        Pazymiai copy(zmogus);
+
+        assert(copy.getPaz() == paz && "Copy Konstruktoriaus testas nesekmingas: paz");
+        assert(copy.getVar() == var && "Copy Konstruktoriaus testas nesekmingas: var");
+        assert(copy.getPav() == pav && "Copy Konstruktoriaus testas nesekmingas: pav");
+        assert(copy.getVid() == vid && "Copy Konstruktoriaus testas nesekmingas: vid");
+        assert(copy.getEgz() == egz && "Copy Konstruktoriaus testas nesekmingas: egz");
+        assert(copy.getGalutinis() == galutinis && "Copy Konstruktoriaus testas nesekmingas: galutinis");
+        assert(copy.getMed() == med && "Copy Konstruktoriaus testas nesekmingas: med");
+    }
+
+    // move konstruktoriaus patikrinimas
+    {
+        string var = "Petras";
+        string pav = "PetrasPetras";
+        double vid = 7.4;
+        int egz = 7;
+        vector<int> paz = {10, 9, 8};
+        double galutinis = 9.0;
+        double med = 9.5;
+
+        Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
+        Pazymiai copy(std::move(zmogus));
+
+        assert(copy.getPaz() == paz && "Move Konstruktoriaus testas nesekmingas: paz");
+        assert(copy.getVar() == var && "Move Konstruktoriaus testas nesekmingas: var");
+        assert(copy.getPav() == pav && "Move Konstruktoriaus testas nesekmingas: pav");
+        assert(copy.getVid() == vid && "Move Konstruktoriaus testas nesekmingas: vid");
+        assert(copy.getEgz() == egz && "Move Konstruktoriaus testas nesekmingas: egz");
+        assert(copy.getGalutinis() == galutinis && "Move Konstruktoriaus testas nesekmingas: galutinis");
+        assert(copy.getMed() == med && "Move Konstruktoriaus testas nesekmingas: med");
+    }
+
+    // destruktoriaus patikrinimas
+    {
+        Pazymiai C;
+
+        C.setOnePaz(10);
+        C.setOnePaz(9);
+        C.setOnePaz(8);
+
+        assert(!C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz");
+
+        Pazymiai naujas_C;
+        assert(naujas_C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz (naujas objektas)");
+    }
 
 
-
+    cout << "Testavimas sekmingas!" << endl;
+}
+*/
