@@ -12,39 +12,6 @@ std::vector<Pazymiai> S, P, Z;
 
 int main ()
 {
-   // Test output
-    {
-        Pazymiai p("Jonas", "Dddd", 8.5, 9, {10, 9, 8}, 8.0, 8.5);
-        ostringstream oss;
-        oss << p;
-        string actualOutput = oss.str();
-        string expectedOutput = "Jonas Dddd 8.5 9 10 9 8 8 8.5";
-        if (actualOutput != expectedOutput) {
-            cerr << "Output testas nesekmingas!" << endl;
-            cerr << "Tikimasi: " << expectedOutput << endl;
-            cerr << "Gaunama : " << actualOutput << endl;
-            return 1;
-        }
-    }
-    // Test input
-    {
-        istringstream iss("Jonas Jonaitis 7.5 7 8 9 10 7 7.5");
-        Pazymiai p;
-        iss >> p;
-        if (p.getVar() != "Jonas" ||
-            p.getPav() != "Jonaitis" ||
-            p.getVid() != 7.5 ||
-            p.getEgz() != 7 ||
-            p.getPaz() != vector<int>{8, 9, 10} ||
-            p.getGalutinis() != 7.0 ||
-            p.getMed() != 7.5) {
-            cerr << "Input testas nesekmingas!" << endl;
-            return 1;
-        }
-    }
-    cout << "Visi testai sekmingi." << endl;
-
-
 
     while (true){
         cout << "Pasirinkite norima veiksma vector: " << endl;
@@ -66,87 +33,16 @@ int main ()
             case 1:{
 
                 Pazymiai C;
-                string xx, y;
-                int eg;
-                C.setVid(0.0);
-                do{
 
-                    double suma=0.0;
-
-                    cout<<"Iveskite "<<i+1<<" pavarde (noredami baigti spauskite 4):   "<<endl;
-
-                    cin>>xx;
-                    C.setPav(xx);
-
-                    if(C.getPav()=="4" || C.getVar()=="4"){
+                do {
+                    std::cin >> C;
+                    if (C.getPav() == "4" || C.getVar() == "4") {
                         break;
                     }
-
-                    cout<<"Iveskite "<<i+1<<" varda (noredami baigti spauskite 4):   "<<endl;
-                    cin>>y;
-                    C.setVar(y);
-
-                    if(C.getPav()=="4" || C.getVar()=="4"){
-                        break;
-                    }
-
-                    int j=0;
-
-                    do{
-                        cout<<"Iveskite "<<j+1<<" pazymi nuo 1 iki 10(noredami baigti spauskite 11): ";
-                        cin>>x;
-
-                        if(x==11){
-                            break;
-                        }
-
-                        while (cin.fail() || x < 1 || x > 10) {
-                                cin.clear();
-                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-                                cout<<"Iveskite "<<j+1<<" pazymi nuo 1 iki 10(noredami baigti spauskite 11): ";
-                                cin >> x;
-                                if(x==11){
-                                    break;
-                                }
-                        }
-
-                        C.setOnePaz(x);
-                        suma = suma + x;
-                        j++;
-                    } while(x!=11);
-
-                    C.setVid(suma/j);
-
-                    cout << "Iveskite egzamino rezultata: " << endl;
-
-                    try {
-                        cin>> eg;
-                        C.setEgz(eg);
-
-                        while (cin.fail() || eg < 1 || eg > 10) {
-                            cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                            cout << "Iveskite egzamino rezultata nuo 1 iki 10: ";
-                            cin>> eg;
-                            C.setEgz(eg);
-                        }
-                    } catch (const std::exception& e) {
-
-                        cerr << "Exception: " << e.what() << endl;
-
-                    }
-
-                    C.setGalutinis((C.getVid()*0.4)+(0.6*C.getEgz()));
-                    C.sortPaz(C);
-
-                    C.setMed(mediana(j,C));
-
                     P.push_back(C);
-                    i++;
-                } while(C.getPav()!="4" || C.getVar()!="4");
-
+                } while (true);
                 rezultatai(P);
+
                 break;
             }
 

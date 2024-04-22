@@ -10,6 +10,7 @@
 #include <string>
 #include <stdexcept>
 #include <cassert>
+
 class Pazymiai {
     private:
         std::string var_;
@@ -88,36 +89,74 @@ class Pazymiai {
         double getGalutinis() const { return galutinis_; }
         double getMed() const { return med_; }
 
-        // Output operator
-        friend std::ostream& operator<<(std::ostream& os, const Pazymiai& obj) {
-            os << obj.var_ << " " << obj.pav_ << " " << obj.vid_ << " " << obj.egz_ << " ";
-            for (int pazymys : obj.paz_) {
-                os << pazymys << " ";
-            }
-            os << obj.galutinis_ << " " << obj.med_;
-            return os;
-        }
-
-
+        friend double mediana(int u, const Pazymiai h);
         // Input operator
         friend std::istream& operator>>(std::istream& is, Pazymiai& obj) {
-            is >> obj.var_ >> obj.pav_ >> obj.vid_ >> obj.egz_;
-            obj.paz_.clear();
+            std::cout << "Iveskite studento varda (noredami baigti spauskite 4):" << std::endl;
+            is >> obj.var_;
+            if (obj.var_ == "4" || obj.pav_ == "4")
+                return is;
+            std::cout << "Iveskite studento pavarde (noredami baigti spauskite 4):" << std::endl;
+            is >> obj.pav_;
+            if (obj.var_ == "4" || obj.pav_ == "4")
+                return is;
 
+            double suma = 0.0;
             int pazymys;
-            while (is >> pazymys) {
-                obj.paz_.push_back(pazymys);
-                if (obj.paz_.size() == 3)
+            int j = 0;
+
+            do {
+                std::cout << "Iveskite " << j + 1 << " pazymi (norint baigti spauskite 11): ";
+                is >> pazymys;
+
+                if (pazymys == 11)
                     break;
+
+                while (pazymys < 1 || pazymys > 10 || is.fail()) {
+                    std::cout << "Klaida. Iveskite skaiciu nuo 1 iki 10: ";
+                    is.clear();
+                    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    is >> pazymys;
+                }
+
+                obj.paz_.push_back(pazymys);
+                suma += pazymys;
+                j++;
+            } while (true);
+
+            obj.vid_ = suma / j;
+
+            std::cout << "Iveskite egzamino rezultata : ";
+            is >> obj.egz_;
+
+            while (obj.egz_ < 1 || obj.egz_ > 10 || is.fail()) {
+                std::cout << "Klaida. Iveskite skaiciu nuo 1 iki 10: ";
+                is.clear();
+                is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                is >> obj.egz_;
             }
 
-            is >> obj.galutinis_ >> obj.med_;
+            obj.galutinis_ = (obj.vid_ * 0.4) + (obj.egz_ * 0.6);
+
+            std::sort(obj.paz_.begin(), obj.paz_.end());
+
+            obj.med_ = mediana(j, obj);
+
             return is;
         }
 
-};
+        // Output operator
+        friend std::ostream& operator<<(std::ostream& os, const Pazymiai& obj) {
 
+            os << std::left << std::setw(15) << obj.var_ << std::setw(15) << obj.pav_ << std::setw(17)
+               << std::fixed << std::setprecision(2) << obj.galutinis_ << std::setw(17) << std::fixed
+               << std::setprecision(2) << obj.med_ << std::endl;
+            return os;
+        }
+
+};
 /*
+
 class Zmogus {
     protected:
         std::string var_;
@@ -189,7 +228,7 @@ class Pazymiai : public Zmogus {
         }
 
         ~Pazymiai() {paz_.clear();}
-std::string getPav() { return pav_; }//
+        std::string getPav() { return pav_; }//
         void setVid(double newVid) { vid_ = newVid; }
         void setEgz(int newEgz) { egz_ = newEgz; }
         void setOnePaz(int newPaz) { paz_.push_back(newPaz); }

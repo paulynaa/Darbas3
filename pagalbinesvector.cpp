@@ -2,28 +2,21 @@
 using namespace std;
 
 void rezultatai(std::vector<Pazymiai> hh){
-    std::cout << std::left << std::setw(15) << "Pavarde " << std::setw(15) << "Vardas" << std::setw(17) << "Galutinis (Vid.)"
-              << " / " << std::setw(17) << "Galutinis (Med.)" << std::endl;
-    std::cout << "--------------------------------------------------------" << std::endl;
-
-    for(const auto &studentas : hh){
-        std::cout << std::left << std::setw(15) << studentas.getPav() << std::setw(15) << studentas.getVar() << std::setw(17)
-                  << std::fixed << std::setprecision(2) << studentas.getGalutinis() << std::setw(17) << std::fixed
-                  << std::setprecision(2) << studentas.getMed() << std::endl;
+    std::cout<< std::left << std::setw(15) << "Pavarde " << std::setw(15) << "Vardas" << std::setw(17) << "Galutinis (Vid.)"
+       << " / " << std::setw(17) << "Galutinis (Med.)" << std::endl;
+    std::cout<< "--------------------------------------------------------" << std::endl;
+    for (const auto& studentas : hh) {
+        std::cout << studentas;
     }
 }
 
 void rezultataifailas(std::vector<Pazymiai> hh, std::string failiukas){
     std::ofstream R(failiukas);
-
-    R << std::left << std::setw(15) << "Pavarde " << std::setw(15) << "Vardas" << std::setw(17) << "Galutinis (Vid.)"
-      << " / " << std::setw(17) << "Galutinis (Med.)" << std::endl;
-    R << "--------------------------------------------------------" << std::endl;
-
-    for (const auto &studentas : hh) {
-        R << std::left << std::setw(15) << studentas.getPav() << std::setw(15) << studentas.getVar() << std::setw(17)
-          << std::fixed << std::setprecision(2) << studentas.getGalutinis() << std::setw(17) << std::fixed
-          << std::setprecision(2) << studentas.getMed() << std::endl;
+    R<< std::left << std::setw(15) << "Pavarde " << std::setw(15) << "Vardas" << std::setw(17) << "Galutinis (Vid.)"
+       << " / " << std::setw(17) << "Galutinis (Med.)" << std::endl;
+    R<< "--------------------------------------------------------" << std::endl;
+    for (const auto& studentas : hh) {
+        R << studentas;
     }
     R.close();
 }
@@ -624,89 +617,4 @@ void testai() {
 
     cout << "Testavimas sekmingas!" << endl;
 }
-/*
-void testai() {
 
-    // konstruktoriu patikrinimas
-    {
-        string var = "Petras";
-        string pav = "PetrasPetras";
-        double vid = 6.4;
-        int egz = 7;
-        vector<int> paz = {10, 9, 8};
-        double galutinis = 9.0;
-        double med = 9.5;
-
-        Pazymiai C(var, pav, vid, egz, paz, galutinis, med);
-
-        assert(C.getPaz() == paz && "Konstruktoriaus testas nesekmingas: paz");
-        assert(C.getVar() == var && "Konstruktoriaus testas nesekmingas: var");
-        assert(C.getPav() == pav && "Konstruktoriaus testas nesekmingas: pav");
-        assert(C.getVid() == vid && "Konstruktoriaus testas nesekmingas: vid");
-        assert(C.getEgz() == egz && "Konstruktoriaus testas nesekmingas: egz");
-        assert(C.getGalutinis() == galutinis && "Konstruktoriaus testas nesekmingas: galutinis");
-        assert(C.getMed() == med && "Konstruktoriaus testas nesekmingas: med");
-    }
-
-    // copy konstruktoriaus patikrinimas
-    {
-        string var = "Petras";
-        string pav = "PetrasPetras";
-        double vid = 7.4;
-        int egz = 7;
-        vector<int> paz = {10, 9, 8};
-        double galutinis = 9.0;
-        double med = 9.5;
-
-        Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
-        Pazymiai copy(zmogus);
-
-        assert(copy.getPaz() == paz && "Copy Konstruktoriaus testas nesekmingas: paz");
-        assert(copy.getVar() == var && "Copy Konstruktoriaus testas nesekmingas: var");
-        assert(copy.getPav() == pav && "Copy Konstruktoriaus testas nesekmingas: pav");
-        assert(copy.getVid() == vid && "Copy Konstruktoriaus testas nesekmingas: vid");
-        assert(copy.getEgz() == egz && "Copy Konstruktoriaus testas nesekmingas: egz");
-        assert(copy.getGalutinis() == galutinis && "Copy Konstruktoriaus testas nesekmingas: galutinis");
-        assert(copy.getMed() == med && "Copy Konstruktoriaus testas nesekmingas: med");
-    }
-
-    // move konstruktoriaus patikrinimas
-    {
-        string var = "Petras";
-        string pav = "PetrasPetras";
-        double vid = 7.4;
-        int egz = 7;
-        vector<int> paz = {10, 9, 8};
-        double galutinis = 9.0;
-        double med = 9.5;
-
-        Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
-        Pazymiai copy(std::move(zmogus));
-
-        assert(copy.getPaz() == paz && "Move Konstruktoriaus testas nesekmingas: paz");
-        assert(copy.getVar() == var && "Move Konstruktoriaus testas nesekmingas: var");
-        assert(copy.getPav() == pav && "Move Konstruktoriaus testas nesekmingas: pav");
-        assert(copy.getVid() == vid && "Move Konstruktoriaus testas nesekmingas: vid");
-        assert(copy.getEgz() == egz && "Move Konstruktoriaus testas nesekmingas: egz");
-        assert(copy.getGalutinis() == galutinis && "Move Konstruktoriaus testas nesekmingas: galutinis");
-        assert(copy.getMed() == med && "Move Konstruktoriaus testas nesekmingas: med");
-    }
-
-    // destruktoriaus patikrinimas
-    {
-        Pazymiai C;
-
-        C.setOnePaz(10);
-        C.setOnePaz(9);
-        C.setOnePaz(8);
-
-        assert(!C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz");
-
-        Pazymiai naujas_C;
-        assert(naujas_C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz (naujas objektas)");
-    }
-
-
-    cout << "Testavimas sekmingas!" << endl;
-}
-*/
