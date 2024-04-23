@@ -207,14 +207,12 @@ void failuskaick(std::string wp, Pazymiai hi, vector<Pazymiai>& P, vector<Pazymi
  * @param Z Studentai, kuriø galutinis paþymys < 5
  */
 void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z){
-
     int z;
     string xx, yy;
     int egg;
     double laikassum=0;
     float naujaslaikassum=0;
     ifstream file(wp);
-
     if (!file.is_open()) {
         cout << "Failas  neegzistuoja!" << endl;
     }
@@ -226,17 +224,13 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
         lineCount++;
     }
     file.close();
-
     ifstream F(wp);
     string zodziai;
     int pv=0;
-
-
     while( zodziai != "Egz."){
         F>>zodziai;
         pv++;
     }
-
     pv=pv-3;
     double suum=0;
     for(int l=0; l<lineCount-1; l++){
@@ -245,7 +239,6 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
         F>>xx>>yy;
         hi.setPav(xx);
         hi.setVar(yy);
-
         vector<int> nauji_pazymiai;
         for(int i=0; i<pv; i++){
             F>>z;
@@ -254,12 +247,9 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
         }
         hi.setPazymiai(nauji_pazymiai);
         hi.sortPaz(hi);
-
         hi.setVid(suma/pv);
-
         F>>egg;
         hi.setEgz(egg);
-
         hi.setGalutinis((hi.getVid()*0.4)+(0.6*hi.getEgz()));
         hi.setMed(mediana(pv,hi));
         S.push_back(hi);
@@ -278,7 +268,6 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
     cout<< "Z funkcija size: "<<Z.size()<<endl;
     cout<< "P funkcija size: "<<P.size()<<endl;
     F.close();
-
     std::cout << "Nuskaitymo trukme: " << laikassum << " milisekundes." << std::endl;
     std::cout << "Skirtymo i naujus konteinerius trukme: " << naujaslaikassum << " milisekundes." << std::endl;
     int xyz;
@@ -308,13 +297,11 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
                     sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
                         return aa.getMed() < bb.getMed();
                     });
-                }auto pab = std::chrono::high_resolution_clock::now();
-
-                        float trukme = std::chrono::duration_cast<std::chrono::milliseconds>(pab - pra).count();
-                        suum=suum+trukme;
-                        std::cout << "Rusiavimo (sort) trukme: " << suum << " milisekundes." << std::endl;
-
-
+                }
+                auto pab = std::chrono::high_resolution_clock::now();
+                float trukme = std::chrono::duration_cast<std::chrono::milliseconds>(pab - pra).count();
+                suum=suum+trukme;
+                std::cout << "Rusiavimo (sort) trukme: " << suum << " milisekundes." << std::endl;
 }
 /**
  * @brief Funkcija nuskaito duomenis ið failo, apdoroja juos ir iðskirsto á du konteinerius.
@@ -325,14 +312,12 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
  * @param Z Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra maþesnis nei 5.
  */
 void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z){
-
     int z;
     string xx, yy;
     int egg;
     double laikass=0;
     float naujaslaikass=0;
     ifstream file(wp);
-
     if (!file.is_open()) {
         cout << "Failas  neegzistuoja!" << endl;
     }
@@ -344,16 +329,13 @@ void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, st
         lineCount++;
     }
     file.close();
-
     ifstream F(wp);
     string zodziai;
     int pv=0;
-
     while( zodziai != "Egz."){
         F>>zodziai;
         pv++;
     }
-
     pv=pv-3;
     double suum=0;
     for(int l=0; l<lineCount-1; l++){
@@ -362,7 +344,6 @@ void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, st
         F>>xx>>yy;
         hi.setPav(xx);
         hi.setVar(yy);
-
         vector<int> nauji_pazymiai;
         for(int i=0; i<pv; i++){
             F>>z;
@@ -371,12 +352,9 @@ void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, st
         }
         hi.setPazymiai(nauji_pazymiai);
         hi.sortPaz(hi);
-
         hi.setVid(suma/pv);
-
         F>>egg;
         hi.setEgz(egg);
-
         hi.setGalutinis((hi.getVid()*0.4)+(0.6*hi.getEgz()));
         hi.setMed(mediana(pv,hi));
         P.push_back(hi);
@@ -392,47 +370,38 @@ void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, st
         auto naujaslaikas = std::chrono::duration_cast<std::chrono::milliseconds>(naujasp - naujas).count();
         naujaslaikass=naujaslaikass+naujaslaikas;
     }
-
     F.close();
-
     std::cout << "Nuskaitymo i konteineri trukme: " << laikass << " milisekundes." << std::endl;
-
-
     std::cout << "Skirtymo i naujus konteinerius trukme: " << naujaslaikass << " milisekundes." << std::endl;
     int xyz;
     cout<<"Jeigu norite rusiuoti pagal galutini pazymi spauskite 1: "<<endl;
-                cout<<"Jeigu norite rusiuoti pagal mediana spauskite 2: "<<endl;
-                while (!(cin >> xyz)) {
-                    cout << "Klaida. Iveskite skaiciu nuo 1 arba 2: " ;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                }
-                auto pra = std::chrono::high_resolution_clock::now();
-                if(xyz==1){
-
-                    sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
-                        return a.getGalutinis() < b.getGalutinis();
-                    });
-                    sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
-                        return aa.getGalutinis() < bb.getGalutinis();
-
-                    });
-                }
-                if(xyz==2){
-
-                    sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
-                        return a.getMed() < b.getMed();
-                    });
-                    sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
-                        return aa.getMed() < bb.getMed();
-                    });
-                }auto pab = std::chrono::high_resolution_clock::now();
-
-                        float trukme = std::chrono::duration_cast<std::chrono::milliseconds>(pab - pra).count();
-                        suum=suum+trukme;
-                        std::cout << "Rusiavimo sort trukme: " << suum << " milisekundes." << std::endl;
-
-
+    cout<<"Jeigu norite rusiuoti pagal mediana spauskite 2: "<<endl;
+    while (!(cin >> xyz)) {
+        cout << "Klaida. Iveskite skaiciu nuo 1 arba 2: " ;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    auto pra = std::chrono::high_resolution_clock::now();
+    if(xyz==1){
+        sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+            return a.getGalutinis() < b.getGalutinis();
+        });
+        sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
+            return aa.getGalutinis() < bb.getGalutinis();
+        });
+    }
+    if(xyz==2){
+        sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+            return a.getMed() < b.getMed();
+        });
+        sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
+            return aa.getMed() < bb.getMed();
+        });
+    }
+    auto pab = std::chrono::high_resolution_clock::now();
+    float trukme = std::chrono::duration_cast<std::chrono::milliseconds>(pab - pra).count();
+    suum=suum+trukme;
+    std::cout << "Rusiavimo sort trukme: " << suum << " milisekundes." << std::endl;
 }
 /**
  * @brief Funkcija nuskaito duomenis ið failo, apdoroja juos ir iðskirsto á tris konteinerius.
@@ -444,7 +413,6 @@ void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, st
  * @param Z Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra maþesnis nei 5.
  */
 void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z){
-
     int z;
     double laikass=0;
     string xx,yy;
@@ -462,12 +430,9 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
         lineCount++;
     }
     file.close();
-
     ifstream F(wp);
     string zodziai;
     int pv=0;
-
-
     while( zodziai != "Egz."){
         F>>zodziai;
         pv++;
@@ -481,7 +446,6 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
         F>>xx>>yy;
         hi.setPav(xx);
         hi.setVar(yy);
-
         vector<int> nauji_pazymiai;
         for(int i=0; i<pv; i++){
             F>>z;
@@ -489,28 +453,20 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
             suma=suma+z;
         }
         hi.setPazymiai(nauji_pazymiai);
-
         hi.sortPaz(hi);
-
         hi.setVid(suma/pv);
-
         F>>egg;
         hi.setEgz(egg);
-
         hi.setGalutinis((hi.getVid()*0.4)+(0.6*hi.getEgz()));
-
         hi.setMed(mediana(pv,hi));
         S.push_back(hi);
-
         auto nusk = std::chrono::high_resolution_clock::now();
         auto laikas = std::chrono::duration_cast<std::chrono::milliseconds>(nusk - nus).count();
         laikass=laikass+laikas;
     }
     F.close();
     auto naujas = std::chrono::high_resolution_clock::now();
-
     auto partition_point = std::partition(S.begin(), S.end(), [](const Pazymiai& s) { return s.getGalutinis() >= 5; });
-
     std::copy(S.begin(), partition_point, std::back_inserter(P));
     std::copy(partition_point, S.end(), std::back_inserter(Z));
     S.clear();
@@ -524,38 +480,33 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
 
     int xyz;
     cout<<"Jeigu norite rusiuoti pagal galutini pazymi spauskite 1: "<<endl;
-                cout<<"Jeigu norite rusiuoti pagal mediana spauskite 2: "<<endl;
-                while (!(cin >> xyz)) {
-                    cout << "Klaida. Iveskite skaiciu nuo 1 arba 2: " ;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                }
-                auto pra = std::chrono::high_resolution_clock::now();
-                if(xyz==1){
-
-                    sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
-                        return a.getGalutinis() < b.getGalutinis();
-                    });
-                    sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
-                        return aa.getGalutinis() < bb.getGalutinis();
-
-                    });
-                }
-                if(xyz==2){
-
-                    sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
-                        return a.getMed() < b.getMed();
-                    });
-                    sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
-                        return aa.getMed() < bb.getMed();
-                    });
-                }auto pab = std::chrono::high_resolution_clock::now();
-
-                        float trukme = std::chrono::duration_cast<std::chrono::milliseconds>(pab - pra).count();
-                        suum=suum+trukme;
-                        std::cout << "Rusiavimo sort trukme: " << suum << " milisekundes." << std::endl;
-
-
+    cout<<"Jeigu norite rusiuoti pagal mediana spauskite 2: "<<endl;
+    while (!(cin >> xyz)) {
+        cout << "Klaida. Iveskite skaiciu nuo 1 arba 2: " ;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    auto pra = std::chrono::high_resolution_clock::now();
+    if(xyz==1){
+        sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+            return a.getGalutinis() < b.getGalutinis();
+        });
+        sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
+            return aa.getGalutinis() < bb.getGalutinis();
+        });
+    }
+    if(xyz==2){
+        sort(P.begin(), P.end(), [](const Pazymiai &a, const Pazymiai &b) {
+            return a.getMed() < b.getMed();
+        });
+        sort(Z.begin(), Z.end(), [](const Pazymiai &aa, const Pazymiai &bb) {
+            return aa.getMed() < bb.getMed();
+        });
+    }
+    auto pab = std::chrono::high_resolution_clock::now();
+    float trukme = std::chrono::duration_cast<std::chrono::milliseconds>(pab - pra).count();
+    suum=suum+trukme;
+    std::cout << "Rusiavimo sort trukme: " << suum << " milisekundes." << std::endl;
 }
 /**
  * @brief Funkcija iðveda studentø rezultatus á du atskirus failus.
@@ -573,16 +524,13 @@ void spausdintuvas(std::string zekai, std::string malaciai, vector<Pazymiai> P, 
 
     auto isvestis = std::chrono::duration_cast<std::chrono::milliseconds>(b - p).count();
 
-
     std::cout << "Isvedimo trukme: " << isvestis << " milisekundes." << std::endl;
-
 }
 /**
  * @brief Funkcija skirta programos testavimui.
  *
  */
 void testai() {
-
     // konstruktoriu patikrinimas
     {
         string var = "Petras";
@@ -592,9 +540,7 @@ void testai() {
         vector<int> paz = {10, 9, 8};
         double galutinis = 9.0;
         double med = 9.5;
-
         Pazymiai C(var, pav, vid, egz, paz, galutinis, med);
-
         assert(C.getPaz() == paz && "Konstruktoriaus testas nesekmingas: paz");
         assert(C.getVar() == var && "Konstruktoriaus testas nesekmingas: var");
         assert(C.getPav() == pav && "Konstruktoriaus testas nesekmingas: pav");
@@ -603,8 +549,6 @@ void testai() {
         assert(C.getGalutinis() == galutinis && "Konstruktoriaus testas nesekmingas: galutinis");
         assert(C.getMed() == med && "Konstruktoriaus testas nesekmingas: med");
     }
-
-
     // copy konstruktoriaus patikrinimas
     {
         string var = "Petras";
@@ -614,10 +558,8 @@ void testai() {
         vector<int> paz = {10, 9, 8};
         double galutinis = 9.0;
         double med = 9.5;
-
         Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
         Pazymiai copy(zmogus);
-
         assert(copy.getPaz() == paz && "Copy Konstruktoriaus testas nesekmingas: paz");
         assert(copy.getVar() == var && "Copy Konstruktoriaus testas nesekmingas: var");
         assert(copy.getPav() == pav && "Copy Konstruktoriaus testas nesekmingas: pav");
@@ -626,9 +568,6 @@ void testai() {
         assert(copy.getGalutinis() == galutinis && "Copy Konstruktoriaus testas nesekmingas: galutinis");
         assert(copy.getMed() == med && "Copy Konstruktoriaus testas nesekmingas: med");
     }
-
-
-
     // move konstruktoriaus patikrinimas
     {
         string var = "Petras";
@@ -638,10 +577,8 @@ void testai() {
         vector<int> paz = {10, 9, 8};
         double galutinis = 9.0;
         double med = 9.5;
-
         Pazymiai zmogus(var, pav, vid, egz, paz, galutinis, med);
         Pazymiai copy(std::move(zmogus));
-
         assert(copy.getPaz() == paz && "Move Konstruktoriaus testas nesekmingas: paz");
         assert(copy.getVar() == var && "Move Konstruktoriaus testas nesekmingas: var");
         assert(copy.getPav() == pav && "Move Konstruktoriaus testas nesekmingas: pav");
@@ -650,25 +587,16 @@ void testai() {
         assert(copy.getGalutinis() == galutinis && "Move Konstruktoriaus testas nesekmingas: galutinis");
         assert(copy.getMed() == med && "Move Konstruktoriaus testas nesekmingas: med");
     }
-
-
-
-
     // destruktoriaus patikrinimas
     {
         Pazymiai C;
-
         C.setOnePaz(10);
         C.setOnePaz(9);
         C.setOnePaz(8);
-
         assert(!C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz");
-
         Pazymiai naujas_C;
         assert(naujas_C.getPaz().empty() && "Destruktoriaus testas nesekmingas: paz (naujas objektas)");
     }
-
-
     cout << "Testavimas sekmingas!" << endl;
 }
 
