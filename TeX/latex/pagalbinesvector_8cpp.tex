@@ -1,0 +1,218 @@
+\doxysection{C\+:/\+Users/\+Paulina/\+Documents/\+Objektinis programavimas 1 kursas/vectorcontainer/pagalbinesvector.cpp File Reference}
+\hypertarget{pagalbinesvector_8cpp}{}\label{pagalbinesvector_8cpp}\index{C:/Users/Paulina/Documents/Objektinis programavimas 1 kursas/vectorcontainer/pagalbinesvector.cpp@{C:/Users/Paulina/Documents/Objektinis programavimas 1 kursas/vectorcontainer/pagalbinesvector.cpp}}
+
+
+Funkciju deklaracija.  
+
+
+{\ttfamily \#include "{}pagalbinesvector.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_a609db5d397c0e05beee0299b6c031020}{rezultatai}} (std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ hh)
+\begin{DoxyCompactList}\small\item\em Spausdina studentu rezultatus i konsole. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_a6feae3e38b777783f06bd7386cbc8640}{rezultataifailas}} (std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ hh, std\+::string failiukas)
+\begin{DoxyCompactList}\small\item\em Spausdina studentu rezultatus i faila. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{pagalbinesvector_8cpp_a06cc490e94c403c380af13207a720afb}{mediana}} (int u, \mbox{\hyperlink{class_pazymiai}{Pazymiai}} h)
+\begin{DoxyCompactList}\small\item\em Skaiciuoja mediana. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_a4a531473ea034068b5b211f9cc52765d}{generuojam}} (int studentusk, std\+::string failopav)
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinius studentu duomenis ir iraso i faila. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_a8301338540464bb78098d00130066d84}{failuskaick}} (std\+::string wp, \mbox{\hyperlink{class_pazymiai}{Pazymiai}} hi, vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&P, vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&Z)
+\begin{DoxyCompactList}\small\item\em Nuskaito duomenis is failo ir apdoroja juos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_aeacd787753e5e779cc50979e09e5d51b}{failuskaickstrategija1}} (string wp, \mbox{\hyperlink{class_pazymiai}{Pazymiai}} hi, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&S, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&P, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&Z)
+\begin{DoxyCompactList}\small\item\em Nuskaito duomenis is failo ir apdoroja juos, taikant strategija 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_a27753451f4e6854099d5038eee22b831}{failuskaickstrategija2}} (string wp, \mbox{\hyperlink{class_pazymiai}{Pazymiai}} hi, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&P, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&Z)
+\begin{DoxyCompactList}\small\item\em Funkcija nuskaito duomenis is failo, apdoroja juos ir isskirsto i du konteinerius. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_a2b4c53a737aa2e80c6410f1493c7c1df}{failuskaickstrategija3}} (string wp, \mbox{\hyperlink{class_pazymiai}{Pazymiai}} hi, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&S, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&P, std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&Z)
+\begin{DoxyCompactList}\small\item\em Funkcija nuskaito duomenis is failo, apdoroja juos ir isskirsto i tris konteinerius. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pagalbinesvector_8cpp_a772b848bad326ea54e9c40e3c94f4e85}{spausdintuvas}} (std\+::string zekai, std\+::string malaciai, vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ P, vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ Z)
+\begin{DoxyCompactList}\small\item\em Funkcija isveda studentu rezultatus i du atskirus failus. \end{DoxyCompactList}\item 
+\Hypertarget{pagalbinesvector_8cpp_aec48b9cd75b32e5e2eda0101f2af8d04}\label{pagalbinesvector_8cpp_aec48b9cd75b32e5e2eda0101f2af8d04} 
+void {\bfseries testai} ()
+\begin{DoxyCompactList}\small\item\em Funkcija skirta programos testavimui. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funkciju deklaracija. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{pagalbinesvector_8cpp_a8301338540464bb78098d00130066d84}\label{pagalbinesvector_8cpp_a8301338540464bb78098d00130066d84} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!failuskaick@{failuskaick}}
+\index{failuskaick@{failuskaick}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{failuskaick()}{failuskaick()}}
+{\footnotesize\ttfamily void failuskaick (\begin{DoxyParamCaption}\item[{std\+::string}]{wp,  }\item[{\mbox{\hyperlink{class_pazymiai}{Pazymiai}}}]{hi,  }\item[{vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{P,  }\item[{vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{Z }\end{DoxyParamCaption})}
+
+
+
+Nuskaito duomenis is failo ir apdoroja juos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wp} & Failo pavadinimas \\
+\hline
+{\em hi} & \doxylink{class_pazymiai}{Pazymiai} objektas \\
+\hline
+{\em P} & Studentai, kuriu galutinis pazymys \texorpdfstring{$>$}{>}= 5 \\
+\hline
+{\em Z} & Studentai, kuriu galutinis pazymys \texorpdfstring{$<$}{<} 5 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pagalbinesvector_8cpp_aeacd787753e5e779cc50979e09e5d51b}\label{pagalbinesvector_8cpp_aeacd787753e5e779cc50979e09e5d51b} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!failuskaickstrategija1@{failuskaickstrategija1}}
+\index{failuskaickstrategija1@{failuskaickstrategija1}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{failuskaickstrategija1()}{failuskaickstrategija1()}}
+{\footnotesize\ttfamily void failuskaickstrategija1 (\begin{DoxyParamCaption}\item[{string}]{wp,  }\item[{\mbox{\hyperlink{class_pazymiai}{Pazymiai}}}]{hi,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{S,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{P,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{Z }\end{DoxyParamCaption})}
+
+
+
+Nuskaito duomenis is failo ir apdoroja juos, taikant strategija 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wp} & Failo pavadinimas \\
+\hline
+{\em hi} & \doxylink{class_pazymiai}{Pazymiai} objektas \\
+\hline
+{\em S} & Visi nuskaityti studentai \\
+\hline
+{\em P} & Studentai, kuriu galutinis pazymys \texorpdfstring{$>$}{>}= 5 \\
+\hline
+{\em Z} & Studentai, kuriu galutinis pazymys \texorpdfstring{$<$}{<} 5 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pagalbinesvector_8cpp_a27753451f4e6854099d5038eee22b831}\label{pagalbinesvector_8cpp_a27753451f4e6854099d5038eee22b831} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!failuskaickstrategija2@{failuskaickstrategija2}}
+\index{failuskaickstrategija2@{failuskaickstrategija2}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{failuskaickstrategija2()}{failuskaickstrategija2()}}
+{\footnotesize\ttfamily void failuskaickstrategija2 (\begin{DoxyParamCaption}\item[{string}]{wp,  }\item[{\mbox{\hyperlink{class_pazymiai}{Pazymiai}}}]{hi,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{P,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{Z }\end{DoxyParamCaption})}
+
+
+
+Funkcija nuskaito duomenis is failo, apdoroja juos ir isskirsto i du konteinerius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wp} & Failo pavadinimas, is kurio nuskaitomi duomenys. \\
+\hline
+{\em hi} & Objektas, kuris naudojamas saugoti viena studento informacijos irasa. \\
+\hline
+{\em P} & Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra didesnis nei 5. \\
+\hline
+{\em Z} & Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra mazesnis nei 5. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pagalbinesvector_8cpp_a2b4c53a737aa2e80c6410f1493c7c1df}\label{pagalbinesvector_8cpp_a2b4c53a737aa2e80c6410f1493c7c1df} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!failuskaickstrategija3@{failuskaickstrategija3}}
+\index{failuskaickstrategija3@{failuskaickstrategija3}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{failuskaickstrategija3()}{failuskaickstrategija3()}}
+{\footnotesize\ttfamily void failuskaickstrategija3 (\begin{DoxyParamCaption}\item[{string}]{wp,  }\item[{\mbox{\hyperlink{class_pazymiai}{Pazymiai}}}]{hi,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{S,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{P,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ \&}]{Z }\end{DoxyParamCaption})}
+
+
+
+Funkcija nuskaito duomenis is failo, apdoroja juos ir isskirsto i tris konteinerius. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wp} & Failo pavadinimas, is kurio nuskaitomi duomenys. \\
+\hline
+{\em hi} & Objektas, kuris naudojamas saugoti viena studento informacijos irasa. \\
+\hline
+{\em S} & Konteineris, kuriame saugomi visi studentai. \\
+\hline
+{\em P} & Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra didesnis nei 5. \\
+\hline
+{\em Z} & Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra mazesnis nei 5. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pagalbinesvector_8cpp_a4a531473ea034068b5b211f9cc52765d}\label{pagalbinesvector_8cpp_a4a531473ea034068b5b211f9cc52765d} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!generuojam@{generuojam}}
+\index{generuojam@{generuojam}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{generuojam()}{generuojam()}}
+{\footnotesize\ttfamily void generuojam (\begin{DoxyParamCaption}\item[{int}]{studentusk,  }\item[{std\+::string}]{failopav }\end{DoxyParamCaption})}
+
+
+
+Generuoja atsitiktinius studentu duomenis ir iraso i faila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em studentusk} & Studentu skaicius \\
+\hline
+{\em failopav} & Failo pavadinimas \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pagalbinesvector_8cpp_a06cc490e94c403c380af13207a720afb}\label{pagalbinesvector_8cpp_a06cc490e94c403c380af13207a720afb} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!mediana@{mediana}}
+\index{mediana@{mediana}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{mediana()}{mediana()}}
+{\footnotesize\ttfamily double mediana (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{\mbox{\hyperlink{class_pazymiai}{Pazymiai}}}]{h }\end{DoxyParamCaption})}
+
+
+
+Skaiciuoja mediana. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Pazymiu skaicius \\
+\hline
+{\em h} & \doxylink{class_pazymiai}{Pazymiai} objektas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Mediana 
+\end{DoxyReturn}
+\Hypertarget{pagalbinesvector_8cpp_a609db5d397c0e05beee0299b6c031020}\label{pagalbinesvector_8cpp_a609db5d397c0e05beee0299b6c031020} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!rezultatai@{rezultatai}}
+\index{rezultatai@{rezultatai}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{rezultatai()}{rezultatai()}}
+{\footnotesize\ttfamily void rezultatai (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$}]{hh }\end{DoxyParamCaption})}
+
+
+
+Spausdina studentu rezultatus i konsole. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hh} & Studentu sarasas \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pagalbinesvector_8cpp_a6feae3e38b777783f06bd7386cbc8640}\label{pagalbinesvector_8cpp_a6feae3e38b777783f06bd7386cbc8640} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!rezultataifailas@{rezultataifailas}}
+\index{rezultataifailas@{rezultataifailas}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{rezultataifailas()}{rezultataifailas()}}
+{\footnotesize\ttfamily void rezultataifailas (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$}]{hh,  }\item[{std\+::string}]{failiukas }\end{DoxyParamCaption})}
+
+
+
+Spausdina studentu rezultatus i faila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hh} & Studentu sarasas \\
+\hline
+{\em failiukas} & Failo pavadinimas \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pagalbinesvector_8cpp_a772b848bad326ea54e9c40e3c94f4e85}\label{pagalbinesvector_8cpp_a772b848bad326ea54e9c40e3c94f4e85} 
+\index{pagalbinesvector.cpp@{pagalbinesvector.cpp}!spausdintuvas@{spausdintuvas}}
+\index{spausdintuvas@{spausdintuvas}!pagalbinesvector.cpp@{pagalbinesvector.cpp}}
+\doxysubsubsection{\texorpdfstring{spausdintuvas()}{spausdintuvas()}}
+{\footnotesize\ttfamily void spausdintuvas (\begin{DoxyParamCaption}\item[{std\+::string}]{zekai,  }\item[{std\+::string}]{malaciai,  }\item[{vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$}]{P,  }\item[{vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$}]{Z }\end{DoxyParamCaption})}
+
+
+
+Funkcija isveda studentu rezultatus i du atskirus failus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em zekai} & Failo pavadinimas, i kuri isvedami studentai, kuriu galutinis rezultatas yra mazesnis nei 5. \\
+\hline
+{\em malaciai} & Failo pavadinimas, i kuri isvedami studentai, kuriu galutinis rezultatas yra didesnis nei 5. \\
+\hline
+{\em P} & Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra didesnis nei 5. \\
+\hline
+{\em Z} & Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra mazesnis nei 5. \\
+\hline
+\end{DoxyParams}

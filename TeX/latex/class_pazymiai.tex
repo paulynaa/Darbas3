@@ -1,0 +1,257 @@
+\doxysection{Pazymiai Class Reference}
+\hypertarget{class_pazymiai}{}\label{class_pazymiai}\index{Pazymiai@{Pazymiai}}
+
+
+Klase \doxylink{class_pazymiai}{Pazymiai} saugo informacija apie studentu pazymius.  
+
+
+
+
+{\ttfamily \#include $<$pagalbinesvector.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_pazymiai_afdf59d25d166c67a9b2aa0e33a560bbc}\label{class_pazymiai_afdf59d25d166c67a9b2aa0e33a560bbc} 
+{\bfseries Pazymiai} ()
+\begin{DoxyCompactList}\small\item\em Numatytasis konstruktorius, inicializuoja narius nuliais. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_pazymiai_a5558f6365ae204701ff463c3373e157a}{Pazymiai}} (std\+::string var, std\+::string pav, double vid, int egz, const std\+::vector$<$ int $>$ \&paz, double galutinis, double med)
+\begin{DoxyCompactList}\small\item\em Parametrizuotas konstruktorius, inicializuoja narius su duotomis reiksmemis. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a2b022e783d45c35b46eb0e4ef0c32ded}\label{class_pazymiai_a2b022e783d45c35b46eb0e4ef0c32ded} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Pazymiai} ()
+\begin{DoxyCompactList}\small\item\em Desktruktorius, isvalo vektoriu ir stringus. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a09d25348a53fd354adf11d7618d37f47}\label{class_pazymiai_a09d25348a53fd354adf11d7618d37f47} 
+{\bfseries Pazymiai} (const \mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&other)
+\begin{DoxyCompactList}\small\item\em Kopijavimo konstruktorius. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a64db9405346f4ffaa8a96626f8d93339}\label{class_pazymiai_a64db9405346f4ffaa8a96626f8d93339} 
+\mbox{\hyperlink{class_pazymiai}{Pazymiai}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&other)
+\begin{DoxyCompactList}\small\item\em Kopijavimo priskyrimo operatorius. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a330d034165ee580ab2b84bd36be882d9}\label{class_pazymiai_a330d034165ee580ab2b84bd36be882d9} 
+{\bfseries Pazymiai} (\mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Perkelimo konstruktorius. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_acb8646ec95fe48a54d878446badf9e43}\label{class_pazymiai_acb8646ec95fe48a54d878446badf9e43} 
+\mbox{\hyperlink{class_pazymiai}{Pazymiai}} \& {\bfseries operator=} (\mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Perkelimo priskyrimo operatorius. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a582879c2d6e2b1b82c6e6c507ccf5180}\label{class_pazymiai_a582879c2d6e2b1b82c6e6c507ccf5180} 
+void {\bfseries set\+Var} (const std\+::string \&new\+Var)
+\begin{DoxyCompactList}\small\item\em Nustato studento varda. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a4980c3e12b5e95a2da99f726e4a5022d}\label{class_pazymiai_a4980c3e12b5e95a2da99f726e4a5022d} 
+void {\bfseries set\+Pav} (const std\+::string \&new\+Pav)
+\begin{DoxyCompactList}\small\item\em Nustato studento pavarde. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a15ac7407a898fe9c8f854be83cf8bc58}\label{class_pazymiai_a15ac7407a898fe9c8f854be83cf8bc58} 
+void {\bfseries set\+Vid} (double new\+Vid)
+\begin{DoxyCompactList}\small\item\em Nustato studento vidurki. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_adfc8dd56a5253a5c867dd98f1e083a1c}\label{class_pazymiai_adfc8dd56a5253a5c867dd98f1e083a1c} 
+void {\bfseries set\+Egz} (int new\+Egz)
+\begin{DoxyCompactList}\small\item\em Nustato egzamino rezultata. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a2cdfc69d184bace87e3dd1d6afedee60}\label{class_pazymiai_a2cdfc69d184bace87e3dd1d6afedee60} 
+void {\bfseries set\+One\+Paz} (int new\+Paz)
+\begin{DoxyCompactList}\small\item\em Iterpia viena pazymi i sarasa.. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a7dd6a85ca795565cc7cb00f5245504c8}\label{class_pazymiai_a7dd6a85ca795565cc7cb00f5245504c8} 
+void {\bfseries set\+Pazymiai} (const std\+::vector$<$ int $>$ \&pazymiai)
+\begin{DoxyCompactList}\small\item\em Nustato pazymiu sarasa. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a0c2ea3c0317fa925e4309c54b7da2140}\label{class_pazymiai_a0c2ea3c0317fa925e4309c54b7da2140} 
+void {\bfseries set\+Galutinis} (double new\+Galutinis)
+\begin{DoxyCompactList}\small\item\em Nustato galutini pazymi. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a35797df1078f195aa471f9ba44e06be7}\label{class_pazymiai_a35797df1078f195aa471f9ba44e06be7} 
+void {\bfseries set\+Med} (double new\+Med)
+\begin{DoxyCompactList}\small\item\em Nustato mediana. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a59e197883b6bb32957237914fae2f36f}\label{class_pazymiai_a59e197883b6bb32957237914fae2f36f} 
+void {\bfseries sort\+Paz} (\mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&C)
+\begin{DoxyCompactList}\small\item\em Rikiuoja pazymiu sarasa. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_ae1b0de242d6c3b002e9f8fad7e822d28}\label{class_pazymiai_ae1b0de242d6c3b002e9f8fad7e822d28} 
+std\+::string {\bfseries get\+Var} () const
+\begin{DoxyCompactList}\small\item\em Grazina studento varda. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a9d15fbf9f7c085a8d492d437da9afaae}\label{class_pazymiai_a9d15fbf9f7c085a8d492d437da9afaae} 
+std\+::string {\bfseries get\+Pav} () const
+\begin{DoxyCompactList}\small\item\em Grazina studento pavarde. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a67d85c22979c1c4abf77f7d55b3f2ed9}\label{class_pazymiai_a67d85c22979c1c4abf77f7d55b3f2ed9} 
+double {\bfseries get\+Vid} () const
+\begin{DoxyCompactList}\small\item\em Grazina vidurki. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a620c180ec8cd00d311a0f5735233bf6f}\label{class_pazymiai_a620c180ec8cd00d311a0f5735233bf6f} 
+int {\bfseries get\+Egz} () const
+\begin{DoxyCompactList}\small\item\em Grazina egzamino rezultata. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a06da19e6d7b830c3054782b1ecf83dad}\label{class_pazymiai_a06da19e6d7b830c3054782b1ecf83dad} 
+std\+::vector$<$ int $>$ {\bfseries get\+Paz} () const
+\begin{DoxyCompactList}\small\item\em Grazina pazymiu sarasa. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a7c069656c16decf6be11ca6cc5ce1cff}\label{class_pazymiai_a7c069656c16decf6be11ca6cc5ce1cff} 
+int {\bfseries get\+PazN} (const std\+::vector$<$ int $>$ \&new\+Paz, int pos) const
+\begin{DoxyCompactList}\small\item\em Grazina nurodyta pazymi is saraso pagal pozicija. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_ad1f57c4cd0d4b636d487c431628abb91}\label{class_pazymiai_ad1f57c4cd0d4b636d487c431628abb91} 
+double {\bfseries get\+Galutinis} () const
+\begin{DoxyCompactList}\small\item\em Grazina galutini pazymi. \end{DoxyCompactList}\item 
+\Hypertarget{class_pazymiai_a06d7559810cc96e690b759e437396046}\label{class_pazymiai_a06d7559810cc96e690b759e437396046} 
+double {\bfseries get\+Med} () const
+\begin{DoxyCompactList}\small\item\em Grazina mediana. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_pazymiai_a15985cfc929f6185009484ca9fbd634e}{var\+\_\+}}
+\item 
+std\+::string \mbox{\hyperlink{class_pazymiai_ad79533a4e555d672ad0362710ab50d7e}{pav\+\_\+}}
+\item 
+double \mbox{\hyperlink{class_pazymiai_a1c21073302fcfc29848b85e6cb51920a}{vid\+\_\+}}
+\item 
+int \mbox{\hyperlink{class_pazymiai_a5e4f78d561de1fc7db0aaa7220477e88}{egz\+\_\+}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_pazymiai_a15b081cda8aabd9f306bd58b24aa31ac}{paz\+\_\+}}
+\item 
+double \mbox{\hyperlink{class_pazymiai_a3a3d737687cae667d35895bab63b714e}{galutinis\+\_\+}}
+\item 
+double \mbox{\hyperlink{class_pazymiai_a6714d98bf73a4c27595af748968c081f}{med\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_pazymiai_afdc6eb2f30a29100548189f83d7a790c}{mediana}} (int u, const \mbox{\hyperlink{class_pazymiai}{Pazymiai}} h)
+\begin{DoxyCompactList}\small\item\em Skaiciuoja mediana. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{class_pazymiai_a35847f8fc274998569253195be7583ce}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&obj)
+\begin{DoxyCompactList}\small\item\em Ivedimo operatorius, skirtas nuskaityti objekto duomenis is ivesties srauto. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_pazymiai_acfcfcc12967c066c2f72fd24b5a887e1}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&obj)
+\begin{DoxyCompactList}\small\item\em Isvedimo operatorius, skirtas isvesti objekto duomenis i isvesties srauta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klase \doxylink{class_pazymiai}{Pazymiai} saugo informacija apie studentu pazymius. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_pazymiai_a5558f6365ae204701ff463c3373e157a}\label{class_pazymiai_a5558f6365ae204701ff463c3373e157a} 
+\index{Pazymiai@{Pazymiai}!Pazymiai@{Pazymiai}}
+\index{Pazymiai@{Pazymiai}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{Pazymiai()}{Pazymiai()}}
+{\footnotesize\ttfamily Pazymiai\+::\+Pazymiai (\begin{DoxyParamCaption}\item[{std\+::string}]{var,  }\item[{std\+::string}]{pav,  }\item[{double}]{vid,  }\item[{int}]{egz,  }\item[{const std\+::vector$<$ int $>$ \&}]{paz,  }\item[{double}]{galutinis,  }\item[{double}]{med }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Parametrizuotas konstruktorius, inicializuoja narius su duotomis reiksmemis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var} & Studento vardas \\
+\hline
+{\em pav} & Studento pavarde \\
+\hline
+{\em vid} & Vidurkis \\
+\hline
+{\em egz} & Egzamino rezultatas \\
+\hline
+{\em paz} & Pazymiu sarasas \\
+\hline
+{\em galutinis} & Galutinis pazymys \\
+\hline
+{\em med} & Mediana \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_pazymiai_afdc6eb2f30a29100548189f83d7a790c}\label{class_pazymiai_afdc6eb2f30a29100548189f83d7a790c} 
+\index{Pazymiai@{Pazymiai}!mediana@{mediana}}
+\index{mediana@{mediana}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{mediana}{mediana}}
+{\footnotesize\ttfamily double mediana (\begin{DoxyParamCaption}\item[{int}]{u,  }\item[{const \mbox{\hyperlink{class_pazymiai}{Pazymiai}}}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Skaiciuoja mediana. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Pazymiu skaicius \\
+\hline
+{\em h} & \doxylink{class_pazymiai}{Pazymiai} objektas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Mediana 
+\end{DoxyReturn}
+\Hypertarget{class_pazymiai_acfcfcc12967c066c2f72fd24b5a887e1}\label{class_pazymiai_acfcfcc12967c066c2f72fd24b5a887e1} 
+\index{Pazymiai@{Pazymiai}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Isvedimo operatorius, skirtas isvesti objekto duomenis i isvesties srauta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Isvesties srautas \\
+\hline
+{\em obj} & \doxylink{class_pazymiai}{Pazymiai} objektas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Isvesties srautas 
+\end{DoxyReturn}
+\Hypertarget{class_pazymiai_a35847f8fc274998569253195be7583ce}\label{class_pazymiai_a35847f8fc274998569253195be7583ce} 
+\index{Pazymiai@{Pazymiai}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{class_pazymiai}{Pazymiai}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Ivedimo operatorius, skirtas nuskaityti objekto duomenis is ivesties srauto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & Ivesties srautas \\
+\hline
+{\em obj} & \doxylink{class_pazymiai}{Pazymiai} objektas, i kuri nuskaitomi duomenys \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ivesties srautas 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pazymiai_a5e4f78d561de1fc7db0aaa7220477e88}\label{class_pazymiai_a5e4f78d561de1fc7db0aaa7220477e88} 
+\index{Pazymiai@{Pazymiai}!egz\_@{egz\_}}
+\index{egz\_@{egz\_}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{egz\_}{egz\_}}
+{\footnotesize\ttfamily int Pazymiai\+::egz\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Egzamino rezultatas \Hypertarget{class_pazymiai_a3a3d737687cae667d35895bab63b714e}\label{class_pazymiai_a3a3d737687cae667d35895bab63b714e} 
+\index{Pazymiai@{Pazymiai}!galutinis\_@{galutinis\_}}
+\index{galutinis\_@{galutinis\_}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{galutinis\_}{galutinis\_}}
+{\footnotesize\ttfamily double Pazymiai\+::galutinis\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Galutinis pazymys \Hypertarget{class_pazymiai_a6714d98bf73a4c27595af748968c081f}\label{class_pazymiai_a6714d98bf73a4c27595af748968c081f} 
+\index{Pazymiai@{Pazymiai}!med\_@{med\_}}
+\index{med\_@{med\_}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{med\_}{med\_}}
+{\footnotesize\ttfamily double Pazymiai\+::med\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Mediana \Hypertarget{class_pazymiai_ad79533a4e555d672ad0362710ab50d7e}\label{class_pazymiai_ad79533a4e555d672ad0362710ab50d7e} 
+\index{Pazymiai@{Pazymiai}!pav\_@{pav\_}}
+\index{pav\_@{pav\_}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{pav\_}{pav\_}}
+{\footnotesize\ttfamily std\+::string Pazymiai\+::pav\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Studento pavarde \Hypertarget{class_pazymiai_a15b081cda8aabd9f306bd58b24aa31ac}\label{class_pazymiai_a15b081cda8aabd9f306bd58b24aa31ac} 
+\index{Pazymiai@{Pazymiai}!paz\_@{paz\_}}
+\index{paz\_@{paz\_}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{paz\_}{paz\_}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Pazymiai\+::paz\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Pazymiu sarasas \Hypertarget{class_pazymiai_a15985cfc929f6185009484ca9fbd634e}\label{class_pazymiai_a15985cfc929f6185009484ca9fbd634e} 
+\index{Pazymiai@{Pazymiai}!var\_@{var\_}}
+\index{var\_@{var\_}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{var\_}{var\_}}
+{\footnotesize\ttfamily std\+::string Pazymiai\+::var\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Studento vardas \Hypertarget{class_pazymiai_a1c21073302fcfc29848b85e6cb51920a}\label{class_pazymiai_a1c21073302fcfc29848b85e6cb51920a} 
+\index{Pazymiai@{Pazymiai}!vid\_@{vid\_}}
+\index{vid\_@{vid\_}!Pazymiai@{Pazymiai}}
+\doxysubsubsection{\texorpdfstring{vid\_}{vid\_}}
+{\footnotesize\ttfamily double Pazymiai\+::vid\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Vidurkis 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Paulina/\+Documents/\+Objektinis programavimas 1 kursas/vectorcontainer/\mbox{\hyperlink{pagalbinesvector_8h}{pagalbinesvector.\+h}}\end{DoxyCompactItemize}
