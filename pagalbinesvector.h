@@ -1,6 +1,6 @@
 /**
  * @file pagalbinesvector.h
- * @brief Declaration of the Pazymiai class.
+ * @brief Pazymiai klases deklaracija ir funkciju reiksmiu priskyrimas.
  */
 #ifndef PAGALBINESVECTOR_H_INCLUDED
 #define PAGALBINESVECTOR_H_INCLUDED
@@ -15,56 +15,51 @@
 #include <stdexcept>
 #include <cassert>
 /**
- * @brief Klasë Pazymiai saugo informacijà apie studentø paþymius.
+ * @brief Klase Pazymiai saugo informacija apie studentu pazymius.
  */
 class Pazymiai {
     private:
         std::string var_; /**< Studento vardas */
-        std::string pav_; /**< Studento pavardë */
+        std::string pav_; /**< Studento pavarde */
         double vid_; /**< Vidurkis */
         int egz_; /**< Egzamino rezultatas */
-        std::vector<int> paz_; /**< Paþymiø sàraðas */
-        double galutinis_; /**< Galutinis paþymys */
+        std::vector<int> paz_; /**< Pazymiu sarasas */
+        double galutinis_; /**< Galutinis pazymys */
         double med_; /**< Mediana */
 
     public:
         /**
-     * @brief Numatytasis konstruktorius, inicializuoja narius nuliais.
-     */
+         * @brief Numatytasis konstruktorius, inicializuoja narius nuliais.*/
         Pazymiai() : vid_(0), egz_(0), galutinis_(0), med_(0) {}
 
         /**
-     * @brief Parametrizuotas konstruktorius, inicializuoja narius su duotomis reikðmëmis.
-     * @param var Studento vardas
-     * @param pav Studento pavardë
-     * @param vid Vidurkis
-     * @param egz Egzamino rezultatas
-     * @param paz Paþymiø sàraðas
-     * @param galutinis Galutinis paþymys
-     * @param med Mediana
-     */
+         * @brief Parametrizuotas konstruktorius, inicializuoja narius su duotomis reiksmemis.
+         * @param var Studento vardas
+         * @param pav Studento pavarde
+         * @param vid Vidurkis
+         * @param egz Egzamino rezultatas
+         * @param paz Pazymiu sarasas
+         * @param galutinis Galutinis pazymys
+         * @param med Mediana*/
 
         Pazymiai(std::string var, std::string pav, double vid, int egz, const std::vector<int>& paz,
                  double galutinis, double med)
             : var_(var), pav_(pav), vid_(vid), egz_(egz), paz_(paz), galutinis_(galutinis), med_(med) {}
 
             /**
-     * @brief Desktruktorius, iðvalo vektoriø ir stringus.
-     */
+             * @brief Desktruktorius, isvalo vektoriu ir stringus.*/
         ~Pazymiai() {paz_.clear(); var_.clear(), pav_.clear();}
 
     // Copy constructor
     /**
-     * @brief Kopijavimo konstruktorius.
-     */
+    * @brief Kopijavimo konstruktorius.*/
         Pazymiai(const Pazymiai& other)
             : var_(other.var_), pav_(other.pav_), vid_(other.vid_), egz_(other.egz_),
               paz_(other.paz_), galutinis_(other.galutinis_), med_(other.med_) {}
 
     // Copy assignment operator
     /**
-     * @brief Kopijavimo priskyrimo operatorius.
-     */
+    * @brief Kopijavimo priskyrimo operatorius.*/
         Pazymiai& operator=(const Pazymiai& other) {
             if (this != &other) {
                 var_ = other.var_;
@@ -80,8 +75,7 @@ class Pazymiai {
 
     // Move constructor
     /**
-     * @brief Perkëlimo konstruktorius.
-     */
+    * @brief Perkelimo konstruktorius.*/
         Pazymiai(Pazymiai&& other) noexcept
             : var_(std::move(other.var_)), pav_(std::move(other.pav_)),
               vid_(other.vid_), egz_(other.egz_), paz_(std::move(other.paz_)),
@@ -89,8 +83,7 @@ class Pazymiai {
 
     // Move assignment operator
     /**
-     * @brief Perkëlimo priskyrimo operatorius.
-     */
+    * @brief Perkelimo priskyrimo operatorius.*/
         Pazymiai& operator=(Pazymiai&& other) noexcept {
             if (this != &other) {
                 var_ = std::move(other.var_);
@@ -105,96 +98,71 @@ class Pazymiai {
         }
 
         /**
-     * @brief Nustato studento vardà.
-     */
+        * @brief Nustato studento varda.*/
         void setVar(const std::string& newVar) { var_ = newVar; }
         /**
-     * @brief Nustato studento pavardæ.
-     */
+        * @brief Nustato studento pavarde.*/
         void setPav(const std::string& newPav) { pav_ = newPav; }
         /**
-     * @brief Nustato studento vidurká.
-     */
+        * @brief Nustato studento vidurki.*/
         void setVid(double newVid) { vid_ = newVid; }
         /**
-     * @brief Nustato egzamino rezultatà.
-     */
+        * @brief Nustato egzamino rezultata.*/
         void setEgz(int newEgz) { egz_ = newEgz; }
         /**
-     * @brief Áterpia vienà paþymá á sàraðà..
-     */
+        * @brief Iterpia viena pazymi i sarasa..*/
         void setOnePaz(int newPaz) { paz_.push_back(newPaz); }
         /**
-     * @brief Nustato paþymiø sàraðà.
-     */
+        * @brief Nustato pazymiu sarasa.*/
         void setPazymiai(const std::vector<int>& pazymiai) { paz_ = pazymiai; }
         /**
-     * @brief Nustato galutiná paþymá.
-     */
+        * @brief Nustato galutini pazymi.*/
         void setGalutinis(double newGalutinis) { galutinis_ = newGalutinis; }
         /**
-     * @brief Nustato medianà.
-     */
+        * @brief Nustato mediana.*/
         void setMed(double newMed) { med_ = newMed; }
-/**
-     * @brief Rikiuoja paþymiø sàraðà.
-     */
+
+        /**
+        * @brief Rikiuoja pazymiu sarasa.*/
         void sortPaz(Pazymiai& C) { sort(C.paz_.begin(), C.paz_.end());}
 
         /**
-     * @brief Graþina studento vardà.
-     */
-    std::string getVar() const { return var_; }
-
-    /**
-     * @brief Graþina studento pavardæ.
-     */
-    std::string getPav() const { return pav_; }
-
-    /**
-     * @brief Graþina vidurká.
-     */
-    double getVid() const { return vid_; }
-
-    /**
-     * @brief Graþina egzamino rezultatà.
-     */
-    int getEgz() const { return egz_; }
-
-    /**
-     * @brief Graþina paþymiø sàraðà.
-     */
-    std::vector<int> getPaz() const { return paz_; }
-
-    /**
-     * @brief Graþina nurodytà paþymá ið sàraðo pagal pozicijà.
-     */
-    int getPazN(const std::vector<int>& newPaz, int pos) const { return newPaz[pos]; }
-
-    /**
-     * @brief Graþina galutiná paþymá.
-     */
-    double getGalutinis() const { return galutinis_; }
-
-    /**
-     * @brief Graþina medianà.
-     */
-    double getMed() const { return med_; }
+        * @brief Grazina studento varda.*/
+        std::string getVar() const { return var_; }
         /**
-     * @brief Skaièiuoja medianà.
-     * @param u Paþymiø skaièius
-     * @param h Pazymiai objektas
-     * @return Mediana
-     */
+        * @brief Grazina studento pavarde.*/
+        std::string getPav() const { return pav_; }
+        /**
+        * @brief Grazina vidurki.*/
+        double getVid() const { return vid_; }
+        /**
+        * @brief Grazina egzamino rezultata.*/
+        int getEgz() const { return egz_; }
+        /**
+        * @brief Grazina pazymiu sarasa.*/
+        std::vector<int> getPaz() const { return paz_; }
+        /**
+        * @brief Grazina nurodyta pazymi is saraso pagal pozicija.*/
+        int getPazN(const std::vector<int>& newPaz, int pos) const { return newPaz[pos]; }
+        /**
+        * @brief Grazina galutini pazymi.*/
+        double getGalutinis() const { return galutinis_; }
+        /**
+        * @brief Grazina mediana.*/
+        double getMed() const { return med_; }
 
+         /**
+         * @brief Skaiciuoja mediana.
+         * @param u Pazymiu skaicius
+         * @param h Pazymiai objektas
+         * @return Mediana*/
         friend double mediana(int u, const Pazymiai h);
-        // Input operator
-        /**
-     * @brief Ávedimo operatorius, skirtas nuskaityti objekto duomenis ið ávesties srauto.
-     * @param is Ávesties srautas
-     * @param obj Pazymiai objektas, á kurá nuskaitomi duomenys
-     * @return Ávesties srautas
-     */
+
+         /**
+         * @brief Ivedimo operatorius, skirtas nuskaityti objekto duomenis is ivesties srauto.
+         * @param is Ivesties srautas
+         * @param obj Pazymiai objektas, i kuri nuskaitomi duomenys
+         * @return Ivesties srautas*/
         friend std::istream& operator>>(std::istream& is, Pazymiai& obj) {
             std::cout << "Iveskite studento varda (noredami baigti spauskite 4):" << std::endl;
             is >> obj.var_;
@@ -250,19 +218,19 @@ class Pazymiai {
         }
 
         /**
-     * @brief Iðvedimo operatorius, skirtas iðvesti objekto duomenis á iðvesties srautà.
-     * @param os Iðvesties srautas
-     * @param obj Pazymiai objektas
-     * @return Iðvesties srautas
-     */
-        // Output operator
-        friend std::ostream& operator<<(std::ostream& os, const Pazymiai& obj) {
+         * @brief Isvedimo operatorius, skirtas isvesti objekto duomenis i isvesties srauta.
+         * @param os Isvesties srautas
+         * @param obj Pazymiai objektas
+         * @return Isvesties srautas
+         */
+            // Output operator
+            friend std::ostream& operator<<(std::ostream& os, const Pazymiai& obj) {
 
-            os << std::left << std::setw(15) << obj.var_ << std::setw(15) << obj.pav_ << std::setw(17)
-               << std::fixed << std::setprecision(2) << obj.galutinis_ << std::setw(17) << std::fixed
-               << std::setprecision(2) << obj.med_ << std::endl;
-            return os;
-        }
+                os << std::left << std::setw(15) << obj.var_ << std::setw(15) << obj.pav_ << std::setw(17)
+                   << std::fixed << std::setprecision(2) << obj.galutinis_ << std::setw(17) << std::fixed
+                   << std::setprecision(2) << obj.med_ << std::endl;
+                return os;
+            }
 
 };
 /*
@@ -360,6 +328,71 @@ class Pazymiai : public Zmogus {
         //std::string getVar() const { return Zmogus::getVar(); }
         std::string getVar() const { return var_; }
         //std::string getPav() const override { return Zmogus::getPav(); }
+
+        friend double mediana(int u, const Pazymiai h);
+
+        friend std::istream& operator>>(std::istream& is, Pazymiai& obj) {
+            std::cout << "Iveskite studento varda (noredami baigti spauskite 4):" << std::endl;
+            is >> obj.var_;
+            if (obj.var_ == "4" || obj.pav_ == "4")
+                return is;
+            std::cout << "Iveskite studento pavarde (noredami baigti spauskite 4):" << std::endl;
+            is >> obj.pav_;
+            if (obj.var_ == "4" || obj.pav_ == "4")
+                return is;
+
+            double suma = 0.0;
+            int pazymys;
+            int j = 0;
+
+            do {
+                std::cout << "Iveskite " << j + 1 << " pazymi (norint baigti spauskite 11): ";
+                is >> pazymys;
+
+                if (pazymys == 11)
+                    break;
+
+                while (pazymys < 1 || pazymys > 10 || is.fail()) {
+                    std::cout << "Klaida. Iveskite skaiciu nuo 1 iki 10: ";
+                    is.clear();
+                    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    is >> pazymys;
+                }
+
+                obj.paz_.push_back(pazymys);
+                suma += pazymys;
+                j++;
+            } while (true);
+
+            obj.vid_ = suma / j;
+
+            std::cout << "Iveskite egzamino rezultata : ";
+            is >> obj.egz_;
+
+            while (obj.egz_ < 1 || obj.egz_ > 10 || is.fail()) {
+                std::cout << "Klaida. Iveskite skaiciu nuo 1 iki 10: ";
+                is.clear();
+                is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                is >> obj.egz_;
+            }
+
+            obj.galutinis_ = (obj.vid_ * 0.4) + (obj.egz_ * 0.6);
+
+            std::sort(obj.paz_.begin(), obj.paz_.end());
+
+            obj.med_ = mediana(j, obj);
+
+            return is;
+        }
+
+            // Output operator
+            friend std::ostream& operator<<(std::ostream& os, const Pazymiai& obj) {
+
+                os << std::left << std::setw(15) << obj.var_ << std::setw(15) << obj.pav_ << std::setw(17)
+                   << std::fixed << std::setprecision(2) << obj.galutinis_ << std::setw(17) << std::fixed
+                   << std::setprecision(2) << obj.med_ << std::endl;
+                return os;
+            }
 };
 */
 void rezultatai(std::vector<Pazymiai> hh);

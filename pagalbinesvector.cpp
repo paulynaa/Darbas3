@@ -1,8 +1,12 @@
+/**
+ * @file pagalbinesvector.cpp
+ * @brief Funkciju deklaracija.
+ */
 #include "pagalbinesvector.h"
 using namespace std;
 /**
- * @brief Spausdina studentø rezultatus á konsolæ.
- * @param hh Studentø sàraðas
+ * @brief Spausdina studentu rezultatus i konsole.
+ * @param hh Studentu sarasas
  */
 void rezultatai(std::vector<Pazymiai> hh){
     std::cout<< std::left << std::setw(15) << "Pavarde " << std::setw(15) << "Vardas" << std::setw(17) << "Galutinis (Vid.)"
@@ -13,8 +17,8 @@ void rezultatai(std::vector<Pazymiai> hh){
     }
 }
 /**
- * @brief Spausdina studentø rezultatus á failà.
- * @param hh Studentø sàraðas
+ * @brief Spausdina studentu rezultatus i faila.
+ * @param hh Studentu sarasas
  * @param failiukas Failo pavadinimas
  */
 void rezultataifailas(std::vector<Pazymiai> hh, std::string failiukas){
@@ -28,8 +32,8 @@ void rezultataifailas(std::vector<Pazymiai> hh, std::string failiukas){
     R.close();
 }
 /**
- * @brief Skaièiuoja medianà.
- * @param u Paþymiø skaièius
+ * @brief Skaiciuoja mediana.
+ * @param u Pazymiu skaicius
  * @param h Pazymiai objektas
  * @return Mediana
  */
@@ -46,8 +50,8 @@ double mediana(int u, Pazymiai h){
     return h.getMed();
 }
 /**
- * @brief Generuoja atsitiktinius studentø duomenis ir áraðo á failà.
- * @param studentusk Studentø skaièius
+ * @brief Generuoja atsitiktinius studentu duomenis ir iraso i faila.
+ * @param studentusk Studentu skaicius
  * @param failopav Failo pavadinimas
  */
 void generuojam(int studentusk, std::string failopav){
@@ -83,11 +87,11 @@ void generuojam(int studentusk, std::string failopav){
 
 }
 /**
- * @brief Nuskaito duomenis ið failo ir apdoroja juos.
+ * @brief Nuskaito duomenis is failo ir apdoroja juos.
  * @param wp Failo pavadinimas
  * @param hi Pazymiai objektas
- * @param P Studentai, kuriø galutinis paþymys >= 5
- * @param Z Studentai, kuriø galutinis paþymys < 5
+ * @param P Studentai, kuriu galutinis pazymys >= 5
+ * @param Z Studentai, kuriu galutinis pazymys < 5
  */
 void failuskaick(std::string wp, Pazymiai hi, vector<Pazymiai>& P, vector<Pazymiai>& Z ){
 
@@ -199,12 +203,12 @@ void failuskaick(std::string wp, Pazymiai hi, vector<Pazymiai>& P, vector<Pazymi
 
 }
 /**
- * @brief Nuskaito duomenis ið failo ir apdoroja juos, taikant strategijà 1.
+ * @brief Nuskaito duomenis is failo ir apdoroja juos, taikant strategija 1.
  * @param wp Failo pavadinimas
  * @param hi Pazymiai objektas
  * @param S Visi nuskaityti studentai
- * @param P Studentai, kuriø galutinis paþymys >= 5
- * @param Z Studentai, kuriø galutinis paþymys < 5
+ * @param P Studentai, kuriu galutinis pazymys >= 5
+ * @param Z Studentai, kuriu galutinis pazymys < 5
  */
 void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z){
     int z;
@@ -304,12 +308,12 @@ void failuskaickstrategija1(string wp, Pazymiai hi,std::vector<Pazymiai>& S, std
                 std::cout << "Rusiavimo (sort) trukme: " << suum << " milisekundes." << std::endl;
 }
 /**
- * @brief Funkcija nuskaito duomenis ið failo, apdoroja juos ir iðskirsto á du konteinerius.
+ * @brief Funkcija nuskaito duomenis is failo, apdoroja juos ir isskirsto i du konteinerius.
  *
- * @param wp Failo pavadinimas, ið kurio nuskaitomi duomenys.
- * @param hi Objektas, kuris naudojamas saugoti vienà studento informacijos áraðà.
- * @param P Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra didesnis nei 5.
- * @param Z Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra maþesnis nei 5.
+ * @param wp Failo pavadinimas, is kurio nuskaitomi duomenys.
+ * @param hi Objektas, kuris naudojamas saugoti viena studento informacijos irasa.
+ * @param P Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra didesnis nei 5.
+ * @param Z Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra mazesnis nei 5.
  */
 void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z){
     int z;
@@ -404,13 +408,13 @@ void failuskaickstrategija2(string wp, Pazymiai hi, std::vector<Pazymiai>& P, st
     std::cout << "Rusiavimo sort trukme: " << suum << " milisekundes." << std::endl;
 }
 /**
- * @brief Funkcija nuskaito duomenis ið failo, apdoroja juos ir iðskirsto á tris konteinerius.
+ * @brief Funkcija nuskaito duomenis is failo, apdoroja juos ir isskirsto i tris konteinerius.
  *
- * @param wp Failo pavadinimas, ið kurio nuskaitomi duomenys.
- * @param hi Objektas, kuris naudojamas saugoti vienà studento informacijos áraðà.
+ * @param wp Failo pavadinimas, is kurio nuskaitomi duomenys.
+ * @param hi Objektas, kuris naudojamas saugoti viena studento informacijos irasa.
  * @param S Konteineris, kuriame saugomi visi studentai.
- * @param P Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra didesnis nei 5.
- * @param Z Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra maþesnis nei 5.
+ * @param P Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra didesnis nei 5.
+ * @param Z Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra mazesnis nei 5.
  */
 void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, std::vector<Pazymiai>& P, std::vector<Pazymiai>& Z){
     int z;
@@ -509,12 +513,12 @@ void failuskaickstrategija3(string wp, Pazymiai hi, std::vector<Pazymiai>& S, st
     std::cout << "Rusiavimo sort trukme: " << suum << " milisekundes." << std::endl;
 }
 /**
- * @brief Funkcija iðveda studentø rezultatus á du atskirus failus.
+ * @brief Funkcija isveda studentu rezultatus i du atskirus failus.
  *
- * @param zekai Failo pavadinimas, á kurá iðvedami studentai, kuriø galutinis rezultatas yra maþesnis nei 5.
- * @param malaciai Failo pavadinimas, á kurá iðvedami studentai, kuriø galutinis rezultatas yra didesnis nei 5.
- * @param P Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra didesnis nei 5.
- * @param Z Konteineris, kuriame saugomi studentai, kuriø galutinis rezultatas yra maþesnis nei 5.
+ * @param zekai Failo pavadinimas, i kuri isvedami studentai, kuriu galutinis rezultatas yra mazesnis nei 5.
+ * @param malaciai Failo pavadinimas, i kuri isvedami studentai, kuriu galutinis rezultatas yra didesnis nei 5.
+ * @param P Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra didesnis nei 5.
+ * @param Z Konteineris, kuriame saugomi studentai, kuriu galutinis rezultatas yra mazesnis nei 5.
  */
 void spausdintuvas(std::string zekai, std::string malaciai, vector<Pazymiai> P, vector<Pazymiai> Z ){
     auto p = std::chrono::high_resolution_clock::now();
