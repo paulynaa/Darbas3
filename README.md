@@ -38,23 +38,30 @@ Zmogui skirta bazinė klasė yra abstrakčioji klasė.
 Veliau patikrinome, ar keiciasi programos veikimo sparta priklausomai nuo klases. Rezultatai buvo pateikti lenteleje.
 
 # v2.0
-**Doxygen diegimo instrukcija**
+Sukūriau dokumentaciją panaudojant Doxygen. Toliau reikėjo realizuoti Unit Testus su klase naudojant labiausiai patinkantį C++ Unit testų framework'ą.
+Štai taip atrodė testai:
 
-**CLion**
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/0255bd85-7397-4943-9926-47a9713b67ff)
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/94e58666-47a4-4da8-ae02-002e82ed7def)
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/65c9b7f7-5e19-4143-a6ab-fc1808bc375f)
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/8aa751a9-a2a7-4999-8ddc-d2fa95d5dc52)
 
-**Google tests**
+Rezultatas:
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/ee12c7f2-cd3d-43d8-8e47-bf87182f6dfa)
 
+
+**Užkomentuota v1.2 versijos klasė(doxygen)**
 
 class Pazymiai {
-    private:
-        std::string var_; /**< Studento vardas */
-        std::string pav_; /**< Studento pavarde */
-        double vid_; /**< Vidurkis */
-        int egz_; /**< Egzamino rezultatas */
-        std::vector<int> paz_; /**< Pazymiu sarasas */
-        double galutinis_; /**< Galutinis pazymys */
-        double med_; /**< Mediana */
 
+    private:
+        std::string var_; / **< Studento vardas */
+        std::string pav_; / **< Studento pavarde */
+        double vid_; / **< Vidurkis */
+        int egz_; / **< Egzamino rezultatas */
+        std::vector<int> paz_; / **< Pazymiu sarasas */
+        double galutinis_; / **< Galutinis pazymys */
+        double med_; / **< Mediana */
     public:
         /**
          * @brief Numatytasis konstruktorius, inicializuoja narius nuliais.*/
@@ -261,6 +268,23 @@ class Pazymiai {
             }
 
 };
+
+# Doxygen diegimo instrukcija
+1. https://www.doxygen.nl/manual/index.html paspaudus šį linka spaudžiame mygtuką Download pagal OS
+2. Susiinstaliavus spaudžiame Finish.
+3. Sukuriame 2 naujus aplankalus, iš kurio doxygenas pasileis, ir kur matysis rezultatas.
+4. Atidarome Doxygen UI ir ten parenkame atitinkamus aplankalus. Source code directory: pažymime aplankalą kuriame yra mūsų jau užkomentuota programa(naudojam @brief, @param, @file, @class, @return).
+5. Lange Wizard pereiname į Mode ir pažymime: Documented entities only ir Optimize for C++ output. Pereiname į Output ir žymime: plain HTML, With search function, as intermediate format for hyperlinked PDF. Pereiname į Diagrams ir žymime: Use built-in class diagram generator.
+6. Lange Run spaudžiame "Run doxygen" ir "Show HTML output".
+
+# Visual Studio Community 2022
+1. Paspaudus šį linką https://visualstudio.microsoft.com/vs/community/ pasirenkame Visual Studio Community 2022 ir spaudžiame "Free download".
+2. Instaliuojant pasirenkame tik "Desktop development with C++" ir spaudžiame Install.
+3. Pasirenkame "Create a new project" ir vėliau "NativeTest" ir Next.
+4. Location pasirenkame norimoj vietoj naujame aplankale.
+5. Spaudžiame "Project", "Properties", išskleidžiame C/C++, spaudžiame "Precompiled Headers", skiltyje "Platforms" žymime "All Platforms" ir kur Precompiled Header pažymime Not Using.
+6. Nukopijuojame reikalingus failus į testų aplankalą, o VS spaudžiame "Project" ir "Add Existing Item". Tokiu būdu prijungiame failus su klase, kuriuos vėliau testuosime.
+7. Parašome kodą ir testuojame.
 # Programos diegimo instrukcijos
 1. Pirma, turite susikurti savo GitHub paskyrą. Galite pasinaudoti instrukcijomis: https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
 2. Norėdami rasti kodą, įveskite nuorodą į paieškos eilę. Pavyzdžiui: https://github.com/paulynaa/Darbas1/tree/v1.0
