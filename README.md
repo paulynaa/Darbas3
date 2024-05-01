@@ -44,6 +44,7 @@ Veliau patikrinome, ar keiciasi programos veikimo sparta priklausomai nuo klases
 
 **Google tests**
 
+
 class Pazymiai {
     private:
         std::string var_; /**< Studento vardas */
