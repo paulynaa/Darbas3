@@ -50,6 +50,11 @@ Rezultatas:
 ![image](https://github.com/paulynaa/Darbas2/assets/147087833/ee12c7f2-cd3d-43d8-8e47-bf87182f6dfa)
 
 
+Doxygen:
+
+![image](https://github.com/paulynaa/Darbas2/assets/147087833/37886b6e-e810-4ad0-b4c6-3304950e7f71)
+
+
 **Užkomentuota v1.2 versijos klasė(doxygen)**
 
 class Pazymiai {
@@ -285,6 +290,7 @@ class Pazymiai {
 5. Spaudžiame "Project", "Properties", išskleidžiame C/C++, spaudžiame "Precompiled Headers", skiltyje "Platforms" žymime "All Platforms" ir kur Precompiled Header pažymime Not Using.
 6. Nukopijuojame reikalingus failus į testų aplankalą, o VS spaudžiame "Project" ir "Add Existing Item". Tokiu būdu prijungiame failus su klase, kuriuos vėliau testuosime.
 7. Parašome kodą ir testuojame.
+
 # Programos diegimo instrukcijos
 1. Pirma, turite susikurti savo GitHub paskyrą. Galite pasinaudoti instrukcijomis: https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
 2. Norėdami rasti kodą, įveskite nuorodą į paieškos eilę. Pavyzdžiui: https://github.com/paulynaa/Darbas1/tree/v1.0
