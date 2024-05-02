@@ -1,0 +1,119 @@
+\doxysection{Zmogus Class Reference}
+\hypertarget{class_zmogus}{}\label{class_zmogus}\index{Zmogus@{Zmogus}}
+
+
+Klase \doxylink{class_zmogus}{Zmogus} saugo informacija apie studento varda ir pavarde.  
+
+
+
+
+{\ttfamily \#include $<$pagalbinesvector.\+h$>$}
+
+Inheritance diagram for Zmogus\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_zmogus}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_zmogus_a905fef3b8ad421a6d023c7ebc295f48e}\label{class_zmogus_a905fef3b8ad421a6d023c7ebc295f48e} 
+{\bfseries Zmogus} ()=default
+\begin{DoxyCompactList}\small\item\em Numatytasis konstruktorius. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_zmogus_a3e9470556c75e84755e7be1f234959fb}{Zmogus}} (const std\+::string \&var, const std\+::string \&pav)
+\begin{DoxyCompactList}\small\item\em Parametrizuotas konstruktorius, inicializuoja varda ir pavarde. \end{DoxyCompactList}\item 
+\Hypertarget{class_zmogus_ac5615bf607a8f2f1b303ffa04328d24d}\label{class_zmogus_ac5615bf607a8f2f1b303ffa04328d24d} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Zmogus} ()
+\begin{DoxyCompactList}\small\item\em Virtualus destruktorius. \end{DoxyCompactList}\item 
+\Hypertarget{class_zmogus_a0d92cbbee9275a71acf7e38b6f483510}\label{class_zmogus_a0d92cbbee9275a71acf7e38b6f483510} 
+virtual void {\bfseries set\+Var} (const std\+::string \&new\+Var)
+\begin{DoxyCompactList}\small\item\em Nustato studento varda. \end{DoxyCompactList}\item 
+\Hypertarget{class_zmogus_a4555a8eac2e14400c7995dc1e0a31e8a}\label{class_zmogus_a4555a8eac2e14400c7995dc1e0a31e8a} 
+virtual void {\bfseries set\+Pav} (const std\+::string \&new\+Pav)
+\begin{DoxyCompactList}\small\item\em Nustato studento pavarde. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_zmogus_a79c24cbf89536478aeae8a289f14c46c}{get\+Var}} () const =0
+\begin{DoxyCompactList}\small\item\em Grazina zmogaus varda. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_zmogus_a0edab2841195b9b9f7a4e131091a328e}{get\+Pav}} ()=0
+\begin{DoxyCompactList}\small\item\em Grazina zmogaus pavarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_zmogus_a6867269cc503f47e4e7f247ed5f7eaa0}{var\+\_\+}}
+\item 
+std\+::string \mbox{\hyperlink{class_zmogus_a41f95a6793e83d1584925cc4f7df9b87}{pav\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klase \doxylink{class_zmogus}{Zmogus} saugo informacija apie studento varda ir pavarde. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_zmogus_a3e9470556c75e84755e7be1f234959fb}\label{class_zmogus_a3e9470556c75e84755e7be1f234959fb} 
+\index{Zmogus@{Zmogus}!Zmogus@{Zmogus}}
+\index{Zmogus@{Zmogus}!Zmogus@{Zmogus}}
+\doxysubsubsection{\texorpdfstring{Zmogus()}{Zmogus()}}
+{\footnotesize\ttfamily Zmogus\+::\+Zmogus (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{var,  }\item[{const std\+::string \&}]{pav }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Parametrizuotas konstruktorius, inicializuoja varda ir pavarde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var} & Zmogaus vardas \\
+\hline
+{\em pav} & Zmogaus pavarde \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_zmogus_a0edab2841195b9b9f7a4e131091a328e}\label{class_zmogus_a0edab2841195b9b9f7a4e131091a328e} 
+\index{Zmogus@{Zmogus}!getPav@{getPav}}
+\index{getPav@{getPav}!Zmogus@{Zmogus}}
+\doxysubsubsection{\texorpdfstring{getPav()}{getPav()}}
+{\footnotesize\ttfamily virtual std\+::string Zmogus\+::get\+Pav (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Grazina zmogaus pavarde. 
+
+
+
+Implemented in \mbox{\hyperlink{class_pazymiai_a194d38f712b9ed70060cfec760015dc6}{Pazymiai}}.
+
+\Hypertarget{class_zmogus_a79c24cbf89536478aeae8a289f14c46c}\label{class_zmogus_a79c24cbf89536478aeae8a289f14c46c} 
+\index{Zmogus@{Zmogus}!getVar@{getVar}}
+\index{getVar@{getVar}!Zmogus@{Zmogus}}
+\doxysubsubsection{\texorpdfstring{getVar()}{getVar()}}
+{\footnotesize\ttfamily virtual std\+::string Zmogus\+::get\+Var (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Grazina zmogaus varda. 
+
+
+
+Implemented in \mbox{\hyperlink{class_pazymiai_aeb809bb521186fa947ea4443b791c07f}{Pazymiai}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_zmogus_a41f95a6793e83d1584925cc4f7df9b87}\label{class_zmogus_a41f95a6793e83d1584925cc4f7df9b87} 
+\index{Zmogus@{Zmogus}!pav\_@{pav\_}}
+\index{pav\_@{pav\_}!Zmogus@{Zmogus}}
+\doxysubsubsection{\texorpdfstring{pav\_}{pav\_}}
+{\footnotesize\ttfamily std\+::string Zmogus\+::pav\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+Zmogaus pavarde \Hypertarget{class_zmogus_a6867269cc503f47e4e7f247ed5f7eaa0}\label{class_zmogus_a6867269cc503f47e4e7f247ed5f7eaa0} 
+\index{Zmogus@{Zmogus}!var\_@{var\_}}
+\index{var\_@{var\_}!Zmogus@{Zmogus}}
+\doxysubsubsection{\texorpdfstring{var\_}{var\_}}
+{\footnotesize\ttfamily std\+::string Zmogus\+::var\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+Zmogaus vardas 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Paulina/\+Documents/\+Objektinis programavimas 1 kursas/vectorcontainer/\mbox{\hyperlink{pagalbinesvector_8h}{pagalbinesvector.\+h}}\end{DoxyCompactItemize}

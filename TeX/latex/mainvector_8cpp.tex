@@ -1,0 +1,175 @@
+\doxysection{C\+:/\+Users/\+Paulina/\+Documents/\+Objektinis programavimas 1 kursas/vectorcontainer/mainvector.cpp File Reference}
+\hypertarget{mainvector_8cpp}{}\label{mainvector_8cpp}\index{C:/Users/Paulina/Documents/Objektinis programavimas 1 kursas/vectorcontainer/mainvector.cpp@{C:/Users/Paulina/Documents/Objektinis programavimas 1 kursas/vectorcontainer/mainvector.cpp}}
+
+
+Pagrindinio failo vykdymas.  
+
+
+{\ttfamily \#include "{}pagalbinesvector.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mainvector_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Vartotojas is meniu pasirenka norima veiksma ir pagal pasirinkima, veda arba generuoja studentu duomenis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mainvector_8cpp_a78c9edf1774cc65179d395d88115aec7}\label{mainvector_8cpp_a78c9edf1774cc65179d395d88115aec7} 
+int {\bfseries pasirinkimas}
+\item 
+\Hypertarget{mainvector_8cpp_a4e1e0e72dd773439e333c84dd762a9c3}\label{mainvector_8cpp_a4e1e0e72dd773439e333c84dd762a9c3} 
+int {\bfseries c}
+\item 
+\Hypertarget{mainvector_8cpp_a6150e0515f7202e2fb518f7206ed97dc}\label{mainvector_8cpp_a6150e0515f7202e2fb518f7206ed97dc} 
+int {\bfseries x}
+\item 
+\Hypertarget{mainvector_8cpp_a339d22b3e442946380f98ed19e320db2}\label{mainvector_8cpp_a339d22b3e442946380f98ed19e320db2} 
+int {\bfseries s}
+\item 
+\Hypertarget{mainvector_8cpp_acb559820d9ca11295b4500f179ef6392}\label{mainvector_8cpp_acb559820d9ca11295b4500f179ef6392} 
+int {\bfseries i} =0
+\item 
+\Hypertarget{mainvector_8cpp_a070a7778d304d19b8284d34236c7bf21}\label{mainvector_8cpp_a070a7778d304d19b8284d34236c7bf21} 
+std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ {\bfseries S}
+\item 
+\Hypertarget{mainvector_8cpp_a3e2991f598ee8d140ffd36733d37eba4}\label{mainvector_8cpp_a3e2991f598ee8d140ffd36733d37eba4} 
+std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ {\bfseries P}
+\item 
+\Hypertarget{mainvector_8cpp_a306c32c64df78353bfa18a77a3189068}\label{mainvector_8cpp_a306c32c64df78353bfa18a77a3189068} 
+std\+::vector$<$ \mbox{\hyperlink{class_pazymiai}{Pazymiai}} $>$ {\bfseries Z}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pagrindinio failo vykdymas. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mainvector_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{mainvector_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{mainvector.cpp@{mainvector.cpp}!main@{main}}
+\index{main@{main}!mainvector.cpp@{mainvector.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Vartotojas is meniu pasirenka norima veiksma ir pagal pasirinkima, veda arba generuoja studentu duomenis. 
+
+Meniu\+:
+
+Atvejis 1\+: Ivesti duomenis ranka Si dalis leidzia vartotojui ivesti studentu duomenis rankiniu budu. Vartotojas gali vesti studentu duomenis, kol ives "{}4"{} i studento vardo arba pavardes lauka. Kai duomenu ivedimas baigtas, atvaizduojami ivesti studentu duomenys ekrane 
+\begin{DoxyParams}{Parameters}
+{\em P} & Vektorius, i kuri pridedami ivesti duomenys. \\
+\hline
+{\em \doxylink{class_pazymiai}{Pazymiai}} & C; Objektas, kuri laikinai saugomi ivesti duomenys.\\
+\hline
+\end{DoxyParams}
+Atvejis 2\+: Generuoja tik pazymius. Si dalis leidzia vartotojui generuoti studentu duomenis su atsitiktiniais pazymiais. Vartotojui leidziama ivesti varda ir pavarde Vartotojas pasirenka, ar nori generuoti atsitiktinius pazymius arba pasirinkti kieki Atvaizduojami ivesti studentu duomenys ekrane 
+\begin{DoxyParams}{Parameters}
+{\em P} & Vektorius, i kuri pridedami studentu duomenys. \\
+\hline
+{\em int} & i; Skaiciuoja kiek studentu iraso vartotojas. \\
+\hline
+{\em \doxylink{class_pazymiai}{Pazymiai}} & C; Studento objektas, i kuri laikinai saugomi studento duomenys. \\
+\hline
+{\em string} & xx, yy; Laikini kintamieji, kuriuose saugomi studento vardas ir pavarde. \\
+\hline
+{\em int} & egg; Kintamasis, kuriame laikinai saugomas studento egzamino rezultatas. \\
+\hline
+{\em double} & suma = 0.\+0; Kintamasis, kuriame laikinai saugoma pazymiu suma. \\
+\hline
+{\em x} & Laikinas kintamasis, kuriame saugomas vartotojo atsakymas apie generavima. \\
+\hline
+{\em string} & y; Laikinas kintamasis, kuriame saugomas vartotojo atsakymas apie generavimo tesima. \\
+\hline
+{\em int} & h = 0; Skaiciuoja pazymiu kieki. \\
+\hline
+{\em int} & k; Kintamasis, kuriame saugomas pasirinktu pazymiu skaicius. \\
+\hline
+{\em int} & w; Kintamasis, kuriame saugomas vartotojo pasirinkimas apie egzamino rezultata.\\
+\hline
+\end{DoxyParams}
+Atvejis 3\+: Generuoja studentu vardus, pavardes ir pazymius. Si dalis leidzia automatiskai generuoti studentu duomenis su atsitiktiniais pazymiais. Vartotojui atsitiktinai bus generuojamas studeno vardas ir pavarde kol nebus pasirinkta stabdyti generavima. Vartotojui leidziama pasirinkti, ar generuoti atsitiktinius ar pasirinktus pazymius. Vartotojui leidziama pasirinkti, ar generuoti daugiau studentu duomenu. Atvaizduojami studentu rezultatai ekrane. 
+\begin{DoxyParams}{Parameters}
+{\em P} & Vektorius, i kuri pridedami studentu duomenys. \\
+\hline
+{\em \doxylink{class_pazymiai}{Pazymiai}} & C; Studento objektas, i kuri laikinai saugomi studento duomenys. \\
+\hline
+{\em string} & xx, yy; Laikini kintamieji, kuriuose saugomi studento vardas ir pavarde. \\
+\hline
+{\em x} & Laikinas kintamasis, kuriame saugomas vartotojo atsakymas apie generavimo buda. \\
+\hline
+{\em string} & y; Laikinas kintamasis, kuriame saugomas vartotojo atsakymas apie generavimo tesima. \\
+\hline
+{\em int} & h = 0; Skaiciuoja pazymiu kieki. \\
+\hline
+{\em int} & k; Kintamasis, kuriame saugomas pasirinktu pazymiu skaicius. \\
+\hline
+{\em int} & w; Kintamasis, kuriame saugomas vartotojo pasirinkimas apie egzamino rezultata. \\
+\hline
+{\em int} & qq=0; Indikuoja, ar norima testi studentu generavima. Jei qq == 1, baigiama studentu generavimo procedura. \\
+\hline
+{\em int} & egg; Saugomas gzamino rezultatas, jei pasirinkta ivesti ranka. \\
+\hline
+{\em string} & vardai\mbox{[}\mbox{]} = \{"{}\+Paulina"{}, "{}\+Adriana"{}, "{}\+Gitanas"{}, "{}\+Donald"{}, "{}\+Ugne"{}, "{}\+Kamile"{}, "{}\+Rugile"{}, "{}\+Roberta"{}, "{}\+Valdemaras"{}, "{}\+Jurgis"{}\}; Masyvas, kuriame saugomi studentu vardai, is kuriu bus atsitiktinai generuojami duomenys. \\
+\hline
+{\em string} & pavardes\mbox{[}\mbox{]} = \{"{}\+Podgaiska"{}, "{}\+Obama"{}, "{}\+Trump"{}, "{}\+Nauseda"{}, "{}\+Sirokyte"{}, "{}\+Mockute"{}, "{}\+Zobelaite"{}, "{}\+Macaite"{}, "{}\+Jurpalyte"{}, "{}\+Jankauskas"{}\}; Masyvas, kuriame saugomos studentu pavardes, is kuriu bus atsitiktinai generuojami duomenys.\\
+\hline
+\end{DoxyParams}
+Atvejis 4\+: Nuskaito duomenis is pasirinktu failu. Vartotojui leidziama pasirinkti, is kurio failo nuskaityti duomenis. Nustatomas pasirinktas failo pavadinimas pagal vartotojo pasirinkima. Vartotojui leidziama pasirinkti, kiek studentu duomenu nuskaityti is failo. Vartotojui leidziama pasirinkti, kaip surikiuoti studentus. Vartotojui leidziama pasirinkti, kur isvesti surikiuotus duomenis. 
+\begin{DoxyParams}{Parameters}
+{\em P} & Vektorius, i kuri pridedami studentu duomenys. \\
+\hline
+{\em \doxylink{class_pazymiai}{Pazymiai}} & C; Studento objektas, i kuri laikinai saugomi generuojami duomenys. \\
+\hline
+{\em int} & z; Laikinas kintamasis pazymiui saugoti. \\
+\hline
+{\em int} & o; Vartotojo pasirinkimas, kur isvesti rezultatus (ekranas ar failas). \\
+\hline
+{\em int} & stud; Vartotojo pasirinkimas, kiek studentu duomenu nuskaityti is failo. \\
+\hline
+{\em string} & zodziai; Laikinas kintamasis pirmos eilutes su pavadinimais nuskaitymui. \\
+\hline
+{\em int} & xyz; Vartotojo pasirinkimas, kaip rusiuoti studentus. \\
+\hline
+{\em int} & pv = 0; Kintamasis saugantis nuskaitytu pazymiu kieki. \\
+\hline
+{\em int} & numeris; Kintamasis saugantis vartotojo pasirinkta failo numeri. \\
+\hline
+{\em string} & wp; Kintamasis saugantis failo pavadinima. \\
+\hline
+{\em string} & xx, yy; Laikini kintamieji studento vardo ir pavardes saugojimui. \\
+\hline
+{\em int} & egg; Laikinas kintamasis egzamino rezultatui saugoti.\\
+\hline
+\end{DoxyParams}
+Atvejis 5\+: Generuoja failus su atsitiktiniais duomenimis duomenimis. Generuojami failai yra skirtingu dydziu(1000, 10 000, 100 000, 1 000 000, 10 000 000). 
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{class_pazymiai}{Pazymiai}} & C; Studento objektas, i kuri laikinai saugomi generuojami duomenys.\\
+\hline
+\end{DoxyParams}
+Atvejis 6\+: Sugeneruotu failu skaitymas ir apdorojimas. Vartotojas pasirenka strategijas, pagal kurias failai bus skaiciuojami. Rezultatai isspausdinami i failus. 
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{class_pazymiai}{Pazymiai}} & C; Studento objektas, i kuri laikinai saugomi generuojami duomenys. \\
+\hline
+{\em S} & Vektorius, i kuri pridedami visu studentu duomenys. \\
+\hline
+{\em P} & Vektorius, i kuri pridedami studentu duomenys, kuriu vidurkis didesnis nei 5. \\
+\hline
+{\em Z} & Vektorius, i kuri pridedami studentu duomenys, kuriu vidurkis mazesnis uz 5. \\
+\hline
+{\em int} & strategy; Pasirinkta strategija, pagal kuria vykdomas failu apdorojimas. \\
+\hline
+{\em const} & vector$<$string$>$ filenames = \{"{}1k.\+txt"{}, "{}10k.\+txt"{}, "{}100k.\+txt"{}, "{}1kk.\+txt"{}, "{}10kk.\+txt"{}\}; Vektorius, saugantis failu pavadinimus, kurie bus apdorojami. \\
+\hline
+{\em const} & vector$<$string$>$ lopukai\+Filenames = \{"{}lopukai1.\+txt"{}, "{}lopukai2.\+txt"{}, "{}lopukai3.\+txt"{}, "{}lopukai4.\+txt"{}, "{}lopukai5.\+txt"{}\}; Vektorius, saugantis failu pavadinimus, kuriuose bus isvedami rezultatai. \\
+\hline
+{\em const} & vector$<$string$>$ saunuoliukai\+Filenames = \{"{}saunuoliukai1.\+txt"{}, "{}saunuoliukai2.\+txt"{}, "{}saunuoliukai3.\+txt"{}, "{}saunuoliukai4.\+txt"{}, "{}saunuoliukai5.\+txt"{}\}; Vektorius, saugantis failu pavadinimus, kuriuose bus isvedami rezultatai.\\
+\hline
+\end{DoxyParams}
+Atvejis 7\+: Klasiu testavimas. Iskvieciamas funkcijos \doxylink{pagalbinesvector_8cpp_aec48b9cd75b32e5e2eda0101f2af8d04}{testai()} ir ekrane matome testu rezultata.
+
+Atvejis 8\+: Programos pabaiga \begin{DoxyReturn}{Returns}
+Grazinamas nulis, nurodantis, kad programa sekmingai baige darba
+\end{DoxyReturn}
