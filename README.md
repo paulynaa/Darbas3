@@ -154,7 +154,7 @@ __begin()__
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/69f01fb0-1f8f-42b6-9777-54604426f480)
 
 
-# Atlieku spartos analizę. Palyginu kiek vidutiniškai laiko užtrunka  std::vector tipo ir mano Vector tipo tuščius vektorius užpildyti: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją.
+# Palyginu kiek vidutiniškai laiko užtrunka  std::vector tipo ir mano Vector tipo tuščius vektorius užpildyti: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją.
 
 
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/f351ef5b-210b-4d71-9f00-2bf32c328b88)
@@ -208,7 +208,7 @@ __begin()__
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/99dbe095-c580-4bad-8bb2-61a47a026c2e)
 
 
-# Atlieku spartos analizę naudojant duomenų failą su 100 000, 1 000 000 ir 10 000 000 studentų įrašų, palyginu kiek laiko užtrunka programos veikimas naudojant std::vector ir Vector realizacijas.
+# Atlieku spartos analizę naudojant duomenų failą su 100 000, 1 000 000 ir 10 000 000 studentų įrašų naudojant std::vector ir Vector realizacijas.
 
 
 |Vector|Nuskaitymas|Skirstymas|Rūšiavimas|Išvedimas|std::vector|Nuskaitymas|Skirstymas|Rūšiavimas|Išvedimas|
