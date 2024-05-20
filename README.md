@@ -153,7 +153,9 @@ __begin()__
             
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/69f01fb0-1f8f-42b6-9777-54604426f480)
 
+
 # Atlieku spartos analizę. Palyginu kiek vidutiniškai laiko užtrunka  std::vector tipo ir mano Vector tipo tuščius vektorius užpildyti: 10000, 100000, 1000000, 10000000 ir 100000000 int elementų naudojant push_back() funkciją.
+
 
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/f351ef5b-210b-4d71-9f00-2bf32c328b88)
 
@@ -176,7 +178,9 @@ __begin()__
                         std::cout << "Vector uzpilde " << sz << " elementu per " << duration_custom.count() << " s\n";
             }
 
+
 # Palyginu kiek kartų įvyksta konteinerių (Vector ir std::vector) atminties perskirstymai užpildant 100 000 000 elementų.
+
             
             unsigned int sz = 100000000;  // 10000, 100000, 1000000, 10000000, 100000000
             std::vector<int> v1;
@@ -200,9 +204,12 @@ __begin()__
             cout << "Atmintis buvo perskirstyta " << vector_perskirstymas << " kartu su Vector" << endl;
 
 
+
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/99dbe095-c580-4bad-8bb2-61a47a026c2e)
 
+
 # Atlieku spartos analizę naudojant duomenų failą su 100 000, 1 000 000 ir 10 000 000 studentų įrašų, palyginu kiek laiko užtrunka programos veikimas naudojant std::vector ir Vector realizacijas.
+
 
 |Vector|Nuskaitymas|Skirstymas|Rūšiavimas|Išvedimas|std::vector|Nuskaitymas|Skirstymas|Rūšiavimas|Išvedimas|
 |---|-----|-----------|------------------|-----|-----------|------------------|---------|---|---|
@@ -212,36 +219,28 @@ __begin()__
 
 Lygindami laiką su 10 000 000 įrašų matome, kad sumoje, std::vector veikia kažkiek trumpiau, bet didelio skirtumo nepastebime.
 
+
 # Testuoju savo sukurtą Vector konteinerį su Native testais
 
+
 Iš viso turiu 13 testų:
+
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/f99e7b74-539f-4d87-a812-fd7c485c0740)
+
 
 # Sukuriu programos diegimo failą Setup.exe
 
+
 Tai atlikti naudoju __Inno Setup Compiler__, kuris padeda lengvai ir greitai sukurti Setup.exe failą.
+
 
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/dea70da3-b0b6-4182-9bf5-2e1ac2c4fecc)
 
-Setup failas atsisiunčia į  C:/Program files/VU/Paulina-Podgaiska aplankalą kartu su testavimo failais, naudojimosi instrukcija. Taip pat Setup failas automatiškai įjungia administravimo teisės paleidžiamai programai.
+
+Setup failas atsisiunčia į  __C:/Program files/VU/Paulina-Podgaiska__ aplankalą kartu su testavimo failais, naudojimosi instrukcija. Taip pat Setup failas automatiškai įjungia administravimo teisės paleidžiamai programai.
+
 
 ![image](https://github.com/paulynaa/Darbas3/assets/147087833/06160e0a-aaa5-4c19-91e7-3170f918c206)
 
-std::vector
-|3 strategija|Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000|0.003 s.|0.001 s.|0.002 s.|
-|10 000|0.024 s.|0.001 s.|0.009 s.|
-|100 000|0.178 s.|0.018 s.|0.023 s.|
-|1 000 000| 2.878 s.|0.268 s.|0.236 s.|
-|10 000 000| 26.872 s.| 2.786 s.| 3.680 s.|
 
-Vector
-|3 strategija|Nuskaitymas|Skirstymas|Rūšiavimas|
-|---|-----|-----------|------------------|
-|1 000|0.015 s.|0.001 s.|0.002 s.|
-|10 000|0.015 s.|0.015 s.|0.003 s.|
-|100 000|0.135 s.| 0.034 s.|0.085 s.|
-|1 000 000|2.358 s.| 0.383 s.|0.928 s.|
-|10 000 000|24.349 s.| 3.880 s.| 11.513 s.|
 
