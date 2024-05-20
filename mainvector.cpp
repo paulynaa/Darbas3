@@ -512,26 +512,29 @@ int main ()
             case 7:{
 
                 testai();
-                unsigned int sz = 100000000;  // 10000, 100000, 1000000, 10000000, 100000000
-            Vector<int> v1;
-            int std_vector_perskirstymas = 0;
-            for (int i = 1; i <= sz; ++i) {
-                v1.push_back(i);
-                if (v1.capacity() == v1.size()) {
-                    ++std_vector_perskirstymas;
-                }
-            }
-            cout << "Atmintis buvo perskirstyta " << std_vector_perskirstymas << " kartu su std::vector" << endl;
+                using namespace std::chrono;
 
-            Vector<int> v2;
-            int vector_perskirstymas = 0;
-            for (int i = 1; i <= sz; ++i) {
-                v2.push_back(i);
-                if (v2.capacity() == v2.size()) {
-                    ++vector_perskirstymas;
+                std::vector<size_t> sizes = {10000, 100000, 1000000, 10000000, 100000000};
+
+                for (size_t sz : sizes) {
+                    // Test std::vector
+                    auto start = high_resolution_clock::now();
+                    std::vector<int> v1;
+                    for (int i = 1; i <= sz; ++i)
+                        v1.push_back(i);
+                    auto end = high_resolution_clock::now();
+                    duration<double> duration_std = end - start;
+                    std::cout << "std::vector uzpilde " << sz << " elementu per " << duration_std.count() << " s\n";
+
+
+                    start = high_resolution_clock::now();
+                    Vector<int> v2;
+                    for (int i = 1; i <= sz; ++i)
+                        v2.push_back(i);
+                    end = high_resolution_clock::now();
+                    duration<double> duration_custom = end - start;
+                    std::cout << "Vector uzpilde " << sz << " elementu per " << duration_custom.count() << " s\n";
                 }
-            }
-            cout << "Atmintis buvo perskirstyta " << vector_perskirstymas << " kartu su Vector" << endl;
 
                 break;
             }
