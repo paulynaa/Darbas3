@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @file vector.h
+ * @brief Vector konteineris.
+ */
 #include <iostream>
 #include <memory>
 #include <algorithm>
@@ -7,7 +10,7 @@
 
 template <typename T>
 class Vector{
-    public: 
+    public:
 
     // MEMBER TYPE
         typedef size_t size_type;
@@ -25,9 +28,9 @@ class Vector{
         ////fill
         explicit Vector(size_type n, const T& t = T{}) { create (n,t); }
         ////copy constructor
-        Vector(const Vector& v) { create(v.begin(), v.end()); } 
+        Vector(const Vector& v) { create(v.begin(), v.end()); }
         ////range constructor
-        template <class InputIterator>  
+        template <class InputIterator>
         Vector (InputIterator first, InputIterator last) { create(first,last); }
         ////move constructor
         Vector (Vector&& v) {
@@ -51,7 +54,7 @@ class Vector{
             return *this;
         };
 
-        ////move assignment    
+        ////move assignment
         Vector& operator = (Vector&& other) {
             if (this != &other) {
                 create(other.begin(), other.end());
@@ -59,9 +62,9 @@ class Vector{
             }
             return *this;
         }
-        
+
         /// Assign
-        template <class InputIterator>  
+        template <class InputIterator>
         void assign (InputIterator first, InputIterator last) {
             uncreate();
             create(first, last);
@@ -74,7 +77,7 @@ class Vector{
             uncreate();
             create(il);
         }
-        
+
         // Element access
         const_reference at (size_type n) const {
             if (n >= size() || n < 0)
@@ -89,7 +92,7 @@ class Vector{
                 throw std::out_of_range("Index out of range");
             return dat[n];
         }
-        
+
         reference front() {
             return dat[0];
         };
@@ -120,7 +123,7 @@ class Vector{
         iterator end() {return avail;}
         const_iterator end() const {return avail;}
 
-    // Capacity 
+    // Capacity
         size_type size() const {return avail-dat;}
         size_type max_size() const {return std::numeric_limits<size_type>::max();}
         void resize(size_type sz) {
@@ -146,7 +149,7 @@ class Vector{
             if (sz > capacity()) {
                 grow(sz);
             }
-            
+
             if (sz > size()) {
                 insert(end(), sz - size(), value);
             } else if (sz < size()) {
@@ -162,7 +165,7 @@ class Vector{
             }
         }
         void shrink_to_fit(){
-            if (limit > avail) 
+            if (limit > avail)
             limit = avail;
         }
 
@@ -170,7 +173,7 @@ class Vector{
         void clear() noexcept {
             uncreate();
         }
-        
+
         iterator insert (const_iterator position, const value_type& val) {
             return insert(position, 1, val);
         }
@@ -202,7 +205,7 @@ class Vector{
 
             return position;
         }
-        
+
         iterator erase(iterator first, iterator last) {
             iterator new_available = std::uninitialized_copy(last, avail, first);
 
@@ -216,7 +219,7 @@ class Vector{
         }
 
         void push_back (const value_type& t) {
-            if (avail==limit) 
+            if (avail==limit)
                 grow();
             unchecked_append(t);
         }
@@ -237,7 +240,7 @@ class Vector{
             std::swap(avail, x.avail);
             std::swap(limit, x.limit);
         }
-        
+
 
     // NON-MEMBER FUNCTIONS
 
